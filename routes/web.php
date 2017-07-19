@@ -62,4 +62,18 @@ Route::group(['prefix'=>'admin'], function(){
 		Route::get('delete',['as'=>'admin.banhang.delete','uses'=>'BanhangController@get_delete']);
 		Route::post('delete',['as'=>'admin.banhang.delete','uses'=>'BanhangController@post_delete']);
 	});
+
+	Route::group(['prefix'=>'suachua'],function(){
+		Route::get('show',['as'=>'admin.suachua.show','uses'=>'SuachuaController@show']);
+
+		Route::get('information',['as'=>'admin.suachua.information','uses'=>'SuachuaController@information']);
+
+		/*Add*/
+		Route::post('add',['as'=>'admin.suachua.add','uses'=>'SuachuaController@add']);
+
+
+		/*Edit*/
+		Route::get('edit',['as'=>'admin.suachua.edit','uses'=>'SuachuaController@get_edit']);
+		Route::post('edit',['as'=>'admin.suachua.edit','uses'=>'SuachuaController@post_edit']);
+	});
 });

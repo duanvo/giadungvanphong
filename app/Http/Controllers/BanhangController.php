@@ -51,6 +51,7 @@ class BanhangController extends Controller
                 $file->move($folder_img,$file_detail_image);
 
                 $images = new Image;
+                $images->cate_type = "banhang";
                 $images->type = $request->add_type_banhang;
                 $images->id_post = tittle($request->add_tittle);
                 $images->image = $file_detail_image;
@@ -77,8 +78,14 @@ class BanhangController extends Controller
     public function information(Request $request){
     	if($request->ajax()){
     		$info=BanHang::find($request->id);
+            $info_image=Image::where('id_post',tittle($info->tittle))->get();
+            $info_count = Image::where('id_post',tittle($info->tittle))->count();
 
-    		return response()->json(array('info'=>$info));
+            foreach($info_image as $info_image){
+                $image[] = $info_image->image_path;
+            }
+
+    		return response()->json(array('info'=>$info,'info_image'=>$image));
     	}
     }
 
@@ -111,8 +118,15 @@ class BanhangController extends Controller
             $id=$request->id;
 
             $info_delete = BanHang::find($id);
-
+            File::deleteDirectory('storage/uploads/images/'.tittle($info_delete->tittle));
             $info_delete->delete($id);
+
+            $name_sanpham = tittle($info_delete->tittle);
+
+            $id_images = Image::where('id_post',$name_sanpham)->get();
+            foreach ($id_images as $id_images) {
+                $id_images->delete($id_images->id);
+            }
 
         }
     }

@@ -138,6 +138,20 @@ $('#add_banhang').click(function(){
             	required  :true
             }
         },
+        messages:{
+			add_tittle:{
+				required:"Mời nhập tiêu đề"
+			},
+			add_type_banhang:{
+				required:"Mời nhập loại sản phẩm"
+			},
+			add_cost:{
+				required:"Mời nhập gía"
+			},
+			add_introduce:{
+				required:"Nhập mô tả"
+			}
+		},
 		submitHandler: function () {
 			$.ajaxSetup({
 			    headers: {
@@ -197,10 +211,16 @@ $('#view_banhang').click(function(){
 			type:'GET',
 			data:{"id":id},
 			success:function(result){
+				//console.log(result);
+
 				$('#view_header_sanpham').text(result.info.tittle);
 				$('#view_type_sanpham').text(result.info.type);
 				$('#view_tittle_sanpham').text(result.info.tittle);
 				$('#view_cost_sanpham').text(result.info.cost);
+
+				var path_img = "http://localhost/dientudandung/"+result.info_image[0];
+				$("#view_image_sanpham").attr("src", path_img);
+
 				$('#view_introduce_sanpham').html(result.info.introduce);
 				var d = new Date();
 					var my_date_format = function(input){

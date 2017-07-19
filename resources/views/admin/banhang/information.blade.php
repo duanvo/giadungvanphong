@@ -30,6 +30,11 @@
                         <strong class="text-info"><i><span id="view_cost_sanpham" class="text-success"></span></i></strong>
                     </div><hr>
 
+                     <div class="form-group col-centered">
+                        <label>Ảnh sản phẩm </label>
+                        <img id="view_image_sanpham"></img>
+                    </div><hr>
+
                     <div class="form-group col-centered">
                         <label>Thông tin sản phẩm </label>
                         <strong class="text-info"><i><span id="view_introduce_sanpham" class="text-success"></span></i></strong>

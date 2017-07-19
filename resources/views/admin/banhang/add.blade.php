@@ -43,7 +43,7 @@
 
                     <!-- Add Images -->
                     <div class="form-group">
-                        <label for="files" class="col-md-2 control-label">Select multiple files: </label>
+                        <label for="files" class="col-md-2 control-label">Ảnh sản phẩm </label>
                         <div class="col-md-9">
                             <input id="files" type="file" name="file[]" multiple/>
                             <div id="result" /></div>
