@@ -333,3 +333,34 @@ $("#edit_suachua").click(function(){
 		})
 	})
 })
+
+$("#delete_suachua").click(function(){
+
+	$(".table input:checkbox:checked").map(function(){
+		var searchId=[];
+		searchId.push($(this).val());
+		id=searchId[0];
+		$("#deletesuachuaModal").modal('show');
+		$("#deletesuachuaModal").find('#confirmdelete').on('click',function(){
+			$.ajaxSetup({
+			    headers: {
+			        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			    }
+			});
+			$.ajax({
+				url:'/dientudandung/admin/suachua/delete',
+				type:'POST',
+				data:{"id":id},
+				success:function(data){
+					for(var i=0;i<id.length;i++){
+						$('tr#'+id+'').fadeOut(1000);
+					}
+					setTimeout(function(){$('#deletesuachuaModal').modal('hide');},500)
+					setTimeout(function(){window.location.href="/dientudandung/admin/suachua/show";},1000);
+				}
+			})
+		})
+	})
+
+});
+

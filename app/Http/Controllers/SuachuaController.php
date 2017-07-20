@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Suachua;
+use App\Image;
 use Validator;
 use Auth;
 use File;
@@ -35,6 +36,28 @@ class SuachuaController extends Controller
     			'messages'=>$validator->errors()
     			],200);
     	}else{
+            $folder_create_img = tittle($request->add_tittle_suachua);
+            $folder_img = 'storage/uploads/images/suachua/' .$folder_create_img;
+
+            if(!file_exists($folder_img)){
+                File::makeDirectory($folder_img, 0777, true);
+            }
+
+            $files = $request->file('file_suachua');
+            foreach($files as $file){
+                $file_detail_image = $file->getClientOriginalName();
+                $file->move($folder_img,$file_detail_image);
+
+                $images = new Image;
+                $images->cate_type = "suachua";
+                $images->type = $request->add_type_suachua;
+                $images->id_post = tittle($request->add_tittle_suachua);
+                $images->image = $file_detail_image;
+                $images->image_path = $folder_img.'/'.$file_detail_image;
+
+                $images->save();
+
+            }
 	    	$add_suachua = new Suachua;
 
 	    	$add_suachua->tittle = $request->add_tittle_suachua;
@@ -100,5 +123,21 @@ class SuachuaController extends Controller
 	    			],200);
 	    	}
 	    }
+    }
+
+    public function delete(Request $request){
+        if($request->ajax()){
+            $id=$request->id;
+            $info_delete=Suachua::find($id);
+
+            File::deleteDirectory('storage/uploads/images/suachua/'.tittle($info_delete->tittle));
+            $name_sanpham = tittle($info_delete->tittle);
+            $id_images = Image::where('id_post',$name_sanpham)->get();
+            foreach ($id_images as $id_images) {
+                $id_images->delete($id_images->id);
+            }
+
+            $info_delete->delete($id);
+        }
     }
 }

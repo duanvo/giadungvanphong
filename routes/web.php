@@ -75,5 +75,22 @@ Route::group(['prefix'=>'admin'], function(){
 		/*Edit*/
 		Route::get('edit',['as'=>'admin.suachua.edit','uses'=>'SuachuaController@get_edit']);
 		Route::post('edit',['as'=>'admin.suachua.edit','uses'=>'SuachuaController@post_edit']);
+
+		/*Delete*/
+		Route::post('delete',['as'=>'admin.suachua.delete','uses'=>'SuachuaController@delete']);
+	});
+
+	Route::group(['prefix'=>'lapgiativi'],function(){
+		Route::get('show',['as'=>'admin.lapgiativi.show','uses'=>'LapgiativiController@show']);
+
+		/*Add*/
+		Route::post('add',['as'=>'admin.lapgiativi.add','uses'=>'LapgiativiController@add']);
+
+		/*Infomation*/
+		Route::get('information',['as'=>'admin.lapgiativi.information','uses'=>'LapgiativiController@information']);
+
+		/*Edit*/
+		Route::get('edit',['as'=>'admin.lapgiativi.edit','uses'=>'LapgiativiController@get_edit']);
+		Route::post('edit',['as'=>'admin.lapgiativi.edit','uses'=>'LapgiativiController@post_edit']);
 	});
 });

@@ -96,6 +96,9 @@
                                 <li>
                                     <a href="{{route('admin.suachua.show')}}">Sua Chua</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('admin.lapgiativi.show')}}">Lap gia tivi</a>
+                                </li>
                             </ul>
                         </li>
 
@@ -145,6 +148,7 @@
         <script type="text/javascript" src="{{URL::asset('public/admin_interface/js/admin_user_checkbox.js')}}"></script>
         <script type="text/javascript" src="{{URL::asset('public/admin_interface/js/admin_banhang_checkbox.js')}}"></script>
         <script type="text/javascript" src="{{URL::asset('public/admin_interface/js/admin_suachua_checkbox.js')}}"></script>
+        <script type="text/javascript" src="{{URL::asset('public/admin_interface/js/admin_lapgiativi_checkbox.js')}}"></script>
 
 
 

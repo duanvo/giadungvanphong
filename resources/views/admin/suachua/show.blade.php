@@ -94,4 +94,5 @@
 @extends('admin.suachua.add')
 @extends('admin.suachua.information')
 @extends('admin.suachua.edit')
+@extends('admin.suachua.delete')
 @stop

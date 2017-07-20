@@ -39,7 +39,7 @@ class BanhangController extends Controller
     	}else{
             //dd($file_detail_image);die;
             $folder_create_img = tittle($request->add_tittle);
-            $folder_img = 'storage/uploads/images/' .$folder_create_img;
+            $folder_img = 'storage/uploads/images/banhang/' .$folder_create_img;
 
             if(!file_exists($folder_img)){
                 File::makeDirectory($folder_img, 0777, true);
@@ -118,7 +118,7 @@ class BanhangController extends Controller
             $id=$request->id;
 
             $info_delete = BanHang::find($id);
-            File::deleteDirectory('storage/uploads/images/'.tittle($info_delete->tittle));
+            File::deleteDirectory('storage/uploads/images/banhang/'.tittle($info_delete->tittle));
             $info_delete->delete($id);
 
             $name_sanpham = tittle($info_delete->tittle);
