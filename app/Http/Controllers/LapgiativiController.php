@@ -70,8 +70,42 @@ class LapgiativiController extends Controller
     }
 
     public function post_edit(Request $request){
+        $id=$request->edit_lapgiativi_id;
     	$rules=[
-    		
+    		'edit_tittle_lapgiativi'=>Rule::unique('lapgiativis','tittle')->ignore($id)
     	];
+        $messages=[
+            'edit_tittle_lapgiativi.unique'=>"Mời nhập tiêu đề"
+        ];
+
+        $validator=Validator::make($request->all(),$rules,$messages);
+        if($validator->fails()){
+            return response()->json([
+                'error_edit_lapgiativi'=>true,
+                'messages'=>$request->errors()
+                ],200);
+        }else{
+            $lapgiativi = Lapgiativi::find($id);
+
+            $lapgiativi->tittle = $request->edit_tittle_lapgiativi;
+            $lapgiativi->cost = $request->edit_cost_lapgiativi;
+            $lapgiativi->introduce = $request->edit_introduce_lapgiativi;
+
+            if($lapgiativi->save()){
+                return response()->json([
+                    'edit_lapgiativi'=>true
+                    ],200);
+            }
+        }
+    }
+
+    public function delete(Request $request){
+        if($request->ajax()){
+            $id=$request->id;
+
+            $info_delete = Lapgiativi::find($id);
+
+            $info_delete->delete($id);
+        }
     }
 }

@@ -1,7 +1,7 @@
 
-$('#view_lapgiativi').fadeOut(2000);
-$('#edit_lapgiativi').fadeOut(2000);
-$('#delete_lapgiativi').fadeOut(2000);
+$('#view_muabandocu').fadeOut(2000);
+$('#edit_muabandocu').fadeOut(2000);
+$('#delete_muabandocu').fadeOut(2000);
 
 
 var checkBoxes=$('input[type=checkbox]');
@@ -9,9 +9,9 @@ checked=0;
 
 $('.table tr').click(function(event){
 	checked=1;
-	$('#view_lapgiativi').fadeIn(1000);
-	$('#edit_lapgiativi').fadeIn(1000);
-	$('#delete_lapgiativi').fadeIn(1000);
+	$('#view_muabandocu').fadeIn(1000);
+	$('#edit_muabandocu').fadeIn(1000);
+	$('#delete_muabandocu').fadeIn(1000);
 
 	if(event.target.type!=='checkbox'){
 		$(':checkbox',this).trigger('click');
@@ -99,11 +99,11 @@ function ckeditor(name, config, toolbar){
 	return  CKEDITOR.replace(name, config, toolbar);
 }
 
-if($('#add_tittle_lapgiativi').length){
-	ckeditor("add_introduce_lapgiativi","config","standard")
+if($('#add_tittle_muabandocu').length){
+	ckeditor("add_introduce_muabandocu","config","standard")
 }
-if($('#edit_tittle_lapgiativi').length){
-	ckeditor("edit_introduce_lapgiativi","config","standard")
+if($('#edit_tittle_muabandocu').length){
+	ckeditor("edit_introduce_muabandocu","config","standard")
 }
 
 
@@ -120,34 +120,42 @@ $.fn.modal.Constructor.prototype.enforceFocus = function () {
 };
 for (instance in CKEDITOR.instances) {
     CKEDITOR.instances[instance].updateElement();
-}
+};
 
-/*add*/
 
-$('#add_lapgiativi').click(function(){
-	$('#addlapgiativiModal').modal('show');
+/*Add mua ban do cu*/
 
-	$('#validate_add_lapgiativi').validate({
+$('#add_muabandocu').click(function(){
+	$('#addmuabandocuModal').modal('show');
+
+	$("#validate_add_muabandocu").validate({
+		ignore:[],
 		rules:{
-			add_tittle_lapgiativi:{
+			add_tittle_muabandocu:{
 				required:true
 			},
-			add_cost_lapgiativi:{
+			add_type_muabandocu:{
 				required:true
 			},
-			add_introduce_lapgiativi:{
+			add_cost_muabandocu:{
+				required:true
+			},
+			add_introduce_muabandocu:{
 				required:true
 			}
 		},
 		messages:{
-			add_tittle_lapgiativi:{
+			add_tittle_muabandocu:{
 				required:"Mời nhập tiêu đề"
 			},
-			add_cost_lapgiativi:{
+			add_type_muabandocu:{
+				required:"Mời chọn kiểu"
+			},
+			add_cost_muabandocu:{
 				required:"Mời nhập gía"
 			},
-			add_introduce_lapgiativi:{
-				required:"Mời nhập thông tin"
+			add_introduce_muabandocu:{
+				required:"Mời nhập lời giới thiệu"
 			}
 		},
 
@@ -158,33 +166,32 @@ $('#add_lapgiativi').click(function(){
 			    }
 			});
 			$.ajax({
-				url:'/dientudandung/admin/lapgiativi/add',
+				url:'/dientudandung/admin/muabandocu/add',
 				type:"POST",
 				asnyc:true,
 				dataType:"json",
 				contentType:false,
-				data:new FormData($("#validate_add_lapgiativi")[0]),
+				data:new FormData($("#validate_add_muabandocu")[0]),
 				processData:false,
 				beforeSend:function(){
-					$("#loading_add_lapgiativi").show();
+					$("#loading_add_suachua").show();
 				},
 				complete:function(){
-					$("#loading_add_lapgiativi").hide();
+					$("#loading_add_suachua").hide();
 				},
 				success:function(data){
-					console.log(data);
-					if(data.error_add_lapgiativi==true){
+					if(data.error_add_muabandocu==true){
 						$('.error').hide();
-						if(data.messages.add_tittle_lapgiativi!=undefined){
-							$('.errortittle_add_lapgiativi').show().text(data.messages.add_tittle_lapgiativi[0]);
+						if(data.messages.add_tittle_muabandocu!=undefined){
+							$('.errortittle_add_muabandocu').show().text(data.messages.add_tittle_muabandocu[0]);
 						}
 					}
-					if(data.add_lapgiativi==true){
-						$('#lapgiativi_table').load('/dientudandung/admin/lapgiativi/show #lapgiativi_table');
-						setTimeout(function() { $('#addlapgiativiModal').modal('hide');}, 200);
-						setTimeout(function(){ $("#add_lapgiativi_success").modal('show');},1000);
-						setTimeout(function(){ $("#add_lapgiativi_success").modal('hide'); },3000);
-						setTimeout(function() { window.location.href = "/dientudandung/admin/lapgiativi/show";}, 3200);
+					if(data.add_muabandocu==true){
+						$('#muabandocu_table').load('/dientudandung/admin/muabandocu/show #muabandocu_table');
+						setTimeout(function() { $('#addmuabandocuModal').modal('hide');}, 200);
+						setTimeout(function(){ $("#add_muabandocu_success").modal('show');},1000);
+						setTimeout(function(){ $("#add_muabandocu_success").modal('hide'); },3000);
+						setTimeout(function() { window.location.href = "/dientudandung/admin/muabandocu/show";}, 3200);
 					}
 				}
 			})
@@ -192,23 +199,28 @@ $('#add_lapgiativi').click(function(){
 	})
 })
 
-/*View*/
-$('#view_lapgiativi').click(function(){
-	$(".table input:checkbox:checked").map(function(){
-		var seachID=[];
-		seachID.push($(this).val());
-		id=seachID[0];
-		$('#viewlapgiativiModal').modal('show');
+/*View information*/
 
+$("#view_muabandocu").click(function(){
+
+	$('.table input:checkbox:checked').map(function(){
+		var searchID=[];
+		searchID.push($(this).val());
+		id=searchID[0];
+		//console.log(id);
 		$.ajax({
-			url:'/dientudandung/admin/lapgiativi/information',
-			type:'GET',
+			url:'/dientudandung/admin/muabandocu/information',
+			type:"GET",
 			data:{"id":id},
 			success:function(result){
-				//console.log(result[0]);
-				$('#view_tittle_lapgiativi').text(result[0].tittle);
-				$('#view_cost_lapgiativi').text(result[0].cost);
-				$('#view_introduce_lapgiativi').html(result[0].introduce);
+				$("#viewmuabandocuModal").modal('show');
+
+				$("#view_header_muabandocu").text(result.tittle);
+				$("#view_tittle_muabandocu").text(result.tittle);
+				$("#view_cost_muabandocu").text(result.cost);
+				$("#view_type_muabandocu").text(result.type);
+				$("#view_image_muabandocu").text(result.image);
+				$("#view_introduce_muabandocu").html(result.introduce);
 				var d = new Date();
 					var my_date_format = function(input){
 					  var d = new Date(Date.parse(input.replace(/-/g, "/")));
@@ -220,125 +232,10 @@ $('#view_lapgiativi').click(function(){
 					  return ( date);
 
 					};
-				$("#view_created").text(my_date_format(result[0].created_at));
+				$("#view_created").text(my_date_format(result.created_at));
 			}
 		})
 	})
 })
 
 /*Edit*/
-$('#edit_lapgiativi').click(function(){
-
-	$('.table input:checkbox:checked').map(function(){
-		var searchID=[];
-		searchID.push($(this).val());
-		id=searchID[0];
-		$('#editlapgiativiModal').modal('show');
-		$.ajax({
-			url:'/dientudandung/admin/lapgiativi/edit',
-			type:"GET",
-			data:{"id":id},
-			success:function(result){
-				//console.log(result);
-				$("#edit_lapgiativi_id").val(result.id);
-				$("#edit_tittle_lapgiativi").val(result.tittle);
-				$("#edit_cost_lapgiativi").val(result.cost);
-				CKEDITOR.instances['edit_introduce_lapgiativi'].setData(result.introduce);
-
-				$('#validate_edit_lapgiativi').validate({
-					rules:{
-						edit_tittle_lapgiativi:{
-							required:true
-						},
-						edit_cost_lapgiativi:{
-							required:true
-						},
-						edit_introduce_lapgiativi:{
-							required:true
-						}
-					},
-					messages:{
-						edit_tittle_lapgiativi:{
-							required:"Mời nhập tiêu đề"
-						},
-						edit_cost_lapgiativi:{
-							required:"Mời nhập gía"
-						},
-						edit_introduce_lapgiativi:{
-							required:"Mời nhập thông tin"
-						}
-					},
-
-					submitHandler:function(){
-						$.ajaxSetup({
-						    headers: {
-						        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-						    }
-						});
-						$.ajax({
-							url:'/dientudandung/admin/lapgiativi/edit',
-							type:"POST",
-							asnyc:true,
-							dataType:"json",
-							contentType:false,
-							data:new FormData($("#validate_edit_lapgiativi")[0]),
-							processData:false,
-							beforeSend:function(){
-								$("#loading_edit_lapgiativi").show();
-							},
-							complete:function(){
-								$("#loading_edit_lapgiativi").hide();
-							},
-							success:function(data){
-								console.log(data);
-								if(data.error_edit_lapgiativi==true){
-									$('.error').hide();
-									if(data.messages.edit_tittle_lapgiativi!=undefined){
-										$('.errortittle_edit_lapgiativi').show().text(data.messages.edit_tittle_lapgiativi[0]);
-									}
-								}
-								if(data.edit_lapgiativi==true){
-									$('#lapgiativi_table').load('/dientudandung/admin/lapgiativi/show #lapgiativi_table');
-									setTimeout(function() { $('#editlapgiativiModal').modal('hide');}, 200);
-									setTimeout(function(){ $("#edit_lapgiativi_success").modal('show');},1000);
-									setTimeout(function(){ $("#edit_lapgiativi_success").modal('hide'); },3000);
-									setTimeout(function() { window.location.href = "/dientudandung/admin/lapgiativi/show";}, 3200);
-								}
-							}
-						})
-					}
-				})
-			}
-		})
-	})
-})
-
-/*Delete*/
-$("#delete_lapgiativi").click(function(){
-	$(".table input:checkbox:checked").map(function(){
-		var searchID=[];
-		searchID.push($(this).val());
-		id=searchID[0];
-		$("#deletelapgiativiModal").modal('show');
-		$("#deletelapgiativiModal").find("#confirmdelete").click(function(){
-			$.ajaxSetup({
-			    headers: {
-			        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			    }
-			});
-			$.ajax({
-				url:'/dientudandung/admin/lapgiativi/delete',
-				type:'POST',
-				data:{"id":id},
-
-				success:function(data){
-					for(var i=0;i<id.length;i++){
-						$('tr#'+id+'').fadeOut(1000);
-					}
-					setTimeout(function(){$('#deletelapgiativiModal').modal('hide');},500)
-					setTimeout(function(){window.location.href="/dientudandung/admin/lapgiativi/show";},1000);
-				}
-			})
-		})
-	})
-})

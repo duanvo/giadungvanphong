@@ -92,5 +92,19 @@ Route::group(['prefix'=>'admin'], function(){
 		/*Edit*/
 		Route::get('edit',['as'=>'admin.lapgiativi.edit','uses'=>'LapgiativiController@get_edit']);
 		Route::post('edit',['as'=>'admin.lapgiativi.edit','uses'=>'LapgiativiController@post_edit']);
+
+		/*delete*/
+		Route::post('delete',['as'=>'admin.lapgiativi.delete','uses'=>'LapgiativiController@delete']);
+	});
+
+
+	Route::group(['prefix'=>'muabandocu'],function(){
+		Route::get('show',['as'=>'admin.muabandocu.show','uses'=>'MuabandocuController@show']);
+
+		/*Add*/
+		Route::post('add',['as'=>'admin.muabandocu.add','uses'=>'MuabandocuController@add']);
+
+		/*Information*/
+		Route::get('information',['as'=>'admin.muabandocu.information','uses'=>'MuabandocuController@information']);
 	});
 });

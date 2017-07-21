@@ -3,24 +3,24 @@
 
 @section('content')
 	<!-- /.row -->
-    <div class="row" id="lapgiativi_table">
+    <div class="row" id="muabandocu_table">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 align="center">DataTables show lap gia tivi</h2>
                 </div>
                 <div class="panel-heading">
-               		 <button class="btn_admin  success" data-toggle="modal" id="add_lapgiativi"><span class="glyphicon glyphicon-plus"></span> ADD</button>
-               		 <button class="btn_admin info" data-toggle="modal" id="view_lapgiativi"><span class="glyphicon glyphicon-list"></span> VIEW</button>
-               		 <button class="btn_admin warning" data-toggle="modal" id="edit_lapgiativi"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>
-               		 <button class="btn_admin danger" data-toggle="modal" id="delete_lapgiativi"><span class="glyphicon glyphicon-trash"></span> DELETE</button>
+               		 <button class="btn_admin  success" data-toggle="modal" id="add_muabandocu"><span class="glyphicon glyphicon-plus"></span> ADD</button>
+               		 <button class="btn_admin info" data-toggle="modal" id="view_muabandocu"><span class="glyphicon glyphicon-list"></span> VIEW</button>
+               		 <button class="btn_admin warning" data-toggle="modal" id="edit_muabandocu"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>
+               		 <button class="btn_admin danger" data-toggle="modal" id="delete_muabandocu"><span class="glyphicon glyphicon-trash"></span> DELETE</button>
 
                		 <button class="btn btn-warning pull-right" data-toggle="modal" data-target="#guide">Guide</button>
                 </div>
 
                 <!-- /.panel-heading -->
                 <div class="panel-body table-responsive">
-                    <table width="100%" class="table table-striped table-bordered table-hover lapgiativitable" id="dataTables">
+                    <table width="100%" class="table table-striped table-bordered table-hover muabandocutable" id="dataTables">
                         <thead>
                             <tr>
                           	    <th class="text-center hidden">ID</th>
@@ -32,7 +32,7 @@
                         </thead>
                         <tbody>
                             <?php $no=0;?>
-							@foreach($lapgiativi as $data)
+							@foreach($muabandocu as $data)
 							<?php $no++; ?>
 							<tr id="{{$data["id"]}}">
 								<td class="hidden"><input type="checkbox" value="{{$data->id}}" name="checkbox" class="checkbox"></td>
@@ -75,7 +75,7 @@
         </div>
     </div>
     <!-- View error show cate -->
-    <div id="viewlapgiativi_errorModal" class="modal fade" role="dialog">
+    <div id="viewmuabandocu_errorModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="content modal_background">
                 <div class="modal-title">
@@ -90,8 +90,7 @@
             </div>
         </div>
     </div>
-@extends('admin.lapgiativi.add')
-@extends('admin.lapgiativi.information')
-@extends('admin.lapgiativi.edit')
-@extends('admin.lapgiativi.delete')
+
+@extends('admin.muabandocu.add')
+@extends('admin.muabandocu.information')
 @stop
