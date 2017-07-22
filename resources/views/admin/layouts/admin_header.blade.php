@@ -102,6 +102,9 @@
                                 <li>
                                     <a href="{{route('admin.muabandocu.show')}}">Mua ban do cu</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('admin.lienhe.show')}}">Lien he</a>
+                                </li>
                             </ul>
                         </li>
 
@@ -153,6 +156,7 @@
         <script type="text/javascript" src="{{URL::asset('public/admin_interface/js/admin_suachua_checkbox.js')}}"></script>
         <script type="text/javascript" src="{{URL::asset('public/admin_interface/js/admin_lapgiativi_checkbox.js')}}"></script>
         <script type="text/javascript" src="{{URL::asset('public/admin_interface/js/admin_muabandocu_checkbox.js')}}"></script>
+        <script type="text/javascript" src="{{URL::asset('public/admin_interface/js/admin_lienhe_checkbox.js')}}"></script>
 
 
 

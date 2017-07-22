@@ -3,42 +3,41 @@
 
 @section('content')
 	<!-- /.row -->
-    <div class="row" id="muabandocu_table">
+    <div class="row" id="lienhe_table">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2 align="center">DataTables show lap gia tivi</h2>
+                    <h2 align="center">DataTables show Lien He</h2>
                 </div>
                 <div class="panel-heading">
-               		 <button class="btn_admin  success" data-toggle="modal" id="add_muabandocu"><span class="glyphicon glyphicon-plus"></span> ADD</button>
-               		 <button class="btn_admin info" data-toggle="modal" id="view_muabandocu"><span class="glyphicon glyphicon-list"></span> VIEW</button>
-               		 <button class="btn_admin warning" data-toggle="modal" id="edit_muabandocu"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>
-               		 <button class="btn_admin danger" data-toggle="modal" id="delete_muabandocu"><span class="glyphicon glyphicon-trash"></span> DELETE</button>
+               		 <button class="btn_admin  success" data-toggle="modal" id="add_lienhe"><span class="glyphicon glyphicon-plus"></span> ADD</button>
+               		 <button class="btn_admin warning" data-toggle="modal" id="edit_lienhe"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>
+               		 <button class="btn_admin danger" data-toggle="modal" id="delete_lienhe"><span class="glyphicon glyphicon-trash"></span> DELETE</button>
 
                		 <button class="btn btn-warning pull-right" data-toggle="modal" data-target="#guide">Guide</button>
                 </div>
 
                 <!-- /.panel-heading -->
                 <div class="panel-body table-responsive">
-                    <table width="100%" class="table table-striped table-bordered table-hover muabandocutable" id="dataTables">
+                    <table width="100%" class="table table-striped table-bordered table-hover lienhetable" id="dataTables">
                         <thead>
                             <tr>
                           	    <th class="text-center hidden">ID</th>
                                 <th class="text-center">No</th>
-								<th class="text-center">Name</th>
-								<th class="text-center">Cost</th>
+								<th class="text-center">SDT</th>
+								<th class="text-center">Diachi</th>
 								<th class="text-center">Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no=0;?>
-							@foreach($muabandocu as $data)
+							@foreach($lienhe as $data)
 							<?php $no++; ?>
 							<tr id="{{$data["id"]}}">
 								<td class="hidden"><input type="checkbox" value="{{$data->id}}" name="checkbox" class="checkbox"></td>
 								<th class="text-center">{{$no}}</th>
-								<td class="text-center">{{$data->tittle}}</td>
-								<td class="text-center">{{$data->cost}}</td>
+								<td class="text-center">{{$data->sdt}}</td>
+								<td class="text-center">{{$data->diachi}}</td>
 
 								<!-- Show date -->
 								<td class="text-center"">
@@ -75,7 +74,7 @@
         </div>
     </div>
     <!-- View error show cate -->
-    <div id="viewmuabandocu_errorModal" class="modal fade" role="dialog">
+    <div id="viewlienhe_errorModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="content modal_background">
                 <div class="modal-title">
@@ -91,8 +90,6 @@
         </div>
     </div>
 
-@extends('admin.muabandocu.add')
-@extends('admin.muabandocu.information')
-@extends('admin.muabandocu.edit')
-@extends('admin.muabandocu.delete')
+    @extends('admin.lienhe.add')
+    @extends('admin.lienhe.edit')
 @stop

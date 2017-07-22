@@ -174,10 +174,10 @@ $('#add_muabandocu').click(function(){
 				data:new FormData($("#validate_add_muabandocu")[0]),
 				processData:false,
 				beforeSend:function(){
-					$("#loading_add_suachua").show();
+					$("#loading_add_muabandocu").show();
 				},
 				complete:function(){
-					$("#loading_add_suachua").hide();
+					$("#loading_add_muabandocu").hide();
 				},
 				success:function(data){
 					if(data.error_add_muabandocu==true){
@@ -239,3 +239,124 @@ $("#view_muabandocu").click(function(){
 })
 
 /*Edit*/
+
+$("#edit_muabandocu").click(function(){
+	$(".table input:checkbox:checked").map(function(){
+		var searchID=[];
+		searchID.push($(this).val());
+		id=searchID[0];
+		$("#editmuabandocuModal").modal('show');
+		$.ajax({
+			url:'/dientudandung/admin/muabandocu/edit',
+			type:"GET",
+			data:{"id":id},
+			success:function(result){
+				//console.log(result);
+				$("#edit_muabandocu_id").val(result.id);
+				$("#edit_tittle_muabandocu").val(result.tittle);
+				$("#edit_type_muabandocu").val(result.type);
+				$("#edit_cost_muabandocu").val(result.cost);
+				CKEDITOR.instances['edit_introduce_muabandocu'].setData(result.introduce);
+
+				$("#validate_edit_muabandocu").validate({
+					ignore:[],
+					rules:{
+						edit_tittle_muabandocu:{
+							required:true
+						},
+						edit_cost_muabandocu:{
+							required:true
+						},
+						edit_type_muabandocu:{
+							required:true
+						},
+						edit_introduce_muabandocu:{
+							required:true
+						}
+					},
+					messages:{
+						edit_tittle_muabandocu:{
+							required:"Mời nhập tiêu đề"
+						},
+						edit_cost_muabandocu:{
+							required:"Mời nhập gía"
+						},
+						edit_type_muabandocu:{
+							required:"Mời nhập loại"
+						},
+						edit_introduce_muabandocu:{
+							required:"Mời nhập miêu tả"
+						}
+					},
+					submitHandler:function(){
+						$.ajaxSetup({
+						    headers: {
+						        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						    }
+						});
+						$.ajax({
+							url:'/dientudandung/admin/muabandocu/edit',
+							type:"POST",
+							asnyc:true,
+							dataType:"json",
+							contentType:false,
+							data:new FormData($("#validate_edit_muabandocu")[0]),
+							processData:false,
+							beforeSend:function(){
+								$("#loading_edit_muabandocu").show();
+							},
+							complete:function(){
+								$("#loading_edit_muabandocu").hide();
+							},
+							success:function(data){
+								if(data.error_edit_muabandocu==true){
+									$('.error').hide();
+									if(data.messages.edit_tittle_muabandocu!==undefined){
+										$('.errortittle_edit_muabandocu').text(data.messages.edit_tittle_muabandocu);
+									}
+								}
+								if(data.edit_muabandocu==true){
+									$('#muabandocu_table').load('/dientudandung/admin/muabandocu/show #muabandocu_table');
+									setTimeout(function() { $('#editmuabandocuModal').modal('hide');}, 200);
+									setTimeout(function(){ $("#edit_muabandocu_success").modal('show');},1000);
+									setTimeout(function(){ $("#edit_muabandocu_success").modal('hide'); },3000);
+									setTimeout(function() { window.location.href = "/dientudandung/admin/muabandocu/show";}, 3200);
+								}
+							}
+						})
+					}
+				})
+			}
+		})
+	})
+})
+
+/*Delete*/
+
+$("#delete_muabandocu").click(function(){
+	$('.table input:checkbox:checked').map(function(){
+		var searchID=[];
+		searchID.push($(this).val());
+		id=searchID[0];
+		$("#deletemuabandocuModal").modal('show');
+		$("#deletemuabandocuModal").find('#confirmdelete').on('click',function(){
+			$.ajaxSetup({
+			    headers: {
+			        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			    }
+			});
+			$.ajax({
+				url:'/dientudandung/admin/muabandocu/delete',
+				type:"POST",
+				data:{"id":id},
+				success:function(data){
+					for(var i=0;i<id.length;i++){
+						$('tr#'+id+'').fadeOut(1000);
+					}
+					setTimeout(function(){$('#deletemuabandocuModal').modal('hide');},500)
+					setTimeout(function(){window.location.href="/dientudandung/admin/muabandocu/show";},1000);
+				}
+			})
+		})
+	})
+})

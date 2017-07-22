@@ -1,29 +1,30 @@
 
-<!-- Modal Add muabandocu-->
+<!-- Modal edit muabandocu-->
 
-<div id="addmuabandocuModal" class="modal fade" role="dialog">
+<div id="editmuabandocuModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="content modal_background">
             <div class="panel-title">
-                <h3 class="modal_header" align="center">Thêm Sản Phẩm mua bán đồ cũ</h3>
+                <h3 class="modal_header" align="center">Edit Mua bán đồ cũ</h3>
             </div>
             <div class="modal-body">
-                <form action="" method="POST" class="form-horizontal" role="form" id="validate_add_muabandocu" enctype="multiple/form-data">
+                <form action="" method="POST" class="form-horizontal" role="form" id="validate_edit_muabandocu" enctype="multiple/form-data">
 
-                    <!-- Add Name -->
+                    <!-- edit Name -->
                     <div class="form-group">
-                        <label for="name" class="col-md-2 control-label">Sản Phẩm</label>
+                        <label for="name" class="col-md-2 control-label">Edit tiêu đề</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="add_tittle_muabandocu" name="add_tittle_muabandocu" placeholder="Tên sản phẩm" autofocus>
-                            <div class="has-error"><i><span class="help-block error errortittle_add_muabandocu"></span></i></div>
+                        	<input type="text" name="edit_muabandocu_id" id="edit_muabandocu_id" class="hidden">
+                            <input type="text" class="form-control" id="edit_tittle_muabandocu" name="edit_tittle_muabandocu" placeholder="Tên sản phẩm" autofocus>
+                            <div class="has-error"><i><span class="help-block error errortittle_edit_muabandocu"></span></i></div>
                         </div>
                     </div>
 
-                    <!-- Add Type -->
+                    <!-- Edit Type -->
                     <div class="form-group ">
                         <label for="level" class="col-md-2 control-label">Loại hàng</label>
                         <div class="col-md-9">
-                           <select name="add_type_muabandocu" id="add_type_muabandocu" class="form-control" >
+                           <select name="edit_type_muabandocu" id="edit_type_muabandocu" class="form-control" >
                                 <option value="" selected disabled hidden>Chọn loại sản phẩm</option>
                                 <option value="bandocu">Bán đồ cũ</option>
                                 <option value="muadocu">Mua đồ cũ</option>
@@ -31,33 +32,33 @@
                         </div>
                     </div>
 
-                    <!-- Add Cost -->
+                    <!-- edit Cost -->
                     <div class="form-group">
-                        <label for="cost" class="col-md-2 control-label">Gía</label>
+                        <label for="cost" class="col-md-2 control-label">Edit Gía</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="add_cost_muabandocu" name="add_cost_muabandocu" placeholder="Gía sản phẩm">
-                            <div class="has-error"><i><span class="help-block errorCost_add"></span></i></div>
+                            <input type="text" class="form-control" id="edit_cost_muabandocu" name="edit_cost_muabandocu" placeholder="Gía sản phẩm">
+                            <div class="has-error"><i><span class="help-block errorCost_edit"></span></i></div>
                         </div>
                     </div>
 
-                    <!-- Add Images -->
+                    <!-- edit Images -->
                     <div class="form-group">
-                        <label for="file_muabandocu" class="col-md-2 control-label">Ảnh minh họa</label>
+                        <label for="files" class="col-md-2 control-label">Edit ảnh</label>
                         <div class="col-md-9">
-                            <input id="file_muabandocu" type="file" name="file_muabandocu[]" multiple/>
+                            <input id="files" type="file" name="file_muabandocu[]" multiple/>
                             <div id="result_muabandocu" /></div>
                         </div>
                     </div>
 
-                    <!-- Add Introduce -->
+                    <!-- edit Introduce -->
                     <div class="form-group">
-                        <label for="introduce" class="col-md-2 control-label">Thông tin</label>
+                        <label for="introduce" class="col-md-2 control-label">Edit Thông tin</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" id="add_introduce_muabandocu" name="add_introduce_muabandocu" placeholder="Thông tin sản phẩm"></textarea>
-                            <div class="has-error"><i><span class="help-block errorIntroduce_add"></span></i></div>
+                            <textarea class="form-control" id="edit_introduce_muabandocu" name="edit_introduce_muabandocu" placeholder="Thông tin sản phẩm"></textarea>
+                            <div class="has-error"><i><span class="help-block errorIntroduce_edit"></span></i></div>
                         </div>
                     </div>
-					<div class="form-group" style="width:90px; margin:auto; display: none;" id="loading_add_muabandocu">
+					<div class="form-group" style="width:90px; margin:auto; display: none;" id="loading_edit_muabandocu">
                         <div><p class="text-danger" ><b>Please wait...</b></p></div>
                         <div><img src='/laravel1/storage/uploads/loading_images/loading.gif' /></div>
                     </div>
@@ -74,13 +75,13 @@
         </div>
     </div>
 </div>
-<!-- message add success -->
-<div id="add_muabandocu_success" class="modal fade" role="dialog">
+<!-- message edit success -->
+<div id="edit_muabandocu_success" class="modal fade" role="dialog">
     <div class="modal-dialog">
     <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body">
-                <h3 align="center" style="color:green;">Thêm sản phẩm thành công !</h3>
+                <h3 align="center" style="color:green;">Edit thành công !</h3>
             </div>
         </div>
     </div>

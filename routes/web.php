@@ -106,5 +106,29 @@ Route::group(['prefix'=>'admin'], function(){
 
 		/*Information*/
 		Route::get('information',['as'=>'admin.muabandocu.information','uses'=>'MuabandocuController@information']);
+
+		/*Edit*/
+		Route::get('edit',['as'=>'admin.muabandocu.edit','uses'=>'MuabandocuController@get_edit']);
+		Route::post('edit',['as'=>'admin.muabandocu.edit','uses'=>'MuabandocuController@post_edit']);
+
+		/*Delete*/
+		Route::post('delete',['as'=>'admin.muabandocu.delete','uses'=>'MuabandocuController@delete']);
+	});
+
+	Route::group(['prefix'=>'lienhe'],function(){
+		Route::get('show',['as'=>'admin.lienhe.show','uses'=>'LienheController@show']);
+
+		/*Add*/
+		Route::post('add',['as'=>'admin.lienhe.add','uses'=>'LienheController@add']);
+
+		/*Information*/
+		Route::get('information',['as'=>'admin.lienhe.information','uses'=>'LienheController@information']);
+
+		/*Edit*/
+		Route::get('edit',['as'=>'admin.lienhe.efit','uses'=>'LienheController@get_edit']);
+		Route::post('edit',['as'=>'admin.lienhe.efit','uses'=>'LienheController@post_edit']);
+
+		/*Delete*/
+		Route::post('delete',['as'=>'admin.lienhe.delete','uses'=>'LienheController@delete']);
 	});
 });
