@@ -41,10 +41,17 @@
                             <div class="has-error"><i><span class="help-block errorCost_add"></span></i></div>
                         </div>
                     </div>
-
                     <!-- Add Images -->
                     <div class="form-group">
-                        <label for="file_suachua" class="col-md-2 control-label">Ảnh minh họa</label>
+                        <label for="file_suachua_main" class="col-md-2 control-label">Ảnh minh họa</label>
+                        <div class="col-md-9">
+                            <input id="file_suachua_main" type="file" name="file_suachua_main" multiple/>
+                            <div id="result_suachua" /></div>
+                        </div>
+                    </div>
+                    <!-- Add Images -->
+                    <div class="form-group">
+                        <label for="file_suachua" class="col-md-2 control-label">Ảnh chi tiết</label>
                         <div class="col-md-9">
                             <input id="file_suachua" type="file" name="file_suachua[]" multiple/>
                             <div id="result_suachua" /></div>

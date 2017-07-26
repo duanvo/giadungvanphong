@@ -40,7 +40,14 @@
                             <div class="has-error"><i><span class="help-block errorCost_edit"></span></i></div>
                         </div>
                     </div>
-
+                    <!-- edit Images -->
+                    <div class="form-group">
+                        <label for="file_muabandocu_main_edit" class="col-md-2 control-label">Edit ảnh home</label>
+                        <div class="col-md-9">
+                            <input id="file_muabandocu_main_edit" type="file" name="file_muabandocu_main_edit" multiple/>
+                            <div id="result_muabandocu" /></div>
+                        </div>
+                    </div>
                     <!-- edit Images -->
                     <div class="form-group">
                         <label for="files" class="col-md-2 control-label">Edit ảnh</label>

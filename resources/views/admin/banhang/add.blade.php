@@ -43,7 +43,16 @@
 
                     <!-- Add Images -->
                     <div class="form-group">
-                        <label for="files" class="col-md-2 control-label">Ảnh sản phẩm </label>
+                        <label for="file_product" class="col-md-2 control-label">Ảnh sản phẩm </label>
+                        <div class="col-md-9">
+                            <input id="file_product" type="file" name="file_product" multiple/>
+                            <div id="result_product" /></div>
+                        </div>
+                    </div>
+
+                    <!-- Add Images -->
+                    <div class="form-group">
+                        <label for="files" class="col-md-2 control-label">Ảnh chi tiết sản phẩm </label>
                         <div class="col-md-9">
                             <input id="files" type="file" name="file[]" multiple/>
                             <div id="result" /></div>

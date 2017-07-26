@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label for="name" class="col-md-2 control-label">Số điện thoại</label>
                         <div class="col-md-9">
-                        	<input type="text" name="edit_id_lienhe" id="edit_id_lienhe">
+                        	<input type="text" name="edit_id_lienhe" id="edit_id_lienhe" class="hidden">
                             <input type="text" class="form-control" id="edit_sdt" name="edit_sdt" placeholder="SDT" autofocus>
                             <div class="has-error"><i><span class="help-block error error_sdt_lienhe_edit"></span></i></div>
                         </div>

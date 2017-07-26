@@ -226,6 +226,7 @@ $("#edit_lienhe").click(function(){
 							url:'/dientudandung/admin/lienhe/edit',
 							type:"POST",
 							data:{
+								'edit_id_lienhe':$('#edit_id_lienhe').val(),
 								'edit_sdt':$('#edit_sdt').val(),
 								'edit_diachi':$('#edit_diachi').val()
 							},
@@ -252,5 +253,37 @@ $("#edit_lienhe").click(function(){
 				})
 			}
 		})
+	})
+})
+
+/*Delete*/
+
+$("#delete_lienhe").click(function(){
+	$('.table input:checkbox:checked').map(function(){
+		var searchID=[];
+		searchID.push($(this).val());
+		id=searchID[0];
+
+		$("#deletelienheModal").modal('show');
+		$('#deletelienheModal').find('#confirmdelete').on('click',function(){
+			$.ajaxSetup({
+			    headers: {
+			        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			    }
+			});
+			$.ajax({
+				url:'/dientudandung/admin/lienhe/delete',
+				type:'POST',
+				data:{"id":id},
+				success:function(data){
+					for(var i=0;i<id.length;i++){
+						$('tr#'+id+'').fadeOut(1000);
+					}
+					setTimeout(function(){$('#deletelienheModal').modal('hide');},500)
+					setTimeout(function(){window.location.href="/dientudandung/admin/lienhe/show";},1000);
+				}
+			})
+		})
+
 	})
 })

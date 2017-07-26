@@ -452,7 +452,7 @@ h5.latest-product{
 .chain-grid{
 	border: 1px solid #ddd;
 	position: relative;	
-	width: 30.7%;
+	width: 30%;
 	margin: 0 3% 0 0;
 	padding:0;
 }
@@ -575,8 +575,8 @@ p.m_text {
 	text-align: center;
 }
 .nbs-flexisel-inner {
+	margin-top: 70px;
 	overflow: hidden;
-	margin: 0 auto;
 }
 .nbs-flexisel-item {
 	float: left;
@@ -622,11 +622,11 @@ p.m_text {
 	z-index: 100;
 }
 .nbs-flexisel-nav-left {
-	left: 0px;
+	left: -35px;
 	background: url(../images/img-sprite.png) no-repeat -446px -21px;
 }
 .nbs-flexisel-nav-right {
-	right: 0px;
+	right: 15px;
 	background: url(../images/img-sprite.png) no-repeat -477px -21px;
 }
 

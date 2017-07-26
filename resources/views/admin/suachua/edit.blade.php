@@ -43,6 +43,14 @@
                         </div>
                     </div>
 
+                    <!-- Add Images -->
+                    <div class="form-group">
+                        <label for="file_suachua_main" class="col-md-2 control-label">Edit ảnh</label>
+                        <div class="col-md-9">
+                            <input id="file_suachua_main_edit" type="file" name="file_suachua_main_edit" multiple/>
+                            <div id="result_suachua" /></div>
+                        </div>
+                    </div>
                     <!-- edit Images -->
                     <div class="form-group">
                         <label for="files" class="col-md-2 control-label">Edit Ảnh minh họa</label>

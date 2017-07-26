@@ -15,11 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::Get('/',['as'=>'home', 'uses'=>'HomeController@index']);
+Route::Get('/',['as'=>'home', 'uses'=>'HomeController@home']);
 Route::Get('product',['as'=>'product', 'uses'=>'HomeController@product']);
-Route::Get('detail',['as'=>'detail', 'uses'=>'HomeController@detail']);
 Route::Get('login',['as'=>'login', 'uses'=>'HomeController@login']);
 Route::Get('register',['as'=>'register', 'uses'=>'HomeController@register']);
+
+/*Detail ban hang*/
+Route::get('detail/banhang/{tittle}',['as'=>'detail_banhang','uses'=>'HomeController@detail_banhang']);
+Route::get('detail/suachua/{tittle}',['as'=>'detail_suachua','uses'=>'HomeController@detail_suachua']);
+Route::get('detail/lapgiativi/{tittle}',['as'=>'detail_lapgiativi','uses'=>'HomeController@detail_lapgiativi']);
+Route::get('detail/muabandocu/{tittle}',['as'=>'detail_muabandocu','uses'=>'HomeController@detail_muabandocu']);
 
 
 /*Admin Group*/

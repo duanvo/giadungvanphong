@@ -92,4 +92,5 @@
 
     @extends('admin.lienhe.add')
     @extends('admin.lienhe.edit')
+    @extends('admin.lienhe.delete')
 @stop

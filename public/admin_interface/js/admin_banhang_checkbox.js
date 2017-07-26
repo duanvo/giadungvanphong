@@ -124,8 +124,10 @@ $('#add_banhang').click(function(){
 	$('#addModal').modal('show');
 
 	/*Upload image*/
+
 	if(window.File && window.FileList && window.FileReader)
     {
+
         var filesInput = document.getElementById("files");
         filesInput.addEventListener("change", function(event){
             var files = event.target.files; //FileList object

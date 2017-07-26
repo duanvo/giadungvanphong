@@ -51,7 +51,7 @@
     <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body">
-                <h3 align="center" style="color:green;">Thêm sản phẩm thành công !</h3>
+                <h3 align="center" style="color:green;">Thêm địa chỉ thành công !</h3>
             </div>
         </div>
     </div>

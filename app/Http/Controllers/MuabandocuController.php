@@ -48,7 +48,7 @@ class MuabandocuController extends Controller
 
                 $images = new Image;
                 $images->cate_type = "muabandocu";
-                $images->type = $request->add_type_suachua;
+                $images->type = $request->add_type_muabandocu;
                 $images->id_post = tittle($request->add_tittle_muabandocu);
                 $images->image = $file_detail_image;
                 $images->image_path = $folder_img.'/'.$file_detail_image;
@@ -56,13 +56,18 @@ class MuabandocuController extends Controller
                 $images->save();
 
             }
+            $file_main = $request->file('file_muabandocu_main');
+            $file_detail_image_main = $file_main->getClientOriginalName();
+            $file_main->move($folder_img,$file_detail_image_main);
 
     		$muabandocu = new Muabandocu;
 
-    		$muabandocu->tittle=$request->add_tittle_muabandocu;
-    		$muabandocu->type=$request->add_type_muabandocu;
-    		$muabandocu->cost=$request->add_cost_muabandocu;
-    		$muabandocu->introduce=$request->add_introduce_muabandocu;
+            $muabandocu->tittle     = tittle($request->add_tittle_muabandocu);
+            $muabandocu->type       = $request->add_type_muabandocu;
+            $muabandocu->cost       = $request->add_cost_muabandocu;
+            $muabandocu->image      = $file_detail_image_main;
+            $muabandocu->image_path = $folder_img.'/'.$file_detail_image_main;
+            $muabandocu->introduce  = $request->add_introduce_muabandocu;
 
     		if($muabandocu->save()){
     			return response()->json([
@@ -107,12 +112,25 @@ class MuabandocuController extends Controller
                     'messages'=>$validator->errors()
                 ],200);
         }else{
+            $folder_create_img = tittle($request->edit_tittle_muabandocu);
+            $folder_img = 'storage/uploads/images/muabandocu/' .$folder_create_img;
+
+            if(!file_exists($folder_img)){
+                File::makeDirectory($folder_img, 0777, true);
+            }
+            $file_main = $request->file('file_muabandocu_main_edit');
+            $file_detail_image_main = $file_main->getClientOriginalName();
+            $file_main->move($folder_img,$file_detail_image_main);
+
+
             $edit_muabandocu = Muabandocu::find($id);
 
-            $edit_muabandocu->tittle    = $request->edit_tittle_muabandocu;
-            $edit_muabandocu->type      = $request->edit_type_muabandocu;
-            $edit_muabandocu->cost      = $request->edit_cost_muabandocu;
-            $edit_muabandocu->introduce = $request->edit_introduce_muabandocu;
+            $edit_muabandocu->tittle     = tittle($request->edit_tittle_muabandocu);
+            $edit_muabandocu->type       = $request->edit_type_muabandocu;
+            $edit_muabandocu->cost       = $request->edit_cost_muabandocu;
+            $edit_muabandocu->image      = $file_detail_image_main;
+            $edit_muabandocu->image_path = $folder_img.'/'.$file_detail_image_main;
+            $edit_muabandocu->introduce  = $request->edit_introduce_muabandocu;
 
             if($edit_muabandocu->save()){
                 return response()->json([

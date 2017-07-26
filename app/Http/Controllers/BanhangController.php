@@ -9,6 +9,7 @@ use Validator;
 use Auth;
 use File;
 use Illuminate\Support\MessageBag;
+use Illuminate\Validation\Rule;
 
 
 
@@ -60,12 +61,18 @@ class BanhangController extends Controller
                 $images->save();
 
             }
+            $file_product = $request->file('file_product');
+            $file_detail_image_1 = $file_product->getClientOriginalName();
+            $file_product->move($folder_img,$file_detail_image_1);
+
 
     		$sanpham = new BanHang;
-    		$sanpham->tittle = $request->add_tittle;
-    		$sanpham->type = $request->add_type_banhang;
-    		$sanpham->cost = $request->add_cost;
-    		$sanpham->introduce = $request->add_introduce;
+            $sanpham->tittle     = tittle($request->add_tittle);
+            $sanpham->type       = $request->add_type_banhang;
+            $sanpham->image      = $file_detail_image_1;
+            $sanpham->image_path = $folder_img.'/'.$file_detail_image_1;
+            $sanpham->cost       = $request->add_cost;
+            $sanpham->introduce  = $request->add_introduce;
 
     		if($sanpham->save()){
     			return response()->json([
@@ -101,15 +108,43 @@ class BanhangController extends Controller
 
     public function post_edit(Request $request){
         $id = $request->old_id_banhang;
-        $data = BanHang::find($id);
-        $data->type      = $request->edit_type_sanpham;
-        $data->cost      = $request->edit_cost_sanpham;
-        $data->introduce = $request->edit_introduce_sanpham;
+        $rules=[
+            'edit_tittle_sanpham'=>Rule::unique('banhangs','tittle')->ignore($id)
+        ];
+        $messages=[
+            'edit_tittle_sanpham.unique'=>"Sản phẩm đã tồn tại"
+        ];
 
-        if($data->save()){
+        $validator=Validator::make($request->all(),$rules,$messages);
+
+        if($validator->fails()){
             return response()->json([
-                'edit_sanpham'=>true
+                'error_edit_banhang'=>true,
+                'messages'=>$validator->errors()
                 ],200);
+        }else{
+            $folder_create_img = tittle($request->edit_tittle_sanpham);
+            $folder_img = 'storage/uploads/images/banhang/' .$folder_create_img;
+
+            if(!file_exists($folder_img)){
+                File::makeDirectory($folder_img, 0777, true);
+            }
+            $file_product = $request->file('file_product_edit');
+            $file_detail_image_1 = $file_product->getClientOriginalName();
+            $file_product->move($folder_img,$file_detail_image_1);
+
+            $data = BanHang::find($id);
+            $data->type       = $request->edit_type_sanpham;
+            $data->cost       = $request->edit_cost_sanpham;
+            $data->image      = $file_detail_image_1;
+            $data->image_path = $folder_img.'/'.$file_detail_image_1;
+            $data->introduce  = $request->edit_introduce_sanpham;
+
+            if($data->save()){
+                return response()->json([
+                    'edit_sanpham'=>true
+                    ],200);
+            }
         }
     }
 

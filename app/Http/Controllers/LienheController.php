@@ -59,10 +59,10 @@ class LienheController extends Controller
 
     public function post_edit(Request $request){
 
-    	$id=$request->edit_id_lienhe;
-    	$rules = [
-    		"edit_sdt"=>Rule::unique('lienhes','sdt')->ignore($id),
-    		"edit_diachi"=>Rule::unique('lienhes','diachi')->ignore($id)
+    	$id = $request->edit_id_lienhe;
+    	$rules=[
+    		'edit_sdt'=>Rule::unique('lienhes','sdt')->ignore($id),
+    		'edit_diachi'=>Rule::unique('lienhes','diachi')->ignore($id)
     	];
 
     	$messages=[
@@ -88,5 +88,15 @@ class LienheController extends Controller
 					],200);
 			}
     	}
+    }
+
+    public function delete(Request $request){
+        if($request->json()){
+            $id = $request->id;
+
+            $info_delete = Lienhe::find($id);
+
+            $info_delete->delete($id);
+        }
     }
 }

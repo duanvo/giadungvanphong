@@ -8,18 +8,20 @@
    		     	  <a class="view-all" href="{{route('product')}}">Xem tất cả sản phẩm<span> </span></a>
    		    </div>
    		    <div class="product-left">
+               @foreach($banhang as $banhang)
    		     	<div class="col-md-4 chain-grid">
-   		     		<a href="{{route('detail')}}"><img class="img-responsive chain" src="/dientudandung/public/user_interface/images/tulanh.jpg" alt=" " /></a>
+   		     		<a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}"><img class="img-responsive chain" src="{{$banhang->image_path}}" alt=" " /></a>
    		     		<div class="grid-chain-bottom">
-   		     			<h6><a href="{{route('detail')}}">Tủ lạnh Hitachi</a></h6>
+   		     			<h6><a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}">{{convert_tittle($banhang->tittle)}}</a></h6>
    		     			<div class="star-price">
    		     				<div class="dolor-grid">
-	   		     				<span class="actual">8.000.000 đ</span>
+	   		     				<span class="actual">{{$banhang->cost}}</span>
    		     				</div>
    		     				<div class="clearfix"> </div>
 						</div>
    		     		</div>
    		     	</div>
+               @endforeach
    		    </div>
 
    		    <div class="products">
@@ -28,20 +30,21 @@
    		    </div>
 
    		    <div class="product-left">
-   		     	<div class="col-md-4 chain-grid">
-   		     		<a href="{{route('detail')}}"><img class="img-responsive chain" src="/dientudandung/public/user_interface/images/suadieuhoa.jpg" alt=" " /></a>
-   		     		<div class="grid-chain-bottom">
-   		     			<h6><a href="{{route('detail')}}">Sữa chữa điều hòa</a></h6>
-   		     			<div class="star-price">
-   		     				<div class="dolor-grid">
-	   		     				<span class="actual">500.000 đ</span>
-   		     				</div>
-   		     				<div class="clearfix"> </div>
-						</div>
-   		     		</div>
-   		     	</div>
-   		     	 <div class="clearfix"> </div>
-   		     </div>
+               @foreach($suachua as $suachua)
+               <div class="col-md-4 chain-grid">
+                  <a href="{{route('detail_suachua',[tittle($suachua->tittle)])}}"><img class="img-responsive chain" src="{{$suachua->image_path}}" alt=" " /></a>
+                  <div class="grid-chain-bottom">
+                     <h6><a href="{{route('detail_suachua',[tittle($suachua->tittle)])}}">{{convert_tittle($suachua->tittle)}}</a></h6>
+                     <div class="star-price">
+                        <div class="dolor-grid">
+                           <span class="actual">{{$suachua->cost}}</span>
+                        </div>
+                        <div class="clearfix"> </div>
+                  </div>
+                  </div>
+               </div>
+               @endforeach
+             </div>
 
    		      <div class="products">
    		     	<h5 class="latest-product">LAP GIA TIVI</h5>
@@ -49,20 +52,21 @@
    		    </div>
 
    		    <div class="product-left">
-   		     	<div class="col-md-4 chain-grid">
-   		     		<a href="{{route('detail')}}"><img class="img-responsive chain" src="/dientudandung/public/user_interface/images/giativi.jpg" alt=" " /></a>
-   		     		<div class="grid-chain-bottom">
-   		     			<h6><a href="{{route('detail')}}">Lắp gía Tivi gía rẻ</a></h6>
-   		     			<div class="star-price">
-   		     				<div class="dolor-grid">
-	   		     				<span class="actual">500.000 đ</span>
-   		     				</div>
-   		     				<div class="clearfix"> </div>
-						</div>
-   		     		</div>
-   		     	</div>
-   		     	 <div class="clearfix"> </div>
-   		     </div>
+               @foreach($lapgiativi as $lapgiativi)
+               <div class="col-md-4 chain-grid">
+                  <a href="{{route('detail_lapgiativi',[tittle($lapgiativi->tittle)])}}"><img class="img-responsive chain" src="{{$lapgiativi->image_path}}" alt=" " /></a>
+                  <div class="grid-chain-bottom">
+                     <h6><a href="{{route('detail_lapgiativi',[tittle($lapgiativi->tittle)])}}">{{convert_tittle($lapgiativi->tittle)}}</a></h6>
+                     <div class="star-price">
+                        <div class="dolor-grid">
+                           <span class="actual">{{$lapgiativi->cost}}</span>
+                        </div>
+                        <div class="clearfix"> </div>
+                  </div>
+                  </div>
+               </div>
+               @endforeach
+             </div>
 
    		      <div class="products">
    		     	<h5 class="latest-product">Mua Bán Đồ Cũ</h5>
@@ -70,20 +74,21 @@
    		    </div>
 
    		    <div class="product-left">
-   		     	<div class="col-md-4 chain-grid">
-   		     		<a href="{{route('detail')}}"><img class="img-responsive chain" src="/dientudandung/public/user_interface/images/tulanhcu.jpg" alt=" " /></a>
-   		     		<div class="grid-chain-bottom">
-   		     			<h6><a href="{{route('detail')}}">Tủ lạnh cũ</a></h6>
-   		     			<div class="star-price">
-   		     				<div class="dolor-grid">
-	   		     				<span class="actual">2.000.000 đ</span>
-   		     				</div>
-   		     				<div class="clearfix"> </div>
-						</div>
-   		     		</div>
-   		     	</div>
-   		     	<div class="clearfix"> </div>
-   		    </div>
+               @foreach($muabandocu as $muabandocu)
+               <div class="col-md-4 chain-grid">
+                  <a href="{{route('detail_muabandocu',[tittle($muabandocu->tittle)])}}"><img class="img-responsive chain" src="{{$muabandocu->image_path}}" alt=" " /></a>
+                  <div class="grid-chain-bottom">
+                     <h6><a href="{{route('detail_muabandocu',[tittle($muabandocu->tittle)])}}">{{convert_tittle($muabandocu->tittle)}}</a></h6>
+                     <div class="star-price">
+                        <div class="dolor-grid">
+                           <span class="actual">{{$muabandocu->cost}}</span>
+                        </div>
+                        <div class="clearfix"> </div>
+                  </div>
+                  </div>
+               </div>
+               @endforeach
+             </div>
    		    <div class="clearfix"> </div>
 		   </div>
     @stop

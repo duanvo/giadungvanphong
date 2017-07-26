@@ -53,12 +53,6 @@
 	}
 	function convert_tittle($str){
 		$str = trim($str);
-		if($str=="") return "";
-		$str = str_replace('"','',$str);
-		$str = str_replace("'",'',$str);
-		$str = str_replace("?",'',$str);
-		$str = stripUnicode($str);
-		$string = mb_convert_case($str,MB_CASE_LOWER,'utf-8');
 		/*MB_CASE_UPPER, MB_CASE_TITLE, MB_CASE_LOWER*/
 		$string=str_replace('-',' ',$str);
 		return  $string; // Removes special chars.

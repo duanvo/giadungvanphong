@@ -39,7 +39,14 @@
                             <div class="has-error"><i><span class="help-block errorCost_add"></span></i></div>
                         </div>
                     </div>
-
+                    <!-- Add Images -->
+                    <div class="form-group">
+                        <label for="file_muabandocu_main" class="col-md-2 control-label">Ảnh</label>
+                        <div class="col-md-9">
+                            <input id="file_muabandocu_main" type="file" name="file_muabandocu_main" multiple/>
+                            <div id="result_muabandocu" /></div>
+                        </div>
+                    </div>
                     <!-- Add Images -->
                     <div class="form-group">
                         <label for="file_muabandocu" class="col-md-2 control-label">Ảnh minh họa</label>
