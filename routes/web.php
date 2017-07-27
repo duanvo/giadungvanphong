@@ -20,11 +20,44 @@ Route::Get('product',['as'=>'product', 'uses'=>'HomeController@product']);
 Route::Get('login',['as'=>'login', 'uses'=>'HomeController@login']);
 Route::Get('register',['as'=>'register', 'uses'=>'HomeController@register']);
 
+/*Category*/
+Route::group(['prefix'=>'banhang'],function(){
+	Route::get('all',['as'=>'banhang.all','uses'=>'HomeController@banhang_all']);
+	Route::get('dienmay',['as'=>'banhang.dienmay','uses'=>'HomeController@banhang_dienmay']);
+	Route::get('dogiadung',['as'=>'banhang.dogiadung','uses'=>'HomeController@banhang_dogiadung']);
+	Route::get('vanphong',['as'=>'banhang.vanphong','uses'=>'HomeController@banhang_vanphong']);
+});
+
+/*Category Suachua */
+Route::group(['prefix'=>'suachua'],function(){
+	Route::get('all',['as'=>'suachua.all','uses'=>'HomeController@suachua_all']);
+	Route::get('dieuhoa',['as'=>'suachua.dieuhoa','uses'=>'HomeController@suachua_dieuhoa']);
+	Route::get('tulanh',['as'=>'suachua.tulanh','uses'=>'HomeController@suachua_tulanh']);
+	Route::get('maygiat',['as'=>'suachua.maygiat','uses'=>'HomeController@suachua_maygiat']);
+	Route::get('lovisong',['as'=>'suachua.lovisong','uses'=>'HomeController@suachua_lovisong']);
+});
+
+/*Lapgiativi*/
+Route::group(['prefix'=>'lapgiativi'],function(){
+	Route::get('all',['as'=>'lapgiativi.all','uses'=>'HomeController@lapgiativi_all']);
+});
+
+/*Muabandocu*/
+Route::group(['prefix'=>'muabandocu'],function(){
+	Route::get('all',['as'=>'muabandocu.all','uses'=>'HomeController@muabandocu_all']);
+	Route::get('muadocu',['as'=>'muabandocu.muadocu','uses'=>'HomeController@muabandocu_muadocu']);
+	Route::get('bandocu',['as'=>'muabandocu.bandocu','uses'=>'HomeController@muabandocu_bandocu']);
+});
+
+/*Lien he*/
+Route::get('lienhe',['as'=>'lienhe','uses'=>'HomeController@lienhe']);
+
 /*Detail ban hang*/
 Route::get('detail/banhang/{tittle}',['as'=>'detail_banhang','uses'=>'HomeController@detail_banhang']);
 Route::get('detail/suachua/{tittle}',['as'=>'detail_suachua','uses'=>'HomeController@detail_suachua']);
 Route::get('detail/lapgiativi/{tittle}',['as'=>'detail_lapgiativi','uses'=>'HomeController@detail_lapgiativi']);
 Route::get('detail/muabandocu/{tittle}',['as'=>'detail_muabandocu','uses'=>'HomeController@detail_muabandocu']);
+
 
 
 /*Admin Group*/

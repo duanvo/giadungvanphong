@@ -92,33 +92,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <ul class="menu">
 					<li class="item1"><a href="#">BÁN HÀNG<img class="arrow-img" src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/> </a>
 						<ul class="cute">
-							<li class="subitem1"><a href="{{route('product')}}">Điện Máy </a></li>
-							<li class="subitem2"><a href="{{route('product')}}">Văn Phòng</a></li>
-							<li class="subitem3"><a href="{{route('product')}}">Đồ Gia Dụng</a></li>
+							<li class="subitem1"><a href="{{route('banhang.dienmay')}}">Điện Máy </a></li>
+							<li class="subitem2"><a href="{{route('banhang.vanphong')}}">Văn Phòng</a></li>
+							<li class="subitem3"><a href="{{route('banhang.dogiadung')}}">Đồ Gia Dụng</a></li>
 						</ul>
 					</li>
-					<li class="item2"><a href="{{route('product')}}">SUA CHUA <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
+					<li class="item2"><a href="{{route('suachua.all')}}">SUA CHUA <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
 						<ul class="cute">
-							<li class="subitem1"><a href="{{route('product')}}">Sữa Chữa Điều Hòa </a></li>
-							<li class="subitem2"><a href="{{route('product')}}">Sữa Chữa Tủ Lạnh </a></li>
-							<li class="subitem3"><a href="{{route('product')}}">Sữa Chữa Máy Gịăt </a></li>
-							<li class="subitem3"><a href="{{route('product')}}">Sữa Chữa Lò Vi Sóng </a></li>
+							<li class="subitem1"><a href="{{route('suachua.dieuhoa')}}">Sữa Chữa Điều Hòa </a></li>
+							<li class="subitem2"><a href="{{route('suachua.tulanh')}}">Sữa Chữa Tủ Lạnh </a></li>
+							<li class="subitem3"><a href="{{route('suachua.maygiat')}}">Sữa Chữa Máy Gịăt </a></li>
+							<li class="subitem3"><a href="{{route('suachua.lovisong')}}">Sữa Chữa Lò Vi Sóng </a></li>
 						</ul>
 					</li>
-					<li class="item2"><a href="{{route('product')}}">LAP GIA TIVI <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
+					<li class="item2"><a href="{{route('lapgiativi.all')}}">LAP GIA TIVI <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
 						<ul class="cute">
-							<li class="subitem1"><a href="{{route('product')}}">Lắp gía tivi gía rẻ </a></li>
+							<li class="subitem1"><a href="{{route('lapgiativi.all')}}">Lắp gía tivi gía rẻ </a></li>
 						</ul>
 					</li>
-					<li class="item2"><a href="{{route('product')}}">MUA BAN DO CU <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
+					<li class="item2"><a href="{{route('muabandocu.all')}}">MUA BAN DO CU <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
 						<ul class="cute">
-							<li class="subitem1"><a href="{{route('product')}}">Bán Đồ Cũ </a></li>
-							<li class="subitem2"><a href="{{route('product')}}">Mua Đồ Cũ </a></li>
+							<li class="subitem1"><a href="{{route('muabandocu.bandocu')}}">Bán Đồ Cũ </a></li>
+							<li class="subitem2"><a href="{{route('muabandocu.muadocu')}}">Mua Đồ Cũ </a></li>
 						</ul>
 					</li>
-					<li class="item2"><a href="{{route('product')}}">LIEN HE <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
+					<li class="item2"><a href="{{route('lienhe')}}">LIEN HE <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
 						<ul class="cute">
-							<li class="subitem1"><a href="{{route('product')}}">Liên hệ với chúng tôi </a></li>
+							<li class="subitem1"><a href="{{route('lienhe')}}">Liên hệ với chúng tôi </a></li>
 						</ul>
 					</li>
 				</ul>

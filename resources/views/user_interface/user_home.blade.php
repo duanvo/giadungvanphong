@@ -5,7 +5,7 @@
 		<div class="shoes-grid">
    		    <div class="products">
    		     	<h5 class="latest-product">BÁN HÀNG</h5>
-   		     	  <a class="view-all" href="{{route('product')}}">Xem tất cả sản phẩm<span> </span></a>
+   		     	  <a class="view-all" href="{{route('banhang.all')}}">Xem tất cả sản phẩm<span> </span></a>
    		    </div>
    		    <div class="product-left">
                @foreach($banhang as $banhang)
@@ -26,7 +26,7 @@
 
    		    <div class="products">
    		     	<h5 class="latest-product">SUA CHUA</h5>
-   		     	  <a class="view-all" href="product">Xem tất cả<span> </span></a>
+   		     	  <a class="view-all" href="{{route('suachua.all')}}">Xem tất cả<span> </span></a>
    		    </div>
 
    		    <div class="product-left">
@@ -48,7 +48,7 @@
 
    		      <div class="products">
    		     	<h5 class="latest-product">LAP GIA TIVI</h5>
-   		     	  <a class="view-all" href="{{route('product')}}">Xem tất cả<span> </span></a>
+   		     	  <a class="view-all" href="{{route('lapgiativi.all')}}">Xem tất cả<span> </span></a>
    		    </div>
 
    		    <div class="product-left">
@@ -70,7 +70,7 @@
 
    		      <div class="products">
    		     	<h5 class="latest-product">Mua Bán Đồ Cũ</h5>
-   		     	  <a class="view-all" href="{{route('product')}}">Xem tất cả<span> </span></a>
+   		     	  <a class="view-all" href="{{route('muabandocu.all')}}">Xem tất cả<span> </span></a>
    		    </div>
 
    		    <div class="product-left">

@@ -789,15 +789,15 @@ p.m_text {
 }
 .contact-form textarea {
 	display: block;
-	width: 100%;
-	padding: 10px;
-	border: 1px solid #ddd;
-	outline: none;
-	margin: 1.5em 0;
-	font-size: 1em;
-	color: #999;
-	height:300px;
-	resize: none;
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    margin: 1.5em 0;
+    font-size: 1em;
+    color: #999;
+    height: 170px;
+    resize: none;
 }
 .contact-form input[type="submit"] {
 	padding: 10px 25px;
