@@ -72,10 +72,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="clearfix"> </div>
 				</div>
 				<div class="header-bottom-right">
-					<ul class="login">
-						<li><a href="{{route('login')}}"><span> </span>LOGIN</a></li> |
-						<li ><a href="{{route('register')}}">SIGNUP</a></li>
-					</ul>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix"> </div>

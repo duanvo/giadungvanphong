@@ -15,10 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::Get('/',['as'=>'home', 'uses'=>'HomeController@home']);
-Route::Get('product',['as'=>'product', 'uses'=>'HomeController@product']);
-Route::Get('login',['as'=>'login', 'uses'=>'HomeController@login']);
-Route::Get('register',['as'=>'register', 'uses'=>'HomeController@register']);
+Route::get('/',['as'=>'home', 'uses'=>'HomeController@home']);
+
+
+Route::get('login',['as'=>'login', 'uses'=>'LoginController@get_login']);
+Route::post('login',['as'=>'login', 'uses'=>'LoginController@post_login']);
+/*Logout*/
+Route::get('logout', ['as'=>'logout', 'uses'=>'LoginController@logout']);
+
+Route::get('register',['as'=>'register', 'uses'=>'HomeController@register']);
 
 /*Category*/
 Route::group(['prefix'=>'banhang'],function(){
@@ -62,7 +67,7 @@ Route::get('detail/muabandocu/{tittle}',['as'=>'detail_muabandocu','uses'=>'Home
 
 /*Admin Group*/
 
-Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix'=>'admin','middleware'=>'checkadmin'], function(){
 	Route::get('/',['as'=>'admin.index','uses'=>'AdminController@index']);
 
 	Route::group(['prefix'=>'user'], function(){

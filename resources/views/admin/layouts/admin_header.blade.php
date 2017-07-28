@@ -59,7 +59,39 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <!-- USER -->
-               
+               <!-- USER -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user"></i> {{isset(Auth::user()->name) ? Auth::user()->name : ''}} <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                         <!-- Show level user -->
+                        <li>
+                            <a onclick="view_user_login({{Auth::user()->id}})"><i class="fa fa-user fa-fw"></i>
+                                <i>
+                                    {{((Auth::user()->level=='0')) ? 'Super Admin' :''}}
+                                    {{(isset(Auth::user()->level) && (Auth::user()->level=='1')) ? 'Admin':''}}
+                                    {{(isset(Auth::user()->level) && (Auth::user()->level=='2')) ? 'Member':''}}
+                                </i>
+                            </a>
+                        </li>
+                        <!-- End show level user -->
+
+                        <!-- Edit User logging -->
+                        <li>
+                            <a onclick="edit_user_login({{Auth::user()->id}})"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <!-- End edit User logging -->
+
+                        <!-- Logout -->
+                        <li class="divider"></li>
+                        <li>
+                            <a href="{{route('logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                        <!-- End Logout -->
+                    </ul>
+                </li>
+                <!-- END USER -->
                 <!-- END USER -->
 
                 <!-- Login and Register -->
