@@ -25,6 +25,8 @@ Route::get('logout', ['as'=>'logout', 'uses'=>'LoginController@logout']);
 
 Route::get('register',['as'=>'register', 'uses'=>'HomeController@register']);
 
+Route::post('search',['as'=>'search','uses'=>'HomeController@search']);
+
 /*Category*/
 Route::group(['prefix'=>'banhang'],function(){
 	Route::get('all',['as'=>'banhang.all','uses'=>'HomeController@banhang_all']);
@@ -40,6 +42,7 @@ Route::group(['prefix'=>'suachua'],function(){
 	Route::get('tulanh',['as'=>'suachua.tulanh','uses'=>'HomeController@suachua_tulanh']);
 	Route::get('maygiat',['as'=>'suachua.maygiat','uses'=>'HomeController@suachua_maygiat']);
 	Route::get('lovisong',['as'=>'suachua.lovisong','uses'=>'HomeController@suachua_lovisong']);
+	Route::get('diennuoc',['as'=>'suachua.diennuoc','uses'=>'HomeController@suachua_diennuoc']);
 });
 
 /*Lapgiativi*/
@@ -63,8 +66,9 @@ Route::get('detail/suachua/{tittle}',['as'=>'detail_suachua','uses'=>'HomeContro
 Route::get('detail/lapgiativi/{tittle}',['as'=>'detail_lapgiativi','uses'=>'HomeController@detail_lapgiativi']);
 Route::get('detail/muabandocu/{tittle}',['as'=>'detail_muabandocu','uses'=>'HomeController@detail_muabandocu']);
 
-
-
+/*Realtime chat*/
+Route::resource('message', 'MessageController');
+Route::post('chat',['as'=>'chat','uses'=>'MessageController@store']);
 /*Admin Group*/
 
 Route::group(['prefix'=>'admin','middleware'=>'checkadmin'], function(){
@@ -84,8 +88,8 @@ Route::group(['prefix'=>'admin','middleware'=>'checkadmin'], function(){
 		Route::post('edit',['as'=>'admin.user.edit','uses'=>'UserController@post_edit_user']);
 
 		/*Delete*/
-		Route::get('delete',['as'=>'deletel','uses'=>'UserController@get_delete_user']);
-		Route::post('delete',['as'=>'deletel','uses'=>'UserController@post_delete_user']);
+		Route::get('delete',['as'=>'delete','uses'=>'UserController@get_delete_user']);
+		Route::post('delete',['as'=>'delete','uses'=>'UserController@post_delete_user']);
 	});
 
 	Route::group(['prefix'=>'banhang'],function(){

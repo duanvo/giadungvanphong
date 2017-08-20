@@ -53,7 +53,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{route('admin.index')}}">STUDYING ENGLISH</a>
+                <a class="navbar-brand" href="{{route('admin.index')}}">Gia Dung Van Phong</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -95,7 +95,6 @@
                 <!-- END USER -->
 
                 <!-- Login and Register -->
-                
                 <!-- End Login and Register -->
             </ul>
 
@@ -108,11 +107,11 @@
 
                         <!-- Dashboard -->
                         <li>
-                            <a href="{{route('home')}}"><i class="glyphicon glyphicon-home"></i> Home User</a>
+                            <a href="{{route('home')}}"><i class="glyphicon glyphicon-home"></i> Trang chủ</a>
                         </li>
 
                         <li>
-                            <a href="{{route('admin.index')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{route('admin.index')}}"><i class="fa fa-dashboard fa-fw"></i> Mục quản lý</a>
                         </li>
 
                         <!-- Tables -->
@@ -120,22 +119,22 @@
                             <a href=""><i class="fa fa-table fa-fw "></i> Tables <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse in">
                                 <li>
-                                    <a href="{{route('admin.user.show')}}">Users</a>
+                                    <a href="{{route('admin.user.show')}}">Người dùng</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.banhang.show')}}">Ban Hang</a>
+                                    <a href="{{route('admin.banhang.show')}}">Bán Hàng</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.suachua.show')}}">Sua Chua</a>
+                                    <a href="{{route('admin.suachua.show')}}"> Sữa Chữa</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.lapgiativi.show')}}">Lap gia tivi</a>
+                                    <a href="{{route('admin.lapgiativi.show')}}">Lắp gía Tivi</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.muabandocu.show')}}">Mua ban do cu</a>
+                                    <a href="{{route('admin.muabandocu.show')}}">Mua Bán Đồ Cũ</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.lienhe.show')}}">Lien he</a>
+                                    <a href="{{route('admin.lienhe.show')}}">Liên Hệ</a>
                                 </li>
                             </ul>
                         </li>

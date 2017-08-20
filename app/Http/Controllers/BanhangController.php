@@ -67,12 +67,13 @@ class BanhangController extends Controller
 
 
     		$sanpham = new BanHang;
-            $sanpham->tittle     = tittle($request->add_tittle);
-            $sanpham->type       = $request->add_type_banhang;
-            $sanpham->image      = $file_detail_image_1;
-            $sanpham->image_path = $folder_img.'/'.$file_detail_image_1;
-            $sanpham->cost       = $request->add_cost;
-            $sanpham->introduce  = $request->add_introduce;
+            $sanpham->tittle        = tittle($request->add_tittle);
+            $sanpham->type          = $request->add_type_banhang;
+            $sanpham->image         = $file_detail_image_1;
+            $sanpham->image_path    = $folder_img.'/'.$file_detail_image_1;
+            $sanpham->cost_discount = $request->add_cost_discount;
+            $sanpham->cost          = $request->add_cost;
+            $sanpham->introduce     = $request->add_introduce;
 
     		if($sanpham->save()){
     			return response()->json([
@@ -89,7 +90,7 @@ class BanhangController extends Controller
             $info_count = Image::where('id_post',tittle($info->tittle))->count();
 
             foreach($info_image as $info_image){
-                $image[] = $info_image->image_path;
+                $image[] = $info_image->image;
             }
 
     		return response()->json(array('info'=>$info,'info_image'=>$image));
@@ -102,7 +103,15 @@ class BanhangController extends Controller
             $id = $request->id;
             $info_edit = BanHang::find($id);
 
-            return response()->json(array('info_edit'=>$info_edit));
+            $tittle_edit = $info_edit->tittle;
+
+            $image_edit = Image::where('id_post',tittle($tittle_edit))->get();
+
+            foreach ($image_edit as $image_edit) {
+                $image_tittle[] = $image_edit->image;
+            }
+
+            return response()->json(array('info_edit'=>$info_edit,'image_edit'=>$image_tittle));
         }
     }
 
@@ -134,11 +143,12 @@ class BanhangController extends Controller
             $file_product->move($folder_img,$file_detail_image_1);
 
             $data = BanHang::find($id);
-            $data->type       = $request->edit_type_sanpham;
-            $data->cost       = $request->edit_cost_sanpham;
-            $data->image      = $file_detail_image_1;
-            $data->image_path = $folder_img.'/'.$file_detail_image_1;
-            $data->introduce  = $request->edit_introduce_sanpham;
+            $data->type          = $request->edit_type_sanpham;
+            $data->cost_discount = $request->edit_cost_discount_sanpham;
+            $data->cost          = $request->edit_cost_sanpham;
+            $data->image         = $file_detail_image_1;
+            $data->image_path    = $folder_img.'/'.$file_detail_image_1;
+            $data->introduce     = $request->edit_introduce_sanpham;
 
             if($data->save()){
                 return response()->json([

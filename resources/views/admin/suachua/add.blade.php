@@ -29,6 +29,7 @@
                                 <option value="tulanh">Tủ lạnh</option>
                                 <option value="maygiat">Máy giặt</option>
                                 <option value="lovisong">Lò vi sóng</option>
+                                <option value="diennuoc">Điện nước</option>
                            </select>
                         </div>
                     </div>

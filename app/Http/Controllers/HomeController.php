@@ -13,148 +13,162 @@ use App\User;
 
 class HomeController extends Controller
 {
-    function home(){
-        $banhang = BanHang::orderBy('id','DESC')->get();
-        $suachua = Suachua::orderBy('id','DESC')->get();
-        $lapgiativi = Lapgiativi::orderBy('id','DESC')->get();
-        $muabandocu = Muabandocu::orderBy('id','DESC')->get();
 
-    	return view('user_interface.user_home', compact('banhang','suachua','lapgiativi','muabandocu'));
+    public function home(){
+        $banhang = BanHang::orderBy('id','DESC')->paginate(3);
+        $suachua = Suachua::orderBy('id','DESC')->paginate(3);
+        $lapgiativi = Lapgiativi::orderBy('id','DESC')->paginate(3);
+        $muabandocu = Muabandocu::orderBy('id','DESC')->paginate(3);
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
+
+    	return view('user_interface.user_home', compact('banhang','suachua','lapgiativi','muabandocu','lienhe'));
     }
 
-    function product(){
-    	return view('user_interface.user_product');
-    }
-
-    function login(){
-        return view('user_interface.user_login');
-    }
-
-    function register(){
-        return view('user_interface.user_register');
-    }
-
-    function detail_banhang(Request $request, $tittle){
+    public function detail_banhang(Request $request, $tittle){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $detail_banhang       = BanHang::where('tittle',$tittle)->get();
         $detail_banhang_image = Image::where('cate_type','banhang')->where('id_post',$tittle)->get();
         $relate_banhang       = BanHang::where('tittle','<>',$tittle)->orderBy('id','DESC')->get();
 
-        return view('user_interface.detail.detail_banhang',compact('detail_banhang','relate_banhang','detail_banhang_image'));
+        return view('user_interface.detail.detail_banhang',compact('detail_banhang','relate_banhang','detail_banhang_image','lienhe'));
     }
 
-    function detail_suachua(Request $request, $tittle){
+    public function detail_suachua(Request $request, $tittle){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $detail_suachua       = Suachua::where('tittle',$tittle)->get();
         $detail_suachua_image = Image::where('cate_type','suachua')->where('id_post',$tittle)->get();
         $relate_suachua       = Suachua::where('tittle','<>',$tittle)->orderBy('id','DESC')->get();
 
 
-        return view('user_interface.detail.detail_suachua',compact('detail_suachua','detail_suachua_image','relate_suachua'));
+        return view('user_interface.detail.detail_suachua',compact('detail_suachua','detail_suachua_image','relate_suachua','lienhe'));
     }
 
-    function detail_lapgiativi(Request $request, $tittle){
+    public function detail_lapgiativi(Request $request, $tittle){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $detail_lapgiativi       = Lapgiativi::where('tittle',$tittle)->get();
         $detail_lapgiativi_image = Image::where('cate_type','lapgiativi')->where('id_post',$tittle)->get();
         $relate_lapgiativi       = Lapgiativi::where('tittle','<>',$tittle)->orderBy('id','DESC')->get();
 
 
-        return view('user_interface.detail.detail_lapgiativi',compact('detail_lapgiativi','detail_lapgiativi_image','relate_lapgiativi'));
+        return view('user_interface.detail.detail_lapgiativi',compact('detail_lapgiativi','detail_lapgiativi_image','relate_lapgiativi','lienhe'));
     }
 
-    function detail_muabandocu(Request $request, $tittle){
+    public function detail_muabandocu(Request $request, $tittle){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $detail_muabandocu       = Muabandocu::where('tittle',$tittle)->get();
         $detail_muabandocu_image = Image::where('cate_type','muabandocu')->where('id_post',$tittle)->get();
         $relate_muabandocu       = Muabandocu::where('tittle','<>',$tittle)->orderBy('id','DESC')->get();
 
 
-        return view('user_interface.detail.detail_muabandocu',compact('detail_muabandocu','detail_muabandocu_image','relate_muabandocu'));
+        return view('user_interface.detail.detail_muabandocu',compact('detail_muabandocu','detail_muabandocu_image','relate_muabandocu','lienhe'));
     }
 
 
     /*Banhang Category*/
     public function banhang_all(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $banhang_all = BanHang::orderBy('id','DESC')->get();
         $total_product = Banhang::count();
-        return view('user_interface.category.banhang.all',compact('banhang_all','total_product'));
+        return view('user_interface.category.banhang.all',compact('banhang_all','total_product','lienhe'));
     }
 
     public function banhang_dienmay(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $banhang_dienmay = BanHang::where('type','dienmay')->orderBy('id','DESC')->get();
         $total_product = BanHang::where('type','dienmay')->count();
-        return view('user_interface.category.banhang.dienmay',compact('banhang_dienmay','total_product'));
+        return view('user_interface.category.banhang.dienmay',compact('banhang_dienmay','total_product','lienhe'));
     }
 
     public function banhang_dogiadung(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $banhang_dogiadung = BanHang::where('type','dogiadung')->orderBy('id','DESC')->get();
         $total_product = BanHang::where('type','dogiadung')->count();
-        return view('user_interface.category.banhang.dogiadung',compact('banhang_dogiadung','total_product'));
+        return view('user_interface.category.banhang.dogiadung',compact('banhang_dogiadung','total_product','lienhe'));
     }
 
     public function banhang_vanphong(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $banhang_vanphong = BanHang::where('type','vanphong')->orderBy('id','DESC')->get();
         $total_product = BanHang::where('type','vanphong')->count();
-        return view('user_interface.category.banhang.vanphong',compact('banhang_vanphong','total_product'));
+        return view('user_interface.category.banhang.vanphong',compact('banhang_vanphong','total_product','lienhe'));
     }
 
 
     /*Suachua*/
     public function suachua_all(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $suachua_all = Suachua::orderBy('id','DESC')->get();
         $total_product = Suachua::count();
 
-        return view('user_interface.category.suachua.all',compact('suachua_all','total_product'));
+        return view('user_interface.category.suachua.all',compact('suachua_all','total_product','lienhe'));
     }
     public function suachua_dieuhoa(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $suachua_dieuhoa = Suachua::where('type','dieuhoa')->orderBy('id','DESC')->get();
         $total_product = Suachua::where('type','dieuhoa')->count();
 
-        return view('user_interface.category.suachua.dieuhoa',compact('suachua_dieuhoa','total_product'));
+        return view('user_interface.category.suachua.dieuhoa',compact('suachua_dieuhoa','total_product','lienhe'));
     }
     public function suachua_lovisong(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $suachua_lovisong = Suachua::where('type','lovisong')->orderBy('id','DESC')->get();
         $total_product = Suachua::where('type','lovisong')->count();
 
-        return view('user_interface.category.suachua.lovisong',compact('suachua_lovisong','total_product'));
+        return view('user_interface.category.suachua.lovisong',compact('suachua_lovisong','total_product','lienhe'));
     }
     public function suachua_maygiat(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $suachua_maygiat = Suachua::where('type','maygiat')->orderBy('id','DESC')->get();
         $total_product = Suachua::where('type','maygiat')->count();
 
-        return view('user_interface.category.suachua.maygiat',compact('suachua_maygiat','total_product'));
+        return view('user_interface.category.suachua.maygiat',compact('suachua_maygiat','total_product','lienhe'));
     }
     public function suachua_tulanh(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $suachua_tulanh = Suachua::where('type','tulanh')->orderBy('id','DESC')->get();
         $total_product = Suachua::where('type','tulanh')->count();
 
-        return view('user_interface.category.suachua.tulanh',compact('suachua_tulanh','total_product'));
+        return view('user_interface.category.suachua.tulanh',compact('suachua_tulanh','total_product','lienhe'));
+    }
+    public function suachua_diennuoc(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
+        $suachua_diennuoc = Suachua::where('type','diennuoc')->orderBy('id','DESC')->get();
+        $total_product = Suachua::where('type','diennuoc')->count();
+
+        return view('user_interface.category.suachua.diennuoc',compact('suachua_diennuoc','total_product','lienhe'));
     }
 
     /*Lapgiativi*/
     public function lapgiativi_all(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $lapgiativi_all = Lapgiativi::orderBy('id','DESC')->get();
         $total_product = Lapgiativi::count();
 
-        return view('user_interface.category.lapgiativi.all',compact('lapgiativi_all','total_product'));
+        return view('user_interface.category.lapgiativi.all',compact('lapgiativi_all','total_product','lienhe'));
     }
 
     /*Mua ban do cu*/
     public function muabandocu_all(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $muabandocu_all = Muabandocu::orderBy('id','DESC')->get();
         $total_product = Muabandocu::count();
 
-        return view('user_interface.category.muabandocu.all',compact('muabandocu_all','total_product'));
+        return view('user_interface.category.muabandocu.all',compact('muabandocu_all','total_product','lienhe'));
     }
 
     public function muabandocu_bandocu(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $muabandocu_bandocu = Muabandocu::where('type','bandocu')->orderBy('id','DESC')->get();
         $total_product = Muabandocu::where('type','bandocu')->count();
 
-        return view('user_interface.category.muabandocu.bandocu',compact('muabandocu_bandocu','total_product'));
+        return view('user_interface.category.muabandocu.bandocu',compact('muabandocu_bandocu','total_product','lienhe'));
     }
     public function muabandocu_muadocu(){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
         $muabandocu_muadocu = Muabandocu::where('type','muadocu')->orderBy('id','DESC')->get();
         $total_product = Muabandocu::where('type','muadocu')->count();
 
-        return view('user_interface.category.muabandocu.muadocu',compact('muabandocu_muadocu','total_product'));
+        return view('user_interface.category.muabandocu.muadocu',compact('muabandocu_muadocu','total_product','lienhe'));
     }
 
     /*Lien he*/
@@ -162,5 +176,11 @@ class HomeController extends Controller
         $lienhe = Lienhe::orderBy('id','DESC')->get();
 
         return view('user_interface.category.lienhe.lienhe',compact('lienhe'));
+    }
+
+    public function search(Request $request){
+        $key_search = $request->search_key;
+        $results = Banhang::where('tittle','LIKE','%'.$key_search.'%')->get();
+        dd($results);
     }
 }

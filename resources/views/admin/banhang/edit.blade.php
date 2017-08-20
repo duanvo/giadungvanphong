@@ -35,17 +35,23 @@
 
                     <!-- Add Cost -->
                     <div class="form-group">
-                        <label for="cost" class="col-md-2 control-label">Gía sản phẩm</label>
+                        <label for="cost" class="col-md-2 control-label">Gía giảm còn</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="edit_cost_sanpham" name="edit_cost_sanpham" placeholder="Gía sản phẩm">
+                            <input type="text" class="form-control" id="edit_cost_discount_sanpham" name="edit_cost_discount_sanpham" placeholder="Gía giảm còn">
+                            <div class="has-error"><i><span class="help-block errorCost_discount_add"></span></i></div>
+                        </div>
+                        <label for="cost" class="col-md-2 control-label">Gía gốc sản phẩm</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="edit_cost_sanpham" name="edit_cost_sanpham" placeholder="Gía gốc sản phẩm">
                             <div class="has-error"><i><span class="help-block errorCost_add"></span></i></div>
                         </div>
                     </div>
+
                      <!-- Add Images -->
                     <div class="form-group">
                         <label for="file_product" class="col-md-2 control-label">Ảnh sản phẩm </label>
                         <div class="col-md-9">
-                            <input id="file_product_edit" type="file" name="file_product_edit" multiple/>
+                            <input id="file_product_edit" type="file" name="file_product_edit" />
                             <div id="result_product" /></div>
                         </div>
                     </div>

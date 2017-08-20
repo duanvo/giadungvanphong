@@ -296,6 +296,7 @@ $('#edit_banhang').click(function(){
 					$("#edit_tittle_sanpham").val(result.info_edit.tittle);
 					$("#edit_type_sanpham").val(result.info_edit.type);
 					$("#edit_cost_sanpham").val(result.info_edit.cost);
+					$("#edit_cost_discount_sanpham").val(result.info_edit.cost_discount);
 					CKEDITOR.instances['edit_introduce_sanpham'].setData(result.info_edit.introduce);
 				}
 			});
@@ -310,6 +311,9 @@ $('#edit_banhang').click(function(){
 				messages:{
 					edit_type_sanpham:{
 						required:"Chọn loại sản phẩm"
+					},
+					edit_cost_discount_sanpham:{
+						required:"Mời nhập gía"
 					},
 					edit_cost_sanpham:{
 						required:"Mời nhập gía"

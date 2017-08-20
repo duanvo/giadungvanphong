@@ -23,11 +23,11 @@
 					@foreach($detail_banhang as $detail_banhang)
 					<h4>{{convert_tittle($detail_banhang->tittle)}}</h4>
 					<div class="cart-b">
-						<h4>Cost: </h4>
-						<div class="left-n ">{{$detail_banhang->cost}}</div>
+						<h4>Giảm giá còn:</h4><div class="left-n" style="color: #428cef"> {{$detail_banhang->cost_discount}}</div></br></br>
+						<h4 style="text-decoration: line-through;">Giá gốc:</h4> <div style="font-style: italic; color: rgba(255, 0, 0, 0.72);font-size: 21px; text-decoration: line-through;">{{$detail_banhang->cost}}</div>
 					    <div class="clearfix"></div>
 					</div>
-					<h3 class="m_3">Product Details</h3>
+					<h3 class="m_3">Chi tiết sản phẩm</h3>
 		   			<p>{!!htmlspecialchars_decode($detail_banhang->introduce)!!}</p>
 		   			<div class="share">
 						<h5>Share Product :</h5>

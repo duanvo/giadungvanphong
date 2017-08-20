@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Dien tu dien lanh</title>
+<link rel="icon" href="{!! asset('/storage/uploads/interface_images/icon.ico') !!}"/>
 <link rel="stylesheet" type="text/css" href="{{URL::asset('public/user_interface/css/bootstrap.css')}}">
 <link rel="stylesheet" type="text/css" href="{{URL::asset('public/user_interface/css/style.css')}}">
 <link rel="stylesheet" type="text/css" href="{{URL::asset('public/user_interface/css/etalage.css')}}">
@@ -45,15 +46,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="top-header">
 			<div class="container">
 				<div class="top-header-right">
+				@foreach($lienhe as $lienhe)
 					<ul class="support">
 						<li><a ><label> </label></a></li>
-						<li><a >0989 677 020</span></a></li>
+						<li><a >{{$lienhe->sdt}}</span></a></li>
 					</ul>
 					<ul class="support">
 						<li class="van"><a href="#"><label> </label></a></li>
-						<li><a>Free shipping nội thành<span class="live"></span></a></li>
+						<li><a>{{$lienhe->diachi}}<span class="live"></span></a></li>
 					</ul>
 					<div class="clearfix"> </div>
+				@endforeach
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -65,9 +68,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<h3><a href="{{route('home')}}">Trang chủ</a></h3>
 					</div>
 					<div class="search">
-						<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
-						<input type="submit"  value="SEARCH">
-
+						<form method="POST" role="form" action="{{route('search')}}">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+							<input type="text" placeholder="Nhập tìm kiếm" name="search_key">
+							<input type="submit"  value="SEARCH">
+						</form>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -86,19 +91,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class=" top-nav rsidebar span_1_of_left">
 				<h3 class="cate" align="center">DANH MỤC</h3>
 		        <ul class="menu">
-					<li class="item1"><a href="#">BÁN HÀNG<img class="arrow-img" src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/> </a>
+					<li class="item1"><a href="#">BAN HANG<img class="arrow-img" src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/> </a>
 						<ul class="cute">
 							<li class="subitem1"><a href="{{route('banhang.dienmay')}}">Điện Máy </a></li>
 							<li class="subitem2"><a href="{{route('banhang.vanphong')}}">Văn Phòng</a></li>
 							<li class="subitem3"><a href="{{route('banhang.dogiadung')}}">Đồ Gia Dụng</a></li>
 						</ul>
 					</li>
-					<li class="item2"><a href="{{route('suachua.all')}}">SUA CHUA <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
+					<li class="item2"><a href="{{route('suachua.all')}}">SUA CHUA<img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
 						<ul class="cute">
 							<li class="subitem1"><a href="{{route('suachua.dieuhoa')}}">Sữa Chữa Điều Hòa </a></li>
 							<li class="subitem2"><a href="{{route('suachua.tulanh')}}">Sữa Chữa Tủ Lạnh </a></li>
 							<li class="subitem3"><a href="{{route('suachua.maygiat')}}">Sữa Chữa Máy Gịăt </a></li>
 							<li class="subitem3"><a href="{{route('suachua.lovisong')}}">Sữa Chữa Lò Vi Sóng </a></li>
+							<li class="subitem3"><a href="{{route('suachua.diennuoc')}}">Sữa Chữa Điện nước </a></li>
 						</ul>
 					</li>
 					<li class="item2"><a href="{{route('lapgiativi.all')}}">LAP GIA TIVI <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
@@ -142,14 +148,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	    <div class="clearfix"> </div>
 	</div>	<!---->
 	<div class="footer">
+
 		<div class="footer-top">
 			<div class="container">
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<div class="footer-bottom">
+		<div class="footer-bottom" style="background-color: rgba(0, 43, 255, 0.21);">
 			<div class="container">
 				<div class="footer-bottom-cate">
+				<div style="margin-top: 15px; width: 200px; margin:auto;>
+            		<p class="copy-right">&copy; 2017 Gia Dung Van Phong</p>
+				</div>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

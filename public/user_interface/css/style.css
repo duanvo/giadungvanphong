@@ -450,11 +450,38 @@ h5.latest-product{
 	color:#F97E76;
 }
 .chain-grid{
+	transition: all 0.5s;
 	border: 1px solid #ddd;
 	position: relative;	
 	width: 30%;
 	margin: 0 3% 0 0;
 	padding:0;
+}
+.chain{
+	-webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+	transition: all 0.8s;
+}
+.chain:hover {
+    border-bottom-color: #223763;
+  -webkit-box-shadow: 2px 2px 2px #999;
+  box-shadow: 2px 2px 2px #999;
+  -moz-box-shadow: 2px 2px 2px #999;
+}
+.discount{
+	position: absolute;
+    font-size: 1.385em;
+    color: #fff;
+    top: 0px;
+    right: 0px;
+    background-color: rgba(255, 0, 0, 0.8);
+    width: 70px;
+    height: 43px;
+    text-align: center;
+    line-height: 43px;
+    z-index: 2;
 }
 .menu-chain{
 	width:100%;
@@ -1077,7 +1104,7 @@ ul.face-in-to li a span.facebook-in{
 	left: 14.7em;
 	top: 15px;
 	-webkit-apperance:none;
-}	
+}
 .sub-left-right{
 	float: left;
 	position: relative;
@@ -1086,7 +1113,7 @@ ul.face-in-to li a span.facebook-in{
 }
 .footer-bottom-cate{
 	float: left;
-	width: 25%;
+	width: 100%;
 }
 .footer-bottom-cate h6{
 	font-size: 1.1em;
@@ -1392,7 +1419,7 @@ a.get-cart {
 }
 .top-header-right {
     float: none;
-    width: 30%;
+    width: 90%;
     margin: 0 auto;
 }    
 .header-bottom-right {
@@ -1453,7 +1480,7 @@ a.get-cart {
 	display: none;
 }
 .top-header-right {
-   display:none;
+   display:block;
 }
 .top-header-left {
     margin: 0 0 0 6em;

@@ -4,18 +4,20 @@
 	@section('content')
 		<div class="shoes-grid">
    		    <div class="products">
-   		     	<h5 class="latest-product">BÁN HÀNG</h5>
-   		     	  <a class="view-all" href="{{route('banhang.all')}}">Xem tất cả sản phẩm<span> </span></a>
+   		     	<h5 class="latest-product">BAN HANG</h5>
+   		     	  <a class="view-all" href="{{route('banhang.all')}}">Xem tất cả<span> </span></a>
    		    </div>
    		    <div class="product-left">
                @foreach($banhang as $banhang)
    		     	<div class="col-md-4 chain-grid">
    		     		<a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}"><img class="img-responsive chain" src="{{$banhang->image_path}}" alt=" " /></a>
    		     		<div class="grid-chain-bottom">
+                  <span class="discount">- {{round($banhang->cost_discount/$banhang->cost*100)}}%</span>
    		     			<h6><a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}">{{convert_tittle($banhang->tittle)}}</a></h6>
    		     			<div class="star-price">
    		     				<div class="dolor-grid">
-	   		     				<span class="actual">{{$banhang->cost}}</span>
+                           <span class="actual" style="font-weight: 400;">{{$banhang->cost_discount}}</span></br>
+	   		     				<span class="actual" style="text-decoration: line-through; font-weight: 500; font-style: italic; color: rgba(206, 24, 24, 0.84)">{{$banhang->cost}}</span>
    		     				</div>
    		     				<div class="clearfix"> </div>
 						</div>

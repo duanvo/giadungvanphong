@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Lienhe;
 use Auth;
 use Validator;
 use Session;
@@ -18,9 +19,12 @@ class LoginController extends Controller
     }
 
     public function get_login(){
-    	return view('user_interface.user_login');
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
+
+        return view('user_interface.user_login',compact('lienhe'));
     }
     public function post_login(Request $request){
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
     	$rules = [
     		'username'=>'required',
     		'password'=>'required'
@@ -35,7 +39,7 @@ class LoginController extends Controller
 
     	if($validator->fails()){
     		Session::flash('message', "Nhap day du ten va password");
-    		return view('user_interface.user_login');
+    		return view('user_interface.user_login',compact('lienhe'));
     	}else{
     		$username = $request->input('username');
     		$password = $request->input('password');
@@ -44,7 +48,7 @@ class LoginController extends Controller
     			return redirect()->route('admin.index');
     		}else{
     			Session::flash('message',"Username hoac Password sai");
-    			return view('user_interface.user_login');
+    			return view('user_interface.user_login',compact('lienhe'));
     		}
     	}
     }
