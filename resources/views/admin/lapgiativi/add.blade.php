@@ -19,29 +19,11 @@
                         </div>
                     </div>
 
-                    <!-- Add Cost -->
-                    <div class="form-group">
-                        <label for="cost" class="col-md-2 control-label">Gía</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="add_cost_lapgiativi" name="add_cost_lapgiativi" placeholder="Gía sản phẩm">
-                            <div class="has-error"><i><span class="help-block errorCost_add"></span></i></div>
-                        </div>
-                    </div>
-
                     <!-- Add Images -->
                     <div class="form-group">
                         <label for="file_lapgiativi_main" class="col-md-2 control-label">Ảnh</label>
                         <div class="col-md-9">
                             <input id="file_lapgiativi_main" type="file" name="file_lapgiativi_main" multiple/>
-                            <div id="result_lapgiativi" /></div>
-                        </div>
-                    </div>
-
-                    <!-- Add Images -->
-                    <div class="form-group">
-                        <label for="file_lapgiativi" class="col-md-2 control-label">Ảnh minh họa</label>
-                        <div class="col-md-9">
-                            <input id="file_lapgiativi" type="file" name="file_lapgiativi[]" multiple/>
                             <div id="result_lapgiativi" /></div>
                         </div>
                     </div>

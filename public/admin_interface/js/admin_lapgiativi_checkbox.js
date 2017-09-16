@@ -207,7 +207,7 @@ $('#view_lapgiativi').click(function(){
 			success:function(result){
 				//console.log(result[0]);
 				$('#view_tittle_lapgiativi').text(result[0].tittle);
-				$('#view_cost_lapgiativi').text(result[0].cost);
+				$('#view_image_lapgiativi').append('<img src="'+ "/dientudandung/" + result[0].image_path +'" alt="" />');
 				$('#view_introduce_lapgiativi').html(result[0].introduce);
 				var d = new Date();
 					var my_date_format = function(input){

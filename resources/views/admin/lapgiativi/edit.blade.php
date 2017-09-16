@@ -20,27 +20,11 @@
                         </div>
                     </div>
 
-                    <!-- edit Cost -->
-                    <div class="form-group">
-                        <label for="cost" class="col-md-2 control-label">Edit Gía</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="edit_cost_lapgiativi" name="edit_cost_lapgiativi" placeholder="Gía sản phẩm">
-                            <div class="has-error"><i><span class="help-block errorCost_edit"></span></i></div>
-                        </div>
-                    </div>
                     <!-- Add Images -->
                     <div class="form-group">
-                        <label for="file_lapgiativi_main_edit" class="col-md-2 control-label">Ảnh</label>
+                        <label for="file_lapgiativi_main_edit" class="col-md-2 control-label">Edit Ảnh</label>
                         <div class="col-md-9">
                             <input id="file_lapgiativi_main_edit" type="file" name="file_lapgiativi_main_edit" multiple/>
-                            <div id="result_lapgiativi" /></div>
-                        </div>
-                    </div>
-                    <!-- edit Images -->
-                    <div class="form-group">
-                        <label for="files" class="col-md-2 control-label">Edit ảnh</label>
-                        <div class="col-md-9">
-                            <input id="files" type="file" name="file_lapgiativi[]" multiple/>
                             <div id="result_lapgiativi" /></div>
                         </div>
                     </div>

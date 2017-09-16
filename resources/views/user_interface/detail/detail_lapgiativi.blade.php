@@ -6,53 +6,13 @@
 
 		<div class=" single_top">
 	      <div class="single_grid">
-				<div class="grid images_3_of_2">
-					<ul id="etalage">
-						@foreach($detail_lapgiativi_image as $detail_lapgiativi_image)
-						<li>
-							<a href="">
-								<img class="etalage_thumb_image" src="/dientudandung/{{$detail_lapgiativi_image->image_path}}" class="img-responsive" />
-								<img class="etalage_source_image" src="/dientudandung/{{$detail_lapgiativi_image->image_path}}" class="img-responsive" title="" />
-							</a>
-						</li>
-						@endforeach
-					</ul>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="desc1 span_3_of_2">
-					@foreach($detail_lapgiativi as $detail_lapgiativi)
-					<h4>{{convert_tittle($detail_lapgiativi->tittle)}}</h4>
-					<div class="cart-b">
-						<h4>Cost: </h4>
-						<div class="left-n ">{{$detail_lapgiativi->cost}}</div>
-					    <div class="clearfix"></div>
-					</div>
-					<h3 class="m_3">Product Details</h3>
-		   			<p>{!!htmlspecialchars_decode($detail_lapgiativi->introduce)!!}</p>
-		   			<div class="share">
-						<h5>Share Product :</h5>
-						<ul class="share_nav cart-b">
-							<li><a href="#"><img src="/dientudandung/public/user_interface/images/facebook.png" title="facebook"></a></li>
-			    		</ul>
-					</div>
-					@endforeach
-				</div>
+		      	@foreach($detail_lapgiativi as $detail_lapgiativi)
+					<h4 style="font-size: 26px;font-weight: 500;color: #363399;">{{convert_tittle($detail_lapgiativi->tittle)}}</h4><br>
+					{!!htmlspecialchars_decode($detail_lapgiativi->introduce)!!}
+		      	@endforeach
 
           	    <div class="clearfix"> </div>
           	</div>
-
-          	<ul id="flexiselDemo1">
-				@foreach($relate_lapgiativi as $relate)
-					<li style="margin-left: 50px; animation: all 0.5s;">
-						<a href="{{route('detail_lapgiativi',[tittle($relate->tittle)])}}">
-							<img class="img-responsive chain" src="/dientudandung/{{$relate->image_path}}" alt=" " />
-						</a>
-						<div class="grid-flex">
-							<a href="{{route('detail_lapgiativi',[tittle($relate->tittle)])}}"><h4>{{convert_tittle($relate->tittle)}}</h4></a>
-						</div>
-					</li>
-				@endforeach
-			</ul>
 
 		    <script type="text/javascript">
 			$(window).load(function() {

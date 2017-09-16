@@ -16,11 +16,6 @@
                         </strong>
                     </div><hr>
 
-                    <div class="form-group col-centered">
-                        <label>Gía </label>
-                        <strong class="text-info"><i><span id="view_cost_lapgiativi" class="text-success"></span></i></strong>
-                    </div><hr>
-
                      <div class="form-group col-centered">
                         <label>Ảnh </label>
                         <img id="view_image_lapgiativi"></img>

@@ -44,10 +44,6 @@ class LapgiativiController extends Controller
                     File::makeDirectory($folder_img, 0777, true);
                 }
 
-                $files = $request->file('file_lapgiativi');
-                foreach($files as $file){
-                    $file_detail_image = $file->getClientOriginalName();
-                    $file->move($folder_img,$file_detail_image);
 
                 $file_main = $request->file('file_lapgiativi_main');
                 $file_name = $file_main->getClientOriginalName();
@@ -59,17 +55,14 @@ class LapgiativiController extends Controller
                     $images->image      = $file_name;
                     $images->image_path = $folder_img.'/'.$file_name;
                     $images->id_post    = tittle($request->add_tittle_lapgiativi);
-                    $images->image      = $file_detail_image;
-                    $images->image_path = $folder_img.'/'.$file_detail_image;
 
                     $images->save();
-
-                }
 
     			$lapgiativi = New Lapgiativi;
 
     			$lapgiativi->tittle = tittle($request->add_tittle_lapgiativi);
-    			$lapgiativi->cost = $request->add_cost_lapgiativi;
+                $lapgiativi->image      = $file_name;
+                $lapgiativi->image_path = $folder_img.'/'.$file_name;
     			$lapgiativi->introduce = $request->add_introduce_lapgiativi;
 
     			if($lapgiativi->save()){

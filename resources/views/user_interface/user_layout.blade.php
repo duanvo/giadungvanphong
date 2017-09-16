@@ -1,169 +1,123 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Dien tu dien lanh</title>
-<link rel="icon" href="{!! asset('/storage/uploads/interface_images/icon.ico') !!}"/>
-<link rel="stylesheet" type="text/css" href="{{URL::asset('public/user_interface/css/bootstrap.css')}}">
-<link rel="stylesheet" type="text/css" href="{{URL::asset('public/user_interface/css/style.css')}}">
-<link rel="stylesheet" type="text/css" href="{{URL::asset('public/user_interface/css/etalage.css')}}">
-<!--theme-style-->
-<!--//theme-style-->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!--fonts-->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-<!--//fonts-->
-<script type="text/javascript" src="{{URL::asset('public/user_interface/js/jquery.min.js')}}"></script>
-<script type="text/javascript" src="{{URL::asset('public/user_interface/js/jquery.etalage.min.js')}}"></script>
+	<title>Dien tu dien lanh</title>
+	<link rel="shortcut icon" href="{!! asset('/storage/uploads/interface_images/icon.ico') !!}"/>
 
-<!--script-->
-<script>
-	jQuery(document).ready(function($){
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<!-- Animate -->
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('/public/user_interface/css/bootstrap.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('/public/user_interface/css/flexslider.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('/public/user_interface/css/animate.css')}}">
+	<!-- Icomoon -->
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('/public/user_interface/css/icomoon.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('/public/user_interface/css/style_user.css')}}">
+	<!-- Bootstrap  -->
 
-		$('#etalage').etalage({
-			thumb_image_width: 300,
-			thumb_image_height: 400,
-			source_image_width: 900,
-			source_image_height: 1200,
-			show_hint: true,
-			click_callback: function(image_anchor, instance_id){
-			}
-		});
+	<!-- Modernizr JS -->
+	<script type="text/javascript" src="{{URL::asset('/public/user_interface/js/modernizr-2.6.2.min.js')}}"></script>
+	<!-- jQuery -->
+	<script type="text/javascript" src="{{URL::asset('/public/user_interface/js/jquery-2.2.4.js')}}"></script>
+	<!-- jQuery Easing -->
+	<script type="text/javascript" src="{{URL::asset('/public/user_interface/js/jquery.easing.1.3.js')}}"></script>
+	<!-- Bootstrap -->
+	<script type="text/javascript" src="{{URL::asset('/public/user_interface/js/bootstrap.min.js')}}"></script>
+	<!-- Waypoints -->
+	<script type="text/javascript" src="{{URL::asset('/public/user_interface/js/jquery.waypoints.min.js')}}"></script>
+	<!-- Main JS -->
+	<script type="text/javascript" src="{{URL::asset('/public/user_interface/js/main.js')}}"></script>
 
-	});
-</script>
-<script type="text/javascript" src="{{URL::asset('public/user_interface/js/jquery.flexisel.js')}}"></script>
 </head>
 <body>
-	<!--header-->
-	<div class="header">
-		<div class="top-header">
-			<div class="container">
-				<div class="top-header-right">
-				@foreach($lienhe as $lienhe)
-					<ul class="support">
-						<li><a ><label> </label></a></li>
-						<li><a >{{$lienhe->sdt}}</span></a></li>
-					</ul>
-					<ul class="support">
-						<li class="van"><a href="#"><label> </label></a></li>
-						<li><a>{{$lienhe->diachi}}<span class="live"></span></a></li>
-					</ul>
-					<div class="clearfix"> </div>
-				@endforeach
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-		<div class="bottom-header">
-			<div class="container">
-				<div class="header-bottom-left">
-					<div class="logo">
-						<h3><a href="{{route('home')}}">Trang chủ</a></h3>
-					</div>
-					<div class="search">
-						<form method="POST" role="form" action="{{route('search')}}">
-							<input type="hidden" name="_token" value="{{ csrf_token() }}">
-							<input type="text" placeholder="Nhập tìm kiếm" name="search_key">
-							<input type="submit"  value="SEARCH">
-						</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="header-bottom-right">
-					<div class="clearfix"> </div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-	<!---->
-	<div class="container">
-
-		@yield('content')
-	    <div class="sub-cate">
-			<div class=" top-nav rsidebar span_1_of_left">
-				<h3 class="cate" align="center">DANH MỤC</h3>
-		        <ul class="menu">
-					<li class="item1"><a href="#">BAN HANG<img class="arrow-img" src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/> </a>
-						<ul class="cute">
-							<li class="subitem1"><a href="{{route('banhang.dienmay')}}">Điện Máy </a></li>
-							<li class="subitem2"><a href="{{route('banhang.vanphong')}}">Văn Phòng</a></li>
-							<li class="subitem3"><a href="{{route('banhang.dogiadung')}}">Đồ Gia Dụng</a></li>
-						</ul>
-					</li>
-					<li class="item2"><a href="{{route('suachua.all')}}">SUA CHUA<img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
-						<ul class="cute">
-							<li class="subitem1"><a href="{{route('suachua.dieuhoa')}}">Sữa Chữa Điều Hòa </a></li>
-							<li class="subitem2"><a href="{{route('suachua.tulanh')}}">Sữa Chữa Tủ Lạnh </a></li>
-							<li class="subitem3"><a href="{{route('suachua.maygiat')}}">Sữa Chữa Máy Gịăt </a></li>
-							<li class="subitem3"><a href="{{route('suachua.lovisong')}}">Sữa Chữa Lò Vi Sóng </a></li>
-							<li class="subitem3"><a href="{{route('suachua.diennuoc')}}">Sữa Chữa Điện nước </a></li>
-						</ul>
-					</li>
-					<li class="item2"><a href="{{route('lapgiativi.all')}}">LAP GIA TIVI <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
-						<ul class="cute">
-							<li class="subitem1"><a href="{{route('lapgiativi.all')}}">Lắp gía tivi gía rẻ </a></li>
-						</ul>
-					</li>
-					<li class="item2"><a href="{{route('muabandocu.all')}}">MUA BAN DO CU <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
-						<ul class="cute">
-							<li class="subitem1"><a href="{{route('muabandocu.bandocu')}}">Bán Đồ Cũ </a></li>
-							<li class="subitem2"><a href="{{route('muabandocu.muadocu')}}">Mua Đồ Cũ </a></li>
-						</ul>
-					</li>
-					<li class="item2"><a href="{{route('lienhe')}}">LIEN HE <img class="arrow-img " src="/dientudandung/public/user_interface/images/arrow1.png" alt=""/></a>
-						<ul class="cute">
-							<li class="subitem1"><a href="{{route('lienhe')}}">Liên hệ với chúng tôi </a></li>
-						</ul>
-					</li>
+	<nav class="navbar navbar-default fix_top">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="margin-right: 150px;">Gia dung van phong</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="#">Trang Chu</a></li>
+	      <li class="dropdown">
+	        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ban hang
+	        <span class="caret"></span></a>
+	        <ul class="dropdown-menu">
+	          <li><a href="#">Tat ca</a></li>
+	          <li><a href="#">Dien may</a></li>
+	          <li><a href="#">Van Phong</a></li>
+	          <li><a href="#">Do gia dung</a></li>
+	        </ul>
+	      </li>
+	      <li><a href="#">Lap gia tivi</a></li>
+	      <li class="dropdown">
+	        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sua chua
+	        <span class="caret"></span></a>
+	        <ul class="dropdown-menu">
+	          <li><a href="#">Tat ca</a></li>
+	          <li><a href="#">Sua chua dieu hoa</a></li>
+	          <li><a href="#">Sua chua tu lanh</a></li>
+	          <li><a href="#">Sua chua may giat</a></li>
+	          <li><a href="#">Sua chua lo vi song</a></li>
+	          <li><a href="#">Sua chua dien nuoc</a></li>
+	        </ul>
+	      </li>
+	      <li class="dropdown">
+	        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mua ban do cu
+	        <span class="caret"></span></a>
+	        <ul class="dropdown-menu">
+	          <li><a href="#">Tat ca</a></li>
+	          <li><a href="#">Mua do cu</a></li>
+	          <li><a href="#">Ban do cu</a></li>
+	        </ul>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+	<div class="container-fluid" style="width:85%; background-color: rgba(102, 51, 153, 0.08);margin-top: 90px; margin-bottom: 50px;">
+		<div id="fh5co-offcanvas">
+			<a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Close</span></span></a>
+			<div class="fh5co-bio">
+				<figure>
+					<img src="storage/images/avatar.jpg" alt="" class="img-responsive">
+				</figure>
+				<h3 class="heading">Về tôi</h3>
+				<h2>Vo Khac Duan</h2>
+				<p>Chuyên cung cấp đồ gia dụng, đồ điện. Cung cấp dịch vụ sữa chữa chất lượng, uy tín, gía thành hợp lý. </p>
+				<ul class="fh5co-social">
+					<li><a href="#"><i class="icon-facebook"></i></a></li>
 				</ul>
 			</div>
-			<!--initiate accordion-->
-			<script type="text/javascript">
-				$(function() {
-				    var menu_ul = $('.menu > li > ul'),
-				           menu_a  = $('.menu > li > a');
-				    menu_ul.hide();
-				    menu_a.click(function(e) {
-				        e.preventDefault();
-				        if(!$(this).hasClass('active')) {
-				            menu_a.removeClass('active');
-				            menu_ul.filter(':visible').slideUp('normal');
-				            $(this).addClass('active').next().stop(true,true).slideDown('normal');
-				        } else {
-				            $(this).removeClass('active');
-				            $(this).next().stop(true,true).slideUp('normal');
-				        }
-				    });
-				});
-			</script>
-		</div>
-	    <div class="clearfix"> </div>
-	</div>	<!---->
-	<div class="footer">
 
-		<div class="footer-top">
-			<div class="container">
-				<div class="clearfix"> </div>
+			<div class="fh5co-menu">
+				<div class="fh5co-box">
+					<h3 class="heading">Danh muc</h3>
+					<ul>
+						<li><a href="#">Ban Hang</a></li>
+						<li><a href="#">Lap gia Tivi</a></li>
+						<li><a href="#">Sua chua dien lanh</a></li>
+						<li><a href="#">Mua Ban do cu</a></li>
+						<li><a href="#">Lien He</a></li>
+					</ul>
+				</div>
+				<div class="contact">
+					SDT: <br>
+					Dia chi:
+				</div>
 			</div>
 		</div>
-		<div class="footer-bottom" style="background-color: rgba(0, 43, 255, 0.21);">
-			<div class="container">
-				<div class="footer-bottom-cate">
-				<div style="margin-top: 15px; width: 200px; margin:auto;>
-            		<p class="copy-right">&copy; 2017 Gia Dung Van Phong</p>
+		<!-- END #fh5co-offcanvas -->
+		<header id="fh5co-header">
+			<div class="container-fluid">
+				<div class="row">
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 				</div>
-				</div>
-				<div class="clearfix"> </div>
 			</div>
-		</div>
+		</header>
+		<!-- END #fh5co-header -->
+		@yield('content')
+
+		<footer id="fh5co-footer">
+			<p>&copy; 2017. Mua ban, sua chua do dien gia dung.</p>
+		</footer>
 	</div>
 </body>
 </html>

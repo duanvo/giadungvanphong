@@ -42,7 +42,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'dientudandung',
+            'database' => 'giadungvanphong',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',

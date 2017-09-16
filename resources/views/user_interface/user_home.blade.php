@@ -1,96 +1,46 @@
+@extends('user_interface.user_layout')
 
-	@extends('user_interface.user_layout')
+@section('content')
+	<div class="container-fluid">
+		<div class="row fh5co-post-entry">
+			<div class="products">Ban Hang <a href="{{route('banhang.all')}}" class="view_all">Xem tat ca</a></div>
+			<div class="banhang">
+				@foreach($banhang as $banhang)
+				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+					<figure>
+						<a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}"><img src="{{$banhang->image_path}}" alt="Image" class="img-responsive"></a>
+					</figure>
+					<span class="fh5co-meta">
+						@if($banhang->type == 'dienmay')
+						 <a href="{{ route('banhang.dienmay') }}">(Điện máy)</a>
+						@endif
+						@if($banhang->type == 'vanphong')
+						 <a href="{{ route('banhang.vanphong') }}">(Văn phòng)</a>
+						@endif
+						@if($banhang->type == 'dogiadung')
+						 <a href="{{ route('banhang.dogiadung') }}">(Đồ gia dụng)</a>
+						@endif
+					</span>
+					<h2 class="fh5co-article-title"><a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}">{{convert_tittle($banhang->tittle)}}</a></h2>
+					<span class="fh5co-meta fh5co-date">{{$banhang->cost_discount}}</span>
+					<span class="fh5co-meta fh5co-date">{{$banhang->cost}}</span>
+				</article>
+				@endforeach
+			</div>
 
-	@section('content')
-		<div class="shoes-grid">
-   		    <div class="products">
-   		     	<h5 class="latest-product">BAN HANG</h5>
-   		     	  <a class="view-all" href="{{route('banhang.all')}}">Xem tất cả<span> </span></a>
-   		    </div>
-   		    <div class="product-left">
-               @foreach($banhang as $banhang)
-   		     	<div class="col-md-4 chain-grid">
-   		     		<a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}"><img class="img-responsive chain" src="{{$banhang->image_path}}" alt=" " /></a>
-   		     		<div class="grid-chain-bottom">
-                  <span class="discount">- {{round($banhang->cost_discount/$banhang->cost*100)}}%</span>
-   		     			<h6><a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}">{{convert_tittle($banhang->tittle)}}</a></h6>
-   		     			<div class="star-price">
-   		     				<div class="dolor-grid">
-                           <span class="actual" style="font-weight: 400;">{{$banhang->cost_discount}}</span></br>
-	   		     				<span class="actual" style="text-decoration: line-through; font-weight: 500; font-style: italic; color: rgba(206, 24, 24, 0.84)">{{$banhang->cost}}</span>
-   		     				</div>
-   		     				<div class="clearfix"> </div>
-						</div>
-   		     		</div>
-   		     	</div>
-               @endforeach
-   		    </div>
-
-   		    <div class="products">
-   		     	<h5 class="latest-product">SUA CHUA</h5>
-   		     	  <a class="view-all" href="{{route('suachua.all')}}">Xem tất cả<span> </span></a>
-   		    </div>
-
-   		    <div class="product-left">
-               @foreach($suachua as $suachua)
-               <div class="col-md-4 chain-grid">
-                  <a href="{{route('detail_suachua',[tittle($suachua->tittle)])}}"><img class="img-responsive chain" src="{{$suachua->image_path}}" alt=" " /></a>
-                  <div class="grid-chain-bottom">
-                     <h6><a href="{{route('detail_suachua',[tittle($suachua->tittle)])}}">{{convert_tittle($suachua->tittle)}}</a></h6>
-                     <div class="star-price">
-                        <div class="dolor-grid">
-                           <span class="actual">{{$suachua->cost}}</span>
-                        </div>
-                        <div class="clearfix"> </div>
-                  </div>
-                  </div>
-               </div>
-               @endforeach
-             </div>
-
-   		      <div class="products">
-   		     	<h5 class="latest-product">LAP GIA TIVI</h5>
-   		     	  <a class="view-all" href="{{route('lapgiativi.all')}}">Xem tất cả<span> </span></a>
-   		    </div>
-
-   		    <div class="product-left">
-               @foreach($lapgiativi as $lapgiativi)
-               <div class="col-md-4 chain-grid">
-                  <a href="{{route('detail_lapgiativi',[tittle($lapgiativi->tittle)])}}"><img class="img-responsive chain" src="{{$lapgiativi->image_path}}" alt=" " /></a>
-                  <div class="grid-chain-bottom">
-                     <h6><a href="{{route('detail_lapgiativi',[tittle($lapgiativi->tittle)])}}">{{convert_tittle($lapgiativi->tittle)}}</a></h6>
-                     <div class="star-price">
-                        <div class="dolor-grid">
-                           <span class="actual">{{$lapgiativi->cost}}</span>
-                        </div>
-                        <div class="clearfix"> </div>
-                  </div>
-                  </div>
-               </div>
-               @endforeach
-             </div>
-
-   		      <div class="products">
-   		     	<h5 class="latest-product">Mua Bán Đồ Cũ</h5>
-   		     	  <a class="view-all" href="{{route('muabandocu.all')}}">Xem tất cả<span> </span></a>
-   		    </div>
-
-   		    <div class="product-left">
-               @foreach($muabandocu as $muabandocu)
-               <div class="col-md-4 chain-grid">
-                  <a href="{{route('detail_muabandocu',[tittle($muabandocu->tittle)])}}"><img class="img-responsive chain" src="{{$muabandocu->image_path}}" alt=" " /></a>
-                  <div class="grid-chain-bottom">
-                     <h6><a href="{{route('detail_muabandocu',[tittle($muabandocu->tittle)])}}">{{convert_tittle($muabandocu->tittle)}}</a></h6>
-                     <div class="star-price">
-                        <div class="dolor-grid">
-                           <span class="actual">{{$muabandocu->cost}}</span>
-                        </div>
-                        <div class="clearfix"> </div>
-                  </div>
-                  </div>
-               </div>
-               @endforeach
-             </div>
-   		    <div class="clearfix"> </div>
-		   </div>
-    @stop
+			<div class="products">Mua ban do cu <a href="{{route('muabandocu.all')}}" class="view_all">Xem tat ca</a></div>
+			<div class="docu">
+				@foreach($muabandocu as $muabandocu)
+				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+					<figure>
+						<a href="{{route('detail_muabandocu',[tittle($muabandocu->tittle)])}}"><img class="img-responsive chain" src="{{$muabandocu->image_path}}" alt=" " /></a>
+					</figure>
+					<span class="fh5co-meta"><a href="">({{convert_tittle($muabandocu->type)}})</a></span>
+					<h2 class="fh5co-article-title"><a href="{{route('detail_muabandocu',[tittle($muabandocu->tittle)])}}">Tu lanh cu</a></h2>
+					<span class="fh5co-meta fh5co-date">{{$muabandocu->cost}}</span>
+				</article>
+				@endforeach
+			</div>
+		</div>
+	</div>
+@stop
