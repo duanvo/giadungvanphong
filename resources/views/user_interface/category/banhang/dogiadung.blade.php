@@ -1,36 +1,41 @@
 
-
 	@extends('user_interface.user_layout')
 
 	@section('content')
+	<div class="container-fluid">
 		<div class="women-product">
 			<div class=" w_content">
 				<div class="women">
-					<a><h4>Tổng sản phẩm - <span>{{$total_product}} sản phẩm</span> </h4></a>
+					<h4 style="float: left;font-family: fantasy;">Đồ Gia Dụng</h4>
+					<a><h4 style="float: right;text-transform: capitalize;">Tổng sản phẩm - <span>{{$total_product}} sản phẩm</span> </h4></a>
 				     <div class="clearfix"> </div>
 				</div>
 			</div>
 			<!-- grids_of_4 -->
-			<div class="grid-product">
-				@foreach ($banhang_dogiadung as $banhang_dogiadung)
-				<div class="  product-grid">
-					<div class="content_box" style="width: 85%;">
-						<a href="{{route('detail_banhang',[tittle($banhang_dogiadung->tittle)])}}">
-						   	<div class="left-grid-view grid-view-left">
-						   	   	<img style="cursor: pointer;" src="/dientudandung/{{$banhang_dogiadung->image_path}}" class="img-responsive watch-right" alt=""/>
-						   	   	<div class="mask">
-			                        <div class="info"></div>
-					            </div>
-							</div>
-				   	    </a>
-					    <h4>
-					    	<a href="{{route('detail_banhang',[tittle($banhang_dogiadung->tittle)])}}"> <h4 align="center">{{convert_tittle($banhang_dogiadung->tittle)}}</h4></a>
-					    </h4>
-					    <p align="center" style="font-size: 16px;">{{$banhang_dogiadung->cost}}</p>
-				   	</div>
-	            </div>
+			<div class="row fh5co-post-entry">
+				@foreach ($banhang_dogiadung as $banhang)
+				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+					<figure>
+						<a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}"><img src="http://localhost/giadungvanphong/{{$banhang->image_path}}" alt="Image" class="img-responsive"></a>
+					</figure>
+					<span class="fh5co-meta">
+						@if($banhang->type == 'dienmay')
+						 <a href="{{ route('banhang.dienmay') }}">(Điện máy)</a>
+						@endif
+						@if($banhang->type == 'vanphong')
+						 <a href="{{ route('banhang.vanphong') }}">(Văn phòng)</a>
+						@endif
+						@if($banhang->type == 'dogiadung')
+						 <a href="{{ route('banhang.dogiadung') }}">(Đồ gia dụng)</a>
+						@endif
+					</span>
+					<h2 class="fh5co-article-title"><a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}">{{convert_tittle($banhang->tittle)}}</a></h2>
+					<span class="fh5co-meta fh5co-date">{{$banhang->cost_discount}}</span>
+					<span class="fh5co-meta fh5co-date" style="text-decoration: line-through;">{{$banhang->cost}}</span>
+				</article>
 			    @endforeach
 				<div class="clearfix"> </div>
 			</div>
 		</div>
+	</div>
 	@stop

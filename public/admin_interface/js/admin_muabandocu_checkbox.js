@@ -30,8 +30,8 @@ function ckeditor(name, config, toolbar){
 
 	config = {};
 	config.entities_latin = false;
-	config.filebrowserBrowseUrl ='/studyenglishtoday/public/editor/ckfinder/ckfinder.html';
-	config.filebrowserImageBrowseUrl = '/studyenglishtoday/public/editor/ckfinder/ckfinder.html';
+	config.filebrowserBrowseUrl ='/giadungvanphong/public/editor/ckfinder/ckfinder.html';
+	config.filebrowserImageBrowseUrl = '/giadungvanphong/public/editor/ckfinder/ckfinder.html';
 	config.extraPlugins = 'youtube';
 
 	if(toolbar == 'standard'){
@@ -166,7 +166,7 @@ $('#add_muabandocu').click(function(){
 			    }
 			});
 			$.ajax({
-				url:'/dientudandung/admin/muabandocu/add',
+				url:'/giadungvanphong/admin/muabandocu/add',
 				type:"POST",
 				asnyc:true,
 				dataType:"json",
@@ -187,11 +187,11 @@ $('#add_muabandocu').click(function(){
 						}
 					}
 					if(data.add_muabandocu==true){
-						$('#muabandocu_table').load('/dientudandung/admin/muabandocu/show #muabandocu_table');
+						$('#muabandocu_table').load('/giadungvanphong/admin/muabandocu/show #muabandocu_table');
 						setTimeout(function() { $('#addmuabandocuModal').modal('hide');}, 200);
 						setTimeout(function(){ $("#add_muabandocu_success").modal('show');},1000);
 						setTimeout(function(){ $("#add_muabandocu_success").modal('hide'); },3000);
-						setTimeout(function() { window.location.href = "/dientudandung/admin/muabandocu/show";}, 3200);
+						setTimeout(function() { window.location.href = "/giadungvanphong/admin/muabandocu/show";}, 3200);
 					}
 				}
 			})
@@ -209,7 +209,7 @@ $("#view_muabandocu").click(function(){
 		id=searchID[0];
 		//console.log(id);
 		$.ajax({
-			url:'/dientudandung/admin/muabandocu/information',
+			url:'/giadungvanphong/admin/muabandocu/information',
 			type:"GET",
 			data:{"id":id},
 			success:function(result){
@@ -247,7 +247,7 @@ $("#edit_muabandocu").click(function(){
 		id=searchID[0];
 		$("#editmuabandocuModal").modal('show');
 		$.ajax({
-			url:'/dientudandung/admin/muabandocu/edit',
+			url:'/giadungvanphong/admin/muabandocu/edit',
 			type:"GET",
 			data:{"id":id},
 			success:function(result){
@@ -295,7 +295,7 @@ $("#edit_muabandocu").click(function(){
 						    }
 						});
 						$.ajax({
-							url:'/dientudandung/admin/muabandocu/edit',
+							url:'/giadungvanphong/admin/muabandocu/edit',
 							type:"POST",
 							asnyc:true,
 							dataType:"json",
@@ -316,11 +316,11 @@ $("#edit_muabandocu").click(function(){
 									}
 								}
 								if(data.edit_muabandocu==true){
-									$('#muabandocu_table').load('/dientudandung/admin/muabandocu/show #muabandocu_table');
+									$('#muabandocu_table').load('/giadungvanphong/admin/muabandocu/show #muabandocu_table');
 									setTimeout(function() { $('#editmuabandocuModal').modal('hide');}, 200);
 									setTimeout(function(){ $("#edit_muabandocu_success").modal('show');},1000);
 									setTimeout(function(){ $("#edit_muabandocu_success").modal('hide'); },3000);
-									setTimeout(function() { window.location.href = "/dientudandung/admin/muabandocu/show";}, 3200);
+									setTimeout(function() { window.location.href = "/giadungvanphong/admin/muabandocu/show";}, 3200);
 								}
 							}
 						})
@@ -346,7 +346,7 @@ $("#delete_muabandocu").click(function(){
 			    }
 			});
 			$.ajax({
-				url:'/dientudandung/admin/muabandocu/delete',
+				url:'/giadungvanphong/admin/muabandocu/delete',
 				type:"POST",
 				data:{"id":id},
 				success:function(data){
@@ -354,7 +354,7 @@ $("#delete_muabandocu").click(function(){
 						$('tr#'+id+'').fadeOut(1000);
 					}
 					setTimeout(function(){$('#deletemuabandocuModal').modal('hide');},500)
-					setTimeout(function(){window.location.href="/dientudandung/admin/muabandocu/show";},1000);
+					setTimeout(function(){window.location.href="/giadungvanphong/admin/muabandocu/show";},1000);
 				}
 			})
 		})

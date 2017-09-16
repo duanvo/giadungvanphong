@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('public/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('public/admin_interface/css/bootstrap.css')}}">
     <!-- Custom Fonts -->
     <link rel="stylesheet" type="text/css" href="{{URL::asset('public/admin_interface/css/font-awesome/font-awesome.min.css')}}">
     <!-- MetisMenu CSS -->
@@ -26,19 +26,19 @@
 
 <!-- SCRIPT -->
     <!-- jQuery -->
-    <script type="text/javascript" src="{{URL::asset('public/jquery/jquery-3.2.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{URL::asset('public/admin_interface/js/jquery-3.2.1.min.js')}}"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{URL::asset('public/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('public/admin_interface/js/bootstrap.min.js')}}"></script>
     <!-- Validate -->
-    <script type="text/javascript" src="{{URL::asset('public/jquery/jquery.validate.min.js')}}"></script>
+    <script type="text/javascript" src="{{URL::asset('public/admin_interface/js/jquery.validate.min.js')}}"></script>
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{URL::asset('public/admin_interface/js/metisMenu/metisMenu.min.js')}}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="{{URL::asset('public/admin_interface/js/sb-admin-2.js')}}"></script>
 
     <!-- Ckeditor and Ckfinder -->
-    <script type="text/javascript" src="{{URL::asset('public/ckeditor/ckeditor.js')}}" ></script>
-    <script type="text/javascript" src="{{URL::asset('public/ckfinder/ckfinder.js')}}" ></script>
+    <script type="text/javascript" src="{{URL::asset('public/admin_interface/ckeditor/ckeditor.js')}}" ></script>
+    <script type="text/javascript" src="{{URL::asset('public/admin_interface/ckfinder/ckfinder.js')}}" ></script>
 
     <!-- /jQuery -->
 

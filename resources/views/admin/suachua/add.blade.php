@@ -19,7 +19,7 @@
                         </div>
                     </div>
 
-                    <!-- Add Level -->
+                    <!-- Add type -->
                     <div class="form-group ">
                         <label for="level" class="col-md-2 control-label">Loại hàng sửa chữa</label>
                         <div class="col-md-9">
@@ -33,32 +33,6 @@
                            </select>
                         </div>
                     </div>
-
-                    <!-- Add Cost -->
-                    <div class="form-group">
-                        <label for="cost" class="col-md-2 control-label">Gía sửa chữa</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="add_cost_suachua" name="add_cost_suachua" placeholder="Gía sản phẩm">
-                            <div class="has-error"><i><span class="help-block errorCost_add"></span></i></div>
-                        </div>
-                    </div>
-                    <!-- Add Images -->
-                    <div class="form-group">
-                        <label for="file_suachua_main" class="col-md-2 control-label">Ảnh minh họa</label>
-                        <div class="col-md-9">
-                            <input id="file_suachua_main" type="file" name="file_suachua_main" multiple/>
-                            <div id="result_suachua" /></div>
-                        </div>
-                    </div>
-                    <!-- Add Images -->
-                    <div class="form-group">
-                        <label for="file_suachua" class="col-md-2 control-label">Ảnh chi tiết</label>
-                        <div class="col-md-9">
-                            <input id="file_suachua" type="file" name="file_suachua[]" multiple/>
-                            <div id="result_suachua" /></div>
-                        </div>
-                    </div>
-
                     <!-- Add Introduce -->
                     <div class="form-group">
                         <label for="introduce" class="col-md-2 control-label">Thông tin sửa chữa</label>
@@ -69,7 +43,7 @@
                     </div>
 					<div class="form-group" style="width:90px; margin:auto; display: none;" id="loading_add_suachua">
                         <div><p class="text-danger" ><b>Please wait...</b></p></div>
-                        <div><img src='/laravel1/storage/uploads/loading_images/loading.gif' /></div>
+                        <div><img src='/giadungvanphong/storage/uploads/loading_images/loading.gif' /></div>
                     </div>
                     <!-- Submit -->
                     <div class="form-group">

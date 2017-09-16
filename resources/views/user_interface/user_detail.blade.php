@@ -10,21 +10,21 @@
 					<ul id="etalage">
 						<li>
 							<a href="optionallink.html">
-								<img class="etalage_thumb_image" src="/dientudandung/public/user_interface/images/tulanh.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="/dientudandung/public/user_interface/images/tulanh.jpg" class="img-responsive" title="" />
+								<img class="etalage_thumb_image" src="/giadungvanphong/public/user_interface/images/tulanh.jpg" class="img-responsive" />
+								<img class="etalage_source_image" src="/giadungvanphong/public/user_interface/images/tulanh.jpg" class="img-responsive" title="" />
 							</a>
 						</li>
 						<li>
-							<img class="etalage_thumb_image" src="/dientudandung/public/user_interface/images/giativi.jpg" class="img-responsive" />
-							<img class="etalage_source_image" src="/dientudandung/public/user_interface/images/giative.jpg" class="img-responsive" title="" />
+							<img class="etalage_thumb_image" src="/giadungvanphong/public/user_interface/images/giativi.jpg" class="img-responsive" />
+							<img class="etalage_source_image" src="/giadungvanphong/public/user_interface/images/giative.jpg" class="img-responsive" title="" />
 						</li>
 						<li>
-							<img class="etalage_thumb_image" src="/dientudandung/public/user_interface/images/suadieuhoa.jpg" class="img-responsive"  />
-							<img class="etalage_source_image" src="/dientudandung/public/user_interface/images/suadieuhoa.jpg.jpg"class="img-responsive"  />
+							<img class="etalage_thumb_image" src="/giadungvanphong/public/user_interface/images/suadieuhoa.jpg" class="img-responsive"  />
+							<img class="etalage_source_image" src="/giadungvanphong/public/user_interface/images/suadieuhoa.jpg.jpg" class="img-responsive"  />
 						</li>
 					    <li>
-							<img class="etalage_thumb_image" src="/dientudandung/public/user_interface/images/tulanhcu.jpg" class="img-responsive"  />
-							<img class="etalage_source_image" src="/dientudandung/public/user_interface/images/tulanhcu.jpg"class="img-responsive"  />
+							<img class="etalage_thumb_image" src="/giadungvanphong/public/user_interface/images/tulanhcu.jpg" class="img-responsive"  />
+							<img class="etalage_source_image" src="/giadungvanphong/public/user_interface/images/tulanhcu.jpg" class="img-responsive"  />
 						</li>
 					</ul>
 					<div class="clearfix"> </div>
@@ -41,10 +41,10 @@
 		   			<div class="share">
 						<h5>Share Product :</h5>
 						<ul class="share_nav">
-							<li><a href="#"><img src="/dientudandung/public/user_interface/images/facebook.png" title="facebook"></a></li>
-							<li><a href="#"><img src="/dientudandung/public/user_interface/images/twitter.png" title="Twiiter"></a></li>
-							<li><a href="#"><img src="/dientudandung/public/user_interface/images/rss.png" title="Rss"></a></li>
-							<li><a href="#"><img src="/dientudandung/public/user_interface/images/gpluse.png" title="Google+"></a></li>
+							<li><a href="#"><img src="/giadungvanphong/public/user_interface/images/facebook.png" title="facebook"></a></li>
+							<li><a href="#"><img src="/giadungvanphong/public/user_interface/images/twitter.png" title="Twiiter"></a></li>
+							<li><a href="#"><img src="/giadungvanphong/public/user_interface/images/rss.png" title="Rss"></a></li>
+							<li><a href="#"><img src="/giadungvanphong/public/user_interface/images/gpluse.png" title="Google+"></a></li>
 			    		</ul>
 					</div>
 				</div>
@@ -57,15 +57,15 @@
           	</div>
 
           	<ul id="flexiselDemo1">
-				<li><img src="/dientudandung/public/user_interface/images/tulanh.jpg" /><div class="grid-flex"><a href="{{route('detail')}}">Bloch</a><p>Rs 850</p></div></li>
+				<li><img src="/giadungvanphong/public/user_interface/images/tulanh.jpg" /><div class="grid-flex"><a href="{{route('detail')}}">Bloch</a><p>Rs 850</p></div></li>
 
-				<li><img src="/dientudandung/public/user_interface/images/suadieuhoa.jpg" /><div class="grid-flex"><a href="{{route('detail')}}">Capzio</a><p>Rs 850</p></div></li>
+				<li><img src="/giadungvanphong/public/user_interface/images/suadieuhoa.jpg" /><div class="grid-flex"><a href="{{route('detail')}}">Capzio</a><p>Rs 850</p></div></li>
 
-				<li><img src="/dientudandung/public/user_interface/images/giativi.jpg" /><div class="grid-flex"><a href="{{route('detail')}}">Zumba</a><p>Rs 850</p></div></li>
+				<li><img src="/giadungvanphong/public/user_interface/images/giativi.jpg" /><div class="grid-flex"><a href="{{route('detail')}}">Zumba</a><p>Rs 850</p></div></li>
 
-				<li><img src="/dientudandung/public/user_interface/images/tulanhcu.jpg" /><div class="grid-flex"><a href="{{route('detail')}}">Bloch</a><p>Rs 850</p></div></li>
+				<li><img src="/giadungvanphong/public/user_interface/images/tulanhcu.jpg" /><div class="grid-flex"><a href="{{route('detail')}}">Bloch</a><p>Rs 850</p></div></li>
 
-				<li><img src="/dientudandung/public/user_interface/images/pi4.jpg" /><div class="grid-flex"><a href="#">Capzio</a><p>Rs 850</p></div></li>
+				<li><img src="/giadungvanphong/public/user_interface/images/pi4.jpg" /><div class="grid-flex"><a href="#">Capzio</a><p>Rs 850</p></div></li>
 			</ul>
 
 		    <script type="text/javascript">

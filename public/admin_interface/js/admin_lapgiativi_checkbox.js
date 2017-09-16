@@ -30,8 +30,8 @@ function ckeditor(name, config, toolbar){
 
 	config = {};
 	config.entities_latin = false;
-	config.filebrowserBrowseUrl ='/studyenglishtoday/public/editor/ckfinder/ckfinder.html';
-	config.filebrowserImageBrowseUrl = '/studyenglishtoday/public/editor/ckfinder/ckfinder.html';
+	config.filebrowserBrowseUrl ='/giadungvanphong/public/admin_interface/ckfinder/ckfinder.html';
+	config.filebrowserImageBrowseUrl = '/giadungvanphong/public/admin_interface/ckfinder/ckfinder.html';
 	config.extraPlugins = 'youtube';
 
 	if(toolbar == 'standard'){
@@ -132,9 +132,6 @@ $('#add_lapgiativi').click(function(){
 			add_tittle_lapgiativi:{
 				required:true
 			},
-			add_cost_lapgiativi:{
-				required:true
-			},
 			add_introduce_lapgiativi:{
 				required:true
 			}
@@ -142,9 +139,6 @@ $('#add_lapgiativi').click(function(){
 		messages:{
 			add_tittle_lapgiativi:{
 				required:"Mời nhập tiêu đề"
-			},
-			add_cost_lapgiativi:{
-				required:"Mời nhập gía"
 			},
 			add_introduce_lapgiativi:{
 				required:"Mời nhập thông tin"
@@ -158,7 +152,7 @@ $('#add_lapgiativi').click(function(){
 			    }
 			});
 			$.ajax({
-				url:'/dientudandung/admin/lapgiativi/add',
+				url:'/giadungvanphong/admin/lapgiativi/add',
 				type:"POST",
 				asnyc:true,
 				dataType:"json",
@@ -180,11 +174,11 @@ $('#add_lapgiativi').click(function(){
 						}
 					}
 					if(data.add_lapgiativi==true){
-						$('#lapgiativi_table').load('/dientudandung/admin/lapgiativi/show #lapgiativi_table');
+						$('#lapgiativi_table').load('/giadungvanphong/admin/lapgiativi/show #lapgiativi_table');
 						setTimeout(function() { $('#addlapgiativiModal').modal('hide');}, 200);
 						setTimeout(function(){ $("#add_lapgiativi_success").modal('show');},1000);
 						setTimeout(function(){ $("#add_lapgiativi_success").modal('hide'); },3000);
-						setTimeout(function() { window.location.href = "/dientudandung/admin/lapgiativi/show";}, 3200);
+						setTimeout(function() { window.location.href = "/giadungvanphong/admin/lapgiativi/show";}, 3200);
 					}
 				}
 			})
@@ -201,13 +195,13 @@ $('#view_lapgiativi').click(function(){
 		$('#viewlapgiativiModal').modal('show');
 
 		$.ajax({
-			url:'/dientudandung/admin/lapgiativi/information',
+			url:'/giadungvanphong/admin/lapgiativi/information',
 			type:'GET',
 			data:{"id":id},
 			success:function(result){
 				//console.log(result[0]);
 				$('#view_tittle_lapgiativi').text(result[0].tittle);
-				$('#view_image_lapgiativi').append('<img src="'+ "/dientudandung/" + result[0].image_path +'" alt="" />');
+				$('#view_image_lapgiativi').append('<img src="'+ "/giadungvanphong/" + result[0].image_path +'" alt="" />');
 				$('#view_introduce_lapgiativi').html(result[0].introduce);
 				var d = new Date();
 					var my_date_format = function(input){
@@ -235,7 +229,7 @@ $('#edit_lapgiativi').click(function(){
 		id=searchID[0];
 		$('#editlapgiativiModal').modal('show');
 		$.ajax({
-			url:'/dientudandung/admin/lapgiativi/edit',
+			url:'/giadungvanphong/admin/lapgiativi/edit',
 			type:"GET",
 			data:{"id":id},
 			success:function(result){
@@ -250,9 +244,6 @@ $('#edit_lapgiativi').click(function(){
 						edit_tittle_lapgiativi:{
 							required:true
 						},
-						edit_cost_lapgiativi:{
-							required:true
-						},
 						edit_introduce_lapgiativi:{
 							required:true
 						}
@@ -260,9 +251,6 @@ $('#edit_lapgiativi').click(function(){
 					messages:{
 						edit_tittle_lapgiativi:{
 							required:"Mời nhập tiêu đề"
-						},
-						edit_cost_lapgiativi:{
-							required:"Mời nhập gía"
 						},
 						edit_introduce_lapgiativi:{
 							required:"Mời nhập thông tin"
@@ -276,7 +264,7 @@ $('#edit_lapgiativi').click(function(){
 						    }
 						});
 						$.ajax({
-							url:'/dientudandung/admin/lapgiativi/edit',
+							url:'/giadungvanphong/admin/lapgiativi/edit',
 							type:"POST",
 							asnyc:true,
 							dataType:"json",
@@ -298,11 +286,11 @@ $('#edit_lapgiativi').click(function(){
 									}
 								}
 								if(data.edit_lapgiativi==true){
-									$('#lapgiativi_table').load('/dientudandung/admin/lapgiativi/show #lapgiativi_table');
+									$('#lapgiativi_table').load('/giadungvanphong/admin/lapgiativi/show #lapgiativi_table');
 									setTimeout(function() { $('#editlapgiativiModal').modal('hide');}, 200);
 									setTimeout(function(){ $("#edit_lapgiativi_success").modal('show');},1000);
 									setTimeout(function(){ $("#edit_lapgiativi_success").modal('hide'); },3000);
-									setTimeout(function() { window.location.href = "/dientudandung/admin/lapgiativi/show";}, 3200);
+									setTimeout(function() { window.location.href = "/giadungvanphong/admin/lapgiativi/show";}, 3200);
 								}
 							}
 						})
@@ -327,7 +315,7 @@ $("#delete_lapgiativi").click(function(){
 			    }
 			});
 			$.ajax({
-				url:'/dientudandung/admin/lapgiativi/delete',
+				url:'/giadungvanphong/admin/lapgiativi/delete',
 				type:'POST',
 				data:{"id":id},
 
@@ -336,7 +324,7 @@ $("#delete_lapgiativi").click(function(){
 						$('tr#'+id+'').fadeOut(1000);
 					}
 					setTimeout(function(){$('#deletelapgiativiModal').modal('hide');},500)
-					setTimeout(function(){window.location.href="/dientudandung/admin/lapgiativi/show";},1000);
+					setTimeout(function(){window.location.href="/giadungvanphong/admin/lapgiativi/show";},1000);
 				}
 			})
 		})

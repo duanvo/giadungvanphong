@@ -30,8 +30,8 @@ function ckeditor(name, config, toolbar){
 
 	config = {};
 	config.entities_latin = false;
-	config.filebrowserBrowseUrl ='/studyenglishtoday/public/editor/ckfinder/ckfinder.html';
-	config.filebrowserImageBrowseUrl = '/studyenglishtoday/public/editor/ckfinder/ckfinder.html';
+	config.filebrowserBrowseUrl ='/giadungvanphong/public/admin_interface/ckfinder/ckfinder.html';
+	config.filebrowserImageBrowseUrl = '/giadungvanphong/public/admin_interface/ckfinder/ckfinder.html';
 	config.extraPlugins = 'youtube';
 
 	if(toolbar == 'standard'){
@@ -135,9 +135,6 @@ $('#add_suachua').click(function(){
 			add_type_suachua:{
 				required:true
 			},
-			add_cost_suachua:{
-				required:true
-			},
 			add_introduce_suachua:{
 				required:true
 			}
@@ -145,9 +142,6 @@ $('#add_suachua').click(function(){
 		messages:{
 			add_tittle_suachua:{
 				required:"Mời nhập tiêu đề"
-			},
-			add_type_suachua:{
-				required:"Mời nhập loại sản phẩm sửa chữa"
 			},
 			add_cost_suachua:{
 				required:"Mời nhập gía"
@@ -163,7 +157,7 @@ $('#add_suachua').click(function(){
 			    }
 			});
 			$.ajax({
-				url:'/dientudandung/admin/suachua/add',
+				url:'/giadungvanphong/admin/suachua/add',
 				type:"POST",
 				asnyc:true,
 				dataType:"json",
@@ -185,11 +179,11 @@ $('#add_suachua').click(function(){
 						}
 					}
 					if(data.add_suachua==true){
-						$('#suachua_table').load('/dientudandung/admin/suachua/show #suachua_table');
+						$('#suachua_table').load('/giadungvanphong/admin/suachua/show #suachua_table');
 						setTimeout(function() { $('#addsuachuaModal').modal('hide');}, 200);
 						setTimeout(function(){ $("#add_suachua_success").modal('show');},1000);
 						setTimeout(function(){ $("#add_suachua_success").modal('hide'); },3000);
-						setTimeout(function() { window.location.href = "/dientudandung/admin/suachua/show";}, 3200);
+						setTimeout(function() { window.location.href = "/giadungvanphong/admin/suachua/show";}, 3200);
 					}
 				}
 			})
@@ -210,7 +204,7 @@ $("#view_suachua").click(function(){
 		console.log(id);
 
 		$.ajax({
-			url:'/dientudandung/admin/suachua/information',
+			url:'/giadungvanphong/admin/suachua/information',
 			type:"GET",
 			data:{"id":id},
 			success:function(result){
@@ -248,7 +242,7 @@ $("#edit_suachua").click(function(){
 		id=searchId[0];
 
 		$.ajax({
-			url:'/dientudandung/admin/suachua/edit',
+			url:'/giadungvanphong/admin/suachua/edit',
 			type:"GET",
 			data:{"id":id},
 			success:function(result){
@@ -269,9 +263,6 @@ $("#edit_suachua").click(function(){
 						edit_type_suachua:{
 							required:true
 						},
-						edit_cost_suachua:{
-							required:true
-						},
 						edit_introduce_suachua:{
 							required:true
 						}
@@ -282,9 +273,6 @@ $("#edit_suachua").click(function(){
 						},
 						edit_type_suachua:{
 							required:"Mời nhập loại sản phẩm sửa chữa"
-						},
-						edit_cost_suachua:{
-							required:"Mời nhập gía"
 						},
 						edit_introduce_suachua:{
 							required:"Nhập mô tả"
@@ -297,7 +285,7 @@ $("#edit_suachua").click(function(){
 						    }
 						});
 						$.ajax({
-							url:'/dientudandung/admin/suachua/edit',
+							url:'/giadungvanphong/admin/suachua/edit',
 							type:'POST',
 							asnyc:true,
 							dataType:"json",
@@ -319,11 +307,11 @@ $("#edit_suachua").click(function(){
 									}
 								}
 								if(data.edit_suachua==true){
-									$('#suachua_table').load('/dientudandung/admin/suachua/show #suachua_table');
+									$('#suachua_table').load('/giadungvanphong/admin/suachua/show #suachua_table');
 									setTimeout(function() { $('#editsuachuaModal').modal('hide');}, 200);
 									setTimeout(function(){ $("#edit_suachua_success").modal('show');},1000);
 									setTimeout(function(){ $("#edit_suachua_success").modal('hide'); },3000);
-									setTimeout(function() { window.location.href = "/dientudandung/admin/suachua/show";}, 3200);
+									setTimeout(function() { window.location.href = "/giadungvanphong/admin/suachua/show";}, 3200);
 								}
 							}
 						})
@@ -348,7 +336,7 @@ $("#delete_suachua").click(function(){
 			    }
 			});
 			$.ajax({
-				url:'/dientudandung/admin/suachua/delete',
+				url:'/giadungvanphong/admin/suachua/delete',
 				type:'POST',
 				data:{"id":id},
 				success:function(data){
@@ -356,7 +344,7 @@ $("#delete_suachua").click(function(){
 						$('tr#'+id+'').fadeOut(1000);
 					}
 					setTimeout(function(){$('#deletesuachuaModal').modal('hide');},500)
-					setTimeout(function(){window.location.href="/dientudandung/admin/suachua/show";},1000);
+					setTimeout(function(){window.location.href="/giadungvanphong/admin/suachua/show";},1000);
 				}
 			})
 		})

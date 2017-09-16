@@ -3,7 +3,7 @@
 @section('content')
 	<div class="container-fluid">
 		<div class="row fh5co-post-entry">
-			<div class="products">Ban Hang <a href="{{route('banhang.all')}}" class="view_all">Xem tat ca</a></div>
+			<div class="products">Bán hàng <a href="{{route('banhang.all')}}" class="view_all">Xem tất cả</a></div>
 			<div class="banhang">
 				@foreach($banhang as $banhang)
 				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
@@ -22,13 +22,13 @@
 						@endif
 					</span>
 					<h2 class="fh5co-article-title"><a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}">{{convert_tittle($banhang->tittle)}}</a></h2>
-					<span class="fh5co-meta fh5co-date">{{$banhang->cost_discount}}</span>
-					<span class="fh5co-meta fh5co-date">{{$banhang->cost}}</span>
+					<span class="fh5co-meta fh5co-date" style="color: #123ede">{{$banhang->cost_discount}}</span>
+					<span class="fh5co-meta fh5co-date" style="text-decoration: line-through;">{{$banhang->cost}}</span>
 				</article>
 				@endforeach
 			</div>
 
-			<div class="products">Mua ban do cu <a href="{{route('muabandocu.all')}}" class="view_all">Xem tat ca</a></div>
+			<div class="products">Mua bán đồ cũ <a href="{{route('muabandocu.all')}}" class="view_all">Xem tất cả</a></div>
 			<div class="docu">
 				@foreach($muabandocu as $muabandocu)
 				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">

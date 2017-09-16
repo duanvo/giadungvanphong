@@ -30,8 +30,8 @@ function ckeditor(name, config, toolbar){
 
 	config = {};
 	config.entities_latin = false;
-	config.filebrowserBrowseUrl ='/studyenglishtoday/public/editor/ckfinder/ckfinder.html';
-	config.filebrowserImageBrowseUrl = '/studyenglishtoday/public/editor/ckfinder/ckfinder.html';
+	config.filebrowserBrowseUrl ='/giadungvanphong/public/editor/ckfinder/ckfinder.html';
+	config.filebrowserImageBrowseUrl = '/giadungvanphong/public/editor/ckfinder/ckfinder.html';
 	config.extraPlugins = 'youtube';
 
 	if(toolbar == 'standard'){
@@ -150,7 +150,7 @@ $('#add_lienhe').click(function(){
 			    }
 			});
 			$.ajax({
-				url:'/dientudandung/admin/lienhe/add',
+				url:'/giadungvanphong/admin/lienhe/add',
 				type:"POST",
 				data:{
 					'add_sdt':$('#add_sdt').val(),
@@ -168,11 +168,11 @@ $('#add_lienhe').click(function(){
 						}
 					}
 					if(data.add_lienhe==true){
-						$('#lienhe_table').load('/dientudandung/admin/lienhe/show #lienhe_table');
+						$('#lienhe_table').load('/giadungvanphong/admin/lienhe/show #lienhe_table');
 						setTimeout(function() { $('#addlienheModal').modal('hide');}, 200);
 						setTimeout(function(){ $("#add_lienhe_success").modal('show');},1000);
 						setTimeout(function(){ $("#add_lienhe_success").modal('hide'); },3000);
-						setTimeout(function() { window.location.href = "/dientudandung/admin/lienhe/show";}, 3200);
+						setTimeout(function() { window.location.href = "/giadungvanphong/admin/lienhe/show";}, 3200);
 					}
 				}
 			})
@@ -189,7 +189,7 @@ $("#edit_lienhe").click(function(){
 		$("#editlienheModal").modal('show');
 
 		$.ajax({
-			url:'/dientudandung/admin/lienhe/edit',
+			url:'/giadungvanphong/admin/lienhe/edit',
 			type:"GET",
 			data:{"id":id},
 			success:function(result){
@@ -223,7 +223,7 @@ $("#edit_lienhe").click(function(){
 						});
 
 						$.ajax({
-							url:'/dientudandung/admin/lienhe/edit',
+							url:'/giadungvanphong/admin/lienhe/edit',
 							type:"POST",
 							data:{
 								'edit_id_lienhe':$('#edit_id_lienhe').val(),
@@ -241,11 +241,11 @@ $("#edit_lienhe").click(function(){
 									}
 								}
 								if(data.edit_lienhe==true){
-									$('#lienhe_table').load('/dientudandung/admin/lienhe/show #lienhe_table');
+									$('#lienhe_table').load('/giadungvanphong/admin/lienhe/show #lienhe_table');
 									setTimeout(function() { $('#editlienheModal').modal('hide');}, 200);
 									setTimeout(function(){ $("#edit_lienhe_success").modal('show');},1000);
 									setTimeout(function(){ $("#edit_lienhe_success").modal('hide'); },3000);
-									setTimeout(function() { window.location.href = "/dientudandung/admin/lienhe/show";}, 3200);
+									setTimeout(function() { window.location.href = "/giadungvanphong/admin/lienhe/show";}, 3200);
 								}
 							}
 						})
@@ -272,7 +272,7 @@ $("#delete_lienhe").click(function(){
 			    }
 			});
 			$.ajax({
-				url:'/dientudandung/admin/lienhe/delete',
+				url:'/giadungvanphong/admin/lienhe/delete',
 				type:'POST',
 				data:{"id":id},
 				success:function(data){
@@ -280,7 +280,7 @@ $("#delete_lienhe").click(function(){
 						$('tr#'+id+'').fadeOut(1000);
 					}
 					setTimeout(function(){$('#deletelienheModal').modal('hide');},500)
-					setTimeout(function(){window.location.href="/dientudandung/admin/lienhe/show";},1000);
+					setTimeout(function(){window.location.href="/giadungvanphong/admin/lienhe/show";},1000);
 				}
 			})
 		})

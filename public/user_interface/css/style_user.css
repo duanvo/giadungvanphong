@@ -1,3 +1,5 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon/icomoon.eot?srf3rx");
@@ -44,9 +46,20 @@ a {
   transition: 0.5s;
 }
 a:hover, a:focus, a:active {
-  color: #d6236b;
+  color: red;
   outline: none;
   text-decoration: none;
+}
+
+.navbar-nav a{
+  color:#030196 !important;
+  display: block;
+    line-height: 45px;
+    color: #f2fffd;
+    font-family: 'Roboto', sans-serif !important;
+}
+.navbar-nav a:hover{
+ color: rgba(177, 16, 150, 0.72) !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -357,9 +370,14 @@ p {
     float: right;
   }
 }
-
+.fh5co-post-entry{
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+}
 .fh5co-post-entry.single-entry .fh5co-article-title {
-  font-size: 80px;
+  font-size: 40px;
 }
 @media screen and (max-width: 992px) {
   .fh5co-post-entry.single-entry .fh5co-article-title {
@@ -409,7 +427,7 @@ p {
   opacity: .4;
 }
 .fh5co-post-entry article figure {
-  margin-bottom: 30px;
+  margin-bottom: 3px;
 }
 .fh5co-post-entry article h2 {
   font-family: "Playfair Display", times, serif;
@@ -428,14 +446,14 @@ p {
 @media screen and (max-width: 768px) {
   .fh5co-post-entry article h2 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 2px;
   }
 }
 .fh5co-post-entry article .fh5co-meta {
   font-size: 18px;
   font-family: "Roboto", arial, sans-serif;
   color: #de1212;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   display: block;
 }
 @media screen and (max-width: 480px) {
@@ -638,7 +656,7 @@ figure{
 }
 
 #fh5co-footer {
-  padding: 3em 0;
+  padding: 2em 0 1em;
   text-align: center;
   background-color: rgba(79, 82, 183, 0.47);
   margin-bottom: 20px;
@@ -788,6 +806,7 @@ figure{
 .fix_top{
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
+    background-color: rgba(180, 186, 230, 0.75) !important;
 }
 
 .products{
@@ -820,4 +839,29 @@ figure{
     max-width: 70%;
     margin:auto;
   }
+  .cp-r  span{
+    font-size:30px !important;
+  }
+  .container-fluid{
+    width:95% !important;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .fh5co-post-entry{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .contact1{
+    width: 90% !important;
+    font-size: 13px;
+  }
+
+}
+
+.contact1{
+    font-style: italic;
+    font-weight: 600;
+    width: 32%;
+    float: right;
+    color: rgba(255, 0, 118, 0.96);
 }

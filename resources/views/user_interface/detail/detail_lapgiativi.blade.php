@@ -4,41 +4,20 @@
 
 	@section('content')
 
-		<div class=" single_top">
-	      <div class="single_grid">
-		      	@foreach($detail_lapgiativi as $detail_lapgiativi)
-					<h4 style="font-size: 26px;font-weight: 500;color: #363399;">{{convert_tittle($detail_lapgiativi->tittle)}}</h4><br>
-					{!!htmlspecialchars_decode($detail_lapgiativi->introduce)!!}
-		      	@endforeach
-
-          	    <div class="clearfix"> </div>
-          	</div>
-
-		    <script type="text/javascript">
-			$(window).load(function() {
-				$("#flexiselDemo1").flexisel({
-					visibleItems: 5,
-					animationSpeed: 2000,
-					autoPlay: true,
-					autoPlaySpeed: 3000,
-					pauseOnHover: true,
-					enableResponsiveBreakpoints: true,
-			    	responsiveBreakpoints: {
-			    		portrait: {
-			    			changePoint:480,
-			    			visibleItems: 1
-			    		},
-			    		landscape: {
-			    			changePoint:640,
-			    			visibleItems: 2
-			    		},
-			    		tablet: {
-			    			changePoint:768,
-			    			visibleItems: 3
-			    		}
-			    	}
-			    });
-			});
-			</script>
-  	    </div>
+	<div class="container-fluid">
+		<div class="row fh5co-post-entry single-entry">
+			@foreach($detail_lapgiativi as $detail_lapgiativi)
+			<article class="">
+				<h4 class="fh5co-article-title animate-box"><a style="font-size: 40px">{!! convert_tittle($detail_lapgiativi->tittle) !!}</a></h4>
+				<div class="text-left content-article">
+					<div class="row">
+						<div class=" cp-r animate-box">
+							{!! $detail_lapgiativi->introduce !!}
+						</div>
+					</div>
+				</div>
+			</article>
+			@endforeach
+		</div>
+	</div>
 	@stop

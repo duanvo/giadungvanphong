@@ -141,10 +141,9 @@ class HomeController extends Controller
     /*Lapgiativi*/
     public function lapgiativi_all(){
         $lienhe = Lienhe::orderBy('id','DESC')->get();
-        $lapgiativi_all = Lapgiativi::orderBy('id','DESC')->get();
-        $total_product = Lapgiativi::count();
+        $detail_lapgiativi       = Lapgiativi::orderBy('id','DESC')->get();
 
-        return view('user_interface.category.lapgiativi.all',compact('lapgiativi_all','total_product','lienhe'));
+        return view('user_interface.detail.detail_lapgiativi',compact('detail_lapgiativi','lienhe'));
     }
 
     /*Mua ban do cu*/

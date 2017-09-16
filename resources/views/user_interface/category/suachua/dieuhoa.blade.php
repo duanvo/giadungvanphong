@@ -1,36 +1,22 @@
 
-
 	@extends('user_interface.user_layout')
 
 	@section('content')
-		<div class="women-product">
-			<div class=" w_content">
-				<div class="women">
-					<a><h4>Tổng sản phẩm - <span>{{$total_product}} sản phẩm</span> </h4></a>
-				     <div class="clearfix"> </div>
+
+	<div class="container-fluid">
+		<div class="row fh5co-post-entry single-entry">
+			@foreach($suachua_dieuhoa as $suachua_dieuhoa)
+			<article class="">
+				<h4 class="fh5co-article-title animate-box"><a style="font-size: 40px">{!! convert_tittle($suachua_dieuhoa->tittle) !!}</a></h4>
+				<div class="text-left content-article">
+					<div class="row">
+						<div class=" cp-r animate-box">
+							{!! $suachua_dieuhoa->introduce !!}
+						</div>
+					</div>
 				</div>
-			</div>
-			<!-- grids_of_4 -->
-			<div class="grid-product">
-				@foreach ($suachua_dieuhoa as $suachua_dieuhoa)
-				<div class="  product-grid">
-					<div class="content_box" style="width: 85%;">
-						<a href="{{route('detail_suachua',[tittle($suachua_dieuhoa->tittle)])}}">
-						   	<div class="left-grid-view grid-view-left">
-						   	   	<img style="cursor: pointer;" src="/dientudandung/{{$suachua_dieuhoa->image_path}}" class="img-responsive watch-right" alt=""/>
-						   	   	<div class="mask">
-			                        <div class="info"></div>
-					            </div>
-							</div>
-				   	    </a>
-					    <h4>
-					    	<a href="{{route('detail_suachua',[tittle($suachua_dieuhoa->tittle)])}}"> <h4 align="center">{{convert_tittle($suachua_dieuhoa->tittle)}}</h4></a>
-					    </h4>
-					    <p align="center" style="font-size: 16px;">{{$suachua_dieuhoa->cost}}</p>
-				   	</div>
-	            </div>
-			    @endforeach
-				<div class="clearfix"> </div>
-			</div>
+			</article>
+			@endforeach
 		</div>
+	</div>
 	@stop

@@ -14,23 +14,14 @@
                     <div class="form-group">
                         <label for="name" class="col-md-2 control-label">Tiêu đề</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="add_tittle_lapgiativi" name="add_tittle_lapgiativi" placeholder="Tên sản phẩm" autofocus>
+                            <input type="text" class="form-control" id="add_tittle_lapgiativi" name="add_tittle_lapgiativi" placeholder="Tên tiêu đề" autofocus>
                             <div class="has-error"><i><span class="help-block error errortittle_add_lapgiativi"></span></i></div>
-                        </div>
-                    </div>
-
-                    <!-- Add Images -->
-                    <div class="form-group">
-                        <label for="file_lapgiativi_main" class="col-md-2 control-label">Ảnh</label>
-                        <div class="col-md-9">
-                            <input id="file_lapgiativi_main" type="file" name="file_lapgiativi_main" multiple/>
-                            <div id="result_lapgiativi" /></div>
                         </div>
                     </div>
 
                     <!-- Add Introduce -->
                     <div class="form-group">
-                        <label for="introduce" class="col-md-2 control-label">Thông tin</label>
+                        <label for="introduce" class="col-md-2 control-label">Nội dung</label>
                         <div class="col-md-9">
                             <textarea class="form-control" id="add_introduce_lapgiativi" name="add_introduce_lapgiativi" placeholder="Thông tin sản phẩm"></textarea>
                             <div class="has-error"><i><span class="help-block errorIntroduce_add"></span></i></div>

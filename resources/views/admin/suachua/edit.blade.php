@@ -35,32 +35,6 @@
                         </div>
                     </div>
 
-                    <!-- edit Cost -->
-                    <div class="form-group">
-                        <label for="cost" class="col-md-2 control-label">Edit Gía sửa chữa</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="edit_cost_suachua" name="edit_cost_suachua" placeholder="Gía sản phẩm">
-                            <div class="has-error"><i><span class="help-block errorCost_edit"></span></i></div>
-                        </div>
-                    </div>
-
-                    <!-- Add Images -->
-                    <div class="form-group">
-                        <label for="file_suachua_main" class="col-md-2 control-label">Edit ảnh</label>
-                        <div class="col-md-9">
-                            <input id="file_suachua_main_edit" type="file" name="file_suachua_main_edit" multiple/>
-                            <div id="result_suachua" /></div>
-                        </div>
-                    </div>
-                    <!-- edit Images -->
-                    <div class="form-group">
-                        <label for="files" class="col-md-2 control-label">Edit Ảnh minh họa</label>
-                        <div class="col-md-9">
-                            <input id="files" type="file" name="file_suachua[]" multiple/>
-                            <div id="result_suachua" /></div>
-                        </div>
-                    </div>
-
                     <!-- edit Introduce -->
                     <div class="form-group">
                         <label for="introduce" class="col-md-2 control-label">Edit Thông tin sửa chữa</label>
@@ -71,7 +45,7 @@
                     </div>
 					<div class="form-group" style="width:90px; margin:auto; display: none;" id="loading_edit_suachua">
                         <div><p class="text-danger" ><b>Please wait...</b></p></div>
-                        <div><img src='/laravel1/storage/uploads/loading_images/loading.gif' /></div>
+                        <div><img src='/giadungvanphong/storage/uploads/loading_images/loading.gif' /></div>
                     </div>
                     <!-- Submit -->
                     <div class="form-group">

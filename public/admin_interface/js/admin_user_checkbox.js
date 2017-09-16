@@ -36,7 +36,7 @@ $("#view_user").click(function(){
 			searchID.push($(this).val());
 			id=searchID[0];
 			$.ajax({
-				url:'/dientudandung/admin/user/infomation',
+				url:'/giadungvanphong/admin/user/infomation',
 				type:'GET',
 				data:{"id":id},
 				success: function(result){
@@ -107,7 +107,7 @@ $("#view_user").click(function(){
 				    }
 				});
 				$.ajax({
-					'url' : 'http://localhost/dientudandung/admin/user/add',
+					'url' : 'http://localhost/giadungvanphong/admin/user/add',
 					'type' :'POST',
 					'data': {
 						'add_name' : $('#add_name').val(),
@@ -135,7 +135,7 @@ $("#view_user").click(function(){
 						}
 						if(data.add_user == true){
 							setTimeout(function(){$("#addModal").modal('hide')},500);
-						    setTimeout(function() { window.location.href = "/dientudandung/admin/user/show";}, 1000);
+						    setTimeout(function() { window.location.href = "/giadungvanphong/admin/user/show";}, 1000);
 						}
 					}
 				})
@@ -152,7 +152,7 @@ $("#view_user").click(function(){
 			searchID.push($(this).val());
 			id=searchID[0];
 			$.ajax({
-				url:'/dientudandung/admin/user/information',
+				url:'/giadungvanphong/admin/user/information',
 				type:"GET",
 				data:{"id":id},
 				success:function(data){
@@ -191,7 +191,7 @@ $("#view_user").click(function(){
 				id=searchID[0];
 
 				$.ajax({
-					url:'/dientudandung/admin/user/edit',
+					url:'/giadungvanphong/admin/user/edit',
 					type:"GET",
 					data:{"id":id},
 					success:function(result){
@@ -221,7 +221,7 @@ $("#view_user").click(function(){
 						});
 
 						$.ajax({
-							url:'/dientudandung/admin/user/edit',
+							url:'/giadungvanphong/admin/user/edit',
 							type:'POST',
 							data:{
 								'old_id' : $('#old_id').val(),
@@ -246,7 +246,7 @@ $("#view_user").click(function(){
 								}
 								if(data.edit_user==true){
 									setTimeout(function(){$('#editModal').modal('hide');},500);
-									setTimeout(function(){window.location.href="/dientudandung/admin/user/show";},1000);
+									setTimeout(function(){window.location.href="/giadungvanphong/admin/user/show";},1000);
 								}
 							}
 						})
@@ -275,7 +275,7 @@ $("#view_user").click(function(){
 					    }
 					});
 					$.ajax({
-						url:'/dientudandung/admin/user/delete',
+						url:'/giadungvanphong/admin/user/delete',
 						type:"POST",
 						data:{id:id},
 						success:function(){
@@ -283,7 +283,7 @@ $("#view_user").click(function(){
 								$('tr#'+id+'').fadeOut(1000);
 							}
 							setTimeout(function(){$('#deleteModal').modal('hide');},500)
-							setTimeout(function(){window.location.href="/dientudandung/admin/user/show";},1000);
+							setTimeout(function(){window.location.href="/giadungvanphong/admin/user/show";},1000);
 						}
 					})
 				})

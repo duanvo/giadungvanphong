@@ -36,40 +36,10 @@ class SuachuaController extends Controller
     			'messages'=>$validator->errors()
     			],200);
     	}else{
-            $folder_create_img = tittle($request->add_tittle_suachua);
-            $folder_img = 'storage/uploads/images/suachua/' .$folder_create_img;
-
-            if(!file_exists($folder_img)){
-                File::makeDirectory($folder_img, 0777, true);
-            }
-
-            $files = $request->file('file_suachua');
-            foreach($files as $file){
-                $file_detail_image = $file->getClientOriginalName();
-                $file->move($folder_img,$file_detail_image);
-
-                $images = new Image;
-                $images->cate_type = "suachua";
-                $images->type = $request->add_type_suachua;
-                $images->id_post = tittle($request->add_tittle_suachua);
-                $images->image = $file_detail_image;
-                $images->image_path = $folder_img.'/'.$file_detail_image;
-
-                $images->save();
-
-            }
-
-            $file_main = $request->file('file_suachua_main');
-            $file_detail_image_main = $file_main->getClientOriginalName();
-            $file_main->move($folder_img,$file_detail_image_main);
-
 	    	$add_suachua = new Suachua;
 
             $add_suachua->tittle     = $request->add_tittle_suachua;
             $add_suachua->type       = $request->add_type_suachua;
-            $add_suachua->image      = $file_detail_image_main;
-            $add_suachua->image_path = $folder_img.'/'.$file_detail_image_main;
-            $add_suachua->cost       = $request->add_cost_suachua;
             $add_suachua->introduce  = $request->add_introduce_suachua;
 
 	    	if($add_suachua->save()){
@@ -117,24 +87,11 @@ class SuachuaController extends Controller
     			'messages'=>$validator->errors()
     			],200);
     	}else{
-            $folder_create_img = tittle($request->edit_tittle_suachua);
-            $folder_img = 'storage/uploads/images/suachua/' .$folder_create_img;
-
-            if(!file_exists($folder_img)){
-                File::makeDirectory($folder_img, 0777, true);
-            }
-
-            $file_edit = $request->file('file_suachua_main_edit');
-            $file_detail_image_edit = $file_edit->getClientOriginalName();
-            $file_edit->move($folder_img,$file_detail_image_edit);
 
 	    	$edit_suachua = Suachua::find($id);
 
             $edit_suachua->tittle     = $request->edit_tittle_suachua;
             $edit_suachua->type       = $request->edit_type_suachua;
-            $edit_suachua->image      = $file_detail_image_edit;
-            $edit_suachua->image_path = $folder_img.'/'.$file_detail_image_edit;
-            $edit_suachua->cost       = $request->edit_cost_suachua;
             $edit_suachua->introduce  = $request->edit_introduce_suachua;
 
 	    	if($edit_suachua->save()){

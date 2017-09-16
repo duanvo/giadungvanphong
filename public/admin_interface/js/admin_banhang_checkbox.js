@@ -27,8 +27,8 @@ function ckeditor(name, config, toolbar){
 
 	config = {};
 	config.entities_latin = false;
-	config.filebrowserBrowseUrl ='/studyenglishtoday/public/editor/ckfinder/ckfinder.html';
-	config.filebrowserImageBrowseUrl = '/studyenglishtoday/public/editor/ckfinder/ckfinder.html';
+	config.filebrowserBrowseUrl ='/giadungvanphong/public/admin_interface/ckfinder/ckfinder.html';
+	config.filebrowserImageBrowseUrl = '/giadungvanphong/public/admin_interface/ckfinder/ckfinder.html';
 	config.extraPlugins = 'youtube';
 
 	if(toolbar == 'standard'){
@@ -195,7 +195,7 @@ $('#add_banhang').click(function(){
 			});
 
 			$.ajax({
-				url:'/dientudandung/admin/banhang/add',
+				url:'/giadungvanphong/admin/banhang/add',
 				type:"POST",
 				asnyc:true,
 				dataType:"json",
@@ -217,11 +217,11 @@ $('#add_banhang').click(function(){
 						}
 					}
 					if(data.add_banhang==true){
-						$('#banhang_table').load('/dientudandung/admin/banhang/show #banhang_table');
+						$('#banhang_table').load('/giadungvanphong/admin/banhang/show #banhang_table');
 						setTimeout(function() { $('#addModal').modal('hide');}, 200);
 						setTimeout(function(){ $("#add_banhang_success").modal('show');},1000);
 						setTimeout(function(){ $("#add_banhang_success").modal('hide'); },3000);
-						setTimeout(function() { window.location.href = "/dientudandung/admin/banhang/show";}, 3200);
+						setTimeout(function() { window.location.href = "/giadungvanphong/admin/banhang/show";}, 3200);
 					}
 				}
 
@@ -242,7 +242,7 @@ $('#view_banhang').click(function(){
 		id=searchID[0];
 
 		$.ajax({
-			url:'/dientudandung/admin/banhang/information',
+			url:'/giadungvanphong/admin/banhang/information',
 			type:'GET',
 			data:{"id":id},
 			success:function(result){
@@ -253,7 +253,7 @@ $('#view_banhang').click(function(){
 				$('#view_tittle_sanpham').text(result.info.tittle);
 				$('#view_cost_sanpham').text(result.info.cost);
 
-				var path_img = "http://localhost/dientudandung/"+result.info_image[0];
+				var path_img = "http://localhost/giadungvanphong/"+result.info_image[0];
 				$("#view_image_sanpham").attr("src", path_img);
 
 				$('#view_introduce_sanpham').html(result.info.introduce);
@@ -286,7 +286,7 @@ $('#edit_banhang').click(function(){
 			id=searchID[0];
 
 			$.ajax({
-				url:'/dientudandung/admin/banhang/edit',
+				url:'/giadungvanphong/admin/banhang/edit',
 				type:'GET',
 				data:{"id":id},
 				success:function(result){
@@ -330,7 +330,7 @@ $('#edit_banhang').click(function(){
 					    }
 					});
 					$.ajax({
-						url:'/dientudandung/admin/banhang/edit',
+						url:'/giadungvanphong/admin/banhang/edit',
 						type:"POST",
 						asnyc:true,
 						dataType:"json",
@@ -346,11 +346,11 @@ $('#edit_banhang').click(function(){
 						},
 						success:function(data){
 							if(data.edit_sanpham==true){
-								$('#banhang_table').load('/dientudandung/admin/banhang/show #banhang_table');
+								$('#banhang_table').load('/giadungvanphong/admin/banhang/show #banhang_table');
 								setTimeout(function() { $('#editsanphamModal').modal('hide');}, 200);
 								setTimeout(function(){ $("#edit_banhang_success").modal('show');},1000);
 								setTimeout(function(){ $("#edit_banhang_success").modal('hide'); },3000);
-								setTimeout(function() { window.location.href = "/dientudandung/admin/banhang/show";}, 3200);
+								setTimeout(function() { window.location.href = "/giadungvanphong/admin/banhang/show";}, 3200);
 							}
 						}
 					})
@@ -376,7 +376,7 @@ $("#delete_banhang").click(function(){
 				    }
 				});
 				$.ajax({
-					url:'/dientudandung/admin/banhang/delete',
+					url:'/giadungvanphong/admin/banhang/delete',
 					type:"POST",
 					data:{"id":id},
 					success:function(){
@@ -384,7 +384,7 @@ $("#delete_banhang").click(function(){
 							$('tr#'+id+'').fadeOut(1000);
 						}
 						setTimeout(function(){$('#deletesanphamModal').modal('hide');},500)
-						setTimeout(function(){window.location.href="/dientudandung/admin/banhang/show";},1000);
+						setTimeout(function(){window.location.href="/giadungvanphong/admin/banhang/show";},1000);
 					}
 				})
 			})

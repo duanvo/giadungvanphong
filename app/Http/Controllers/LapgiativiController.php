@@ -37,32 +37,10 @@ class LapgiativiController extends Controller
     				'messages'=>$validator->errors()
     				],200);
     		}else{
-                $folder_create_img = tittle($request->add_tittle_lapgiativi);
-                $folder_img = 'storage/uploads/images/lapgiativi/' .$folder_create_img;
-
-                if(!file_exists($folder_img)){
-                    File::makeDirectory($folder_img, 0777, true);
-                }
-
-
-                $file_main = $request->file('file_lapgiativi_main');
-                $file_name = $file_main->getClientOriginalName();
-                $file_main->move($folder_img,$file_name);
-
-                    $images = new Image;
-                    $images->cate_type  = "lapgiativi";
-                    $images->type       = "lapgiativi";
-                    $images->image      = $file_name;
-                    $images->image_path = $folder_img.'/'.$file_name;
-                    $images->id_post    = tittle($request->add_tittle_lapgiativi);
-
-                    $images->save();
 
     			$lapgiativi = New Lapgiativi;
 
     			$lapgiativi->tittle = tittle($request->add_tittle_lapgiativi);
-                $lapgiativi->image      = $file_name;
-                $lapgiativi->image_path = $folder_img.'/'.$file_name;
     			$lapgiativi->introduce = $request->add_introduce_lapgiativi;
 
     			if($lapgiativi->save()){
@@ -109,22 +87,9 @@ class LapgiativiController extends Controller
                 ],200);
         }else{
 
-            $folder_create_img = tittle($request->edit_tittle_lapgiativi);
-                $folder_img = 'storage/uploads/images/lapgiativi/' .$folder_create_img;
-
-            if(!file_exists($folder_img)){
-                File::makeDirectory($folder_img, 0777, true);
-            }
-            $file_main = $request->file('file_lapgiativi_main_edit');
-            $file_name = $file_main->getClientOriginalName();
-            $file_main->move($folder_img,$file_name);
-
             $lapgiativi = Lapgiativi::find($id);
 
             $lapgiativi->tittle     = tittle($request->edit_tittle_lapgiativi);
-            $lapgiativi->cost       = $request->edit_cost_lapgiativi;
-            $lapgiativi->image      = $file_name;
-            $lapgiativi->image_path = $folder_img.'/'.$file_name;
             $lapgiativi->introduce  = $request->edit_introduce_lapgiativi;
 
             if($lapgiativi->save()){

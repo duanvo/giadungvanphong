@@ -5,10 +5,6 @@
 	@section('content')
 		<div class="women-product">
 			<div class=" w_content">
-				<div class="women">
-					<a><h4>Tổng sản phẩm - <span>{{$total_product}} sản phẩm</span> </h4></a>
-				     <div class="clearfix"> </div>
-				</div>
 			</div>
 			<!-- grids_of_4 -->
 			<div class="grid-product">
@@ -17,7 +13,7 @@
 					<div class="content_box" style="width: 85%;">
 						<a href="{{route('detail_lapgiativi',[tittle($lapgiativi_all->tittle)])}}">
 						   	<div class="left-grid-view grid-view-left">
-						   	   	<img style="cursor: pointer;" src="/dientudandung/{{$lapgiativi_all->image_path}}" class="img-responsive watch-right" alt=""/>
+						   	   	<img style="cursor: pointer;" src="/giadungvanphong/{{$lapgiativi_all->image_path}}" class="img-responsive watch-right" alt=""/>
 						   	   	<div class="mask">
 			                        <div class="info"></div>
 					            </div>
