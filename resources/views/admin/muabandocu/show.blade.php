@@ -26,7 +26,7 @@
                           	    <th class="text-center hidden">ID</th>
                                 <th class="text-center">No</th>
 								<th class="text-center">Name</th>
-								<th class="text-center">Cost</th>
+								<th class="text-center">Type</th>
 								<th class="text-center">Date</th>
                             </tr>
                         </thead>
@@ -38,7 +38,7 @@
 								<td class="hidden"><input type="checkbox" value="{{$data->id}}" name="checkbox" class="checkbox"></td>
 								<th class="text-center">{{$no}}</th>
 								<td class="text-center">{{$data->tittle}}</td>
-								<td class="text-center">{{$data->cost}}</td>
+								<td class="text-center">{{$data->type}}</td>
 
 								<!-- Show date -->
 								<td class="text-center"">

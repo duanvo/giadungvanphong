@@ -110,7 +110,8 @@
 						<li><a href="{{route('banhang.all')}}">Bán Hàng</a></li>
 						<li><a href="{{route('lapgiativi.all')}}">Lắp giá Tivi</a></li>
 						<li><a href="{{route('suachua.all')}}">Sữa chữa</a></li>
-						<li><a href="{{route('muabandocu.all')}}">Mua bán đồ cũ</a></li>
+						<li><a href="{{route('muabandocu.muadocu')}}">Mua đồ cũ</a></li>
+						<li><a href="{{route('muabandocu.all')}}">Bán đồ cũ</a></li>
 					</ul>
 				</div>
 				<div class="contact">
@@ -133,9 +134,9 @@
 		<!-- END #fh5co-header -->
 		@yield('content')
 
-		<footer id="fh5co-footer">
-			<p>&copy; 2017. Mua bán, sữa chữa đồ điện gia dụng - Chất lượng - Giá cả hợp lý.</p>
-		</footer>
 	</div>
+	<footer id="fh5co-footer">
+		<p>&copy; 2017. Mua bán, sữa chữa đồ điện gia dụng - Chất lượng - Giá cả hợp lý.</p>
+	</footer>
 </body>
 </html>

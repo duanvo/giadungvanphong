@@ -18,7 +18,7 @@ class HomeController extends Controller
         $banhang = BanHang::orderBy('id','DESC')->paginate(3);
         $suachua = Suachua::orderBy('id','DESC')->paginate(3);
         $lapgiativi = Lapgiativi::orderBy('id','DESC')->paginate(3);
-        $muabandocu = Muabandocu::orderBy('id','DESC')->paginate(3);
+        $muabandocu = Muabandocu::orderBy('id','DESC')->where('type','bandocu')->paginate(3);
         $lienhe = Lienhe::orderBy('id','DESC')->get();
 
     	return view('user_interface.user_home', compact('banhang','suachua','lapgiativi','muabandocu','lienhe'));
@@ -57,7 +57,7 @@ class HomeController extends Controller
         $lienhe = Lienhe::orderBy('id','DESC')->get();
         $detail_muabandocu       = Muabandocu::where('tittle',$tittle)->get();
         $detail_muabandocu_image = Image::where('cate_type','muabandocu')->where('id_post',$tittle)->get();
-        $relate_muabandocu       = Muabandocu::where('tittle','<>',$tittle)->orderBy('id','DESC')->get();
+        $relate_muabandocu       = Muabandocu::where('tittle','<>',$tittle)->where('type','bandocu')->orderBy('id','DESC')->get();
 
 
         return view('user_interface.detail.detail_muabandocu',compact('detail_muabandocu','detail_muabandocu_image','relate_muabandocu','lienhe'));
@@ -149,7 +149,7 @@ class HomeController extends Controller
     /*Mua ban do cu*/
     public function muabandocu_all(){
         $lienhe = Lienhe::orderBy('id','DESC')->get();
-        $muabandocu_all = Muabandocu::orderBy('id','DESC')->get();
+        $muabandocu_all = Muabandocu::orderBy('id','DESC')->where('type','bandocu')->get();
         $total_product = Muabandocu::count();
 
         return view('user_interface.category.muabandocu.all',compact('muabandocu_all','total_product','lienhe'));
@@ -164,10 +164,9 @@ class HomeController extends Controller
     }
     public function muabandocu_muadocu(){
         $lienhe = Lienhe::orderBy('id','DESC')->get();
-        $muabandocu_muadocu = Muabandocu::where('type','muadocu')->orderBy('id','DESC')->get();
-        $total_product = Muabandocu::where('type','muadocu')->count();
+        $detail_muabandocu = Muabandocu::where('type','muadocu')->orderBy('id','DESC')->get();
 
-        return view('user_interface.category.muabandocu.muadocu',compact('muabandocu_muadocu','total_product','lienhe'));
+        return view('user_interface.category.muabandocu.muadocu',compact('detail_muabandocu','lienhe'));
     }
 
     /*Lien he*/

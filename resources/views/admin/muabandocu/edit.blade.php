@@ -33,7 +33,7 @@
                     </div>
 
                     <!-- edit Cost -->
-                    <div class="form-group">
+                    <div class="form-group edit_cost_muabandocu">
                         <label for="cost" class="col-md-2 control-label">Edit Gía</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" id="edit_cost_muabandocu" name="edit_cost_muabandocu" placeholder="Gía sản phẩm">
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <!-- edit Images -->
-                    <div class="form-group">
+                    <div class="form-group file_muabandocu_main_edit">
                         <label for="file_muabandocu_main_edit" class="col-md-2 control-label">Edit ảnh home</label>
                         <div class="col-md-9">
                             <input id="file_muabandocu_main_edit" type="file" name="file_muabandocu_main_edit" multiple/>
@@ -49,12 +49,13 @@
                         </div>
                     </div>
                     <!-- edit Images -->
-                    <div class="form-group">
+                    <div class="form-group files">
                         <label for="files" class="col-md-2 control-label">Edit ảnh</label>
                         <div class="col-md-9">
                             <input id="files" type="file" name="file_muabandocu[]" multiple/>
                             <div id="result_muabandocu" /></div>
                         </div>
+                        <div class="has-error"><i><span class="help-block errorIntroduce_edit"></span></i></div>
                     </div>
 
                     <!-- edit Introduce -->
@@ -65,9 +66,19 @@
                             <div class="has-error"><i><span class="help-block errorIntroduce_edit"></span></i></div>
                         </div>
                     </div>
+
+                    <!-- Add Introduce -->
+                    <div class="form-group introduce1">
+                        <label for="introduce1" class="col-md-2 control-label">Thông tin</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" id="edit_introduce_muabandocu1" name="edit_introduce_muabandocu1" placeholder="Thông tin sản phẩm"></textarea>
+                            <div class="has-error"><i><span class="help-block errorIntroduce_add"></span></i></div>
+                        </div>
+                    </div>
+
 					<div class="form-group" style="width:90px; margin:auto; display: none;" id="loading_edit_muabandocu">
                         <div><p class="text-danger" ><b>Please wait...</b></p></div>
-                        <div><img src='/laravel1/storage/uploads/loading_images/loading.gif' /></div>
+                        <div><img src='/giadungvanphong/storage/uploads/loading_images/loading.gif' /></div>
                     </div>
                     <!-- Submit -->
                     <div class="form-group">

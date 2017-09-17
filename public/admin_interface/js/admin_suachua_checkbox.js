@@ -135,7 +135,7 @@ $('#add_suachua').click(function(){
 			add_type_suachua:{
 				required:true
 			},
-			file_product{
+			file_product:{
 				required:true
 			},
 			add_introduce_suachua:{

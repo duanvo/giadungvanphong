@@ -32,7 +32,7 @@
                     </div>
 
                     <!-- Add Cost -->
-                    <div class="form-group">
+                    <div class="form-group add_cost_muabandocu">
                         <label for="cost" class="col-md-2 control-label">Gía</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" id="add_cost_muabandocu" name="add_cost_muabandocu" placeholder="Gía sản phẩm">
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <!-- Add Images -->
-                    <div class="form-group">
+                    <div class="form-group file_muabandocu_main">
                         <label for="file_muabandocu_main" class="col-md-2 control-label">Ảnh</label>
                         <div class="col-md-9">
                             <input id="file_muabandocu_main" type="file" name="file_muabandocu_main" multiple/>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <!-- Add Images -->
-                    <div class="form-group">
+                    <div class="form-group file_muabandocu">
                         <label for="file_muabandocu" class="col-md-2 control-label">Ảnh minh họa</label>
                         <div class="col-md-9">
                             <input id="file_muabandocu" type="file" name="file_muabandocu[]" multiple/>
@@ -64,9 +64,19 @@
                             <div class="has-error"><i><span class="help-block errorIntroduce_add"></span></i></div>
                         </div>
                     </div>
+
+                    <!-- Add Introduce -->
+                    <div class="form-group introduce1">
+                        <label for="introduce1" class="col-md-2 control-label">Thông tin</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" id="add_introduce_muabandocu1" name="add_introduce_muabandocu1" placeholder="Thông tin sản phẩm"></textarea>
+                            <div class="has-error"><i><span class="help-block errorIntroduce_add"></span></i></div>
+                        </div>
+                    </div>
+
 					<div class="form-group" style="width:90px; margin:auto; display: none;" id="loading_add_muabandocu">
                         <div><p class="text-danger" ><b>Please wait...</b></p></div>
-                        <div><img src='/laravel1/storage/uploads/loading_images/loading.gif' /></div>
+                        <div><img src='/giadungvanphong/storage/uploads/loading_images/loading.gif' /></div>
                     </div>
                     <!-- Submit -->
                     <div class="form-group">

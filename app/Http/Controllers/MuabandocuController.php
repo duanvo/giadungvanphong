@@ -34,46 +34,75 @@ class MuabandocuController extends Controller
     			'error_add_muabandocu'=>true
     			],200);
     	}else{
-            $folder_create_img = tittle($request->add_tittle_muabandocu);
-            $folder_img = 'storage/uploads/images/muabandocu/' .$folder_create_img;
+            if($request->add_type_muabandocu == 'muadocu'){
+                $folder_create_img = tittle($request->add_tittle_muabandocu);
+                $folder_img = 'storage/uploads/images/muabandocu/' .$folder_create_img;
 
-            if(!file_exists($folder_img)){
-                File::makeDirectory($folder_img, 0777, true);
+                if(!file_exists($folder_img)){
+                    File::makeDirectory($folder_img, 0777, true);
+                }
+
+                $file_main = $request->file('file_muabandocu_main');
+                $file_detail_image_main = $file_main->getClientOriginalName();
+                $file_main->move($folder_img,$file_detail_image_main);
+
+                $muabandocu = new Muabandocu;
+
+                $muabandocu->tittle     = tittle($request->add_tittle_muabandocu);
+                $muabandocu->type       = $request->add_type_muabandocu;
+                $muabandocu->image      = $file_detail_image_main;
+                $muabandocu->image_path = $folder_img.'/'.$file_detail_image_main;
+                $muabandocu->introduce  = $request->add_introduce_muabandocu;
+                $muabandocu->introduce1  = $request->add_introduce_muabandocu1;
+
+                if($muabandocu->save()){
+                    return response()->json([
+                            'add_muabandocu'=>true
+                        ],200);
+                }
+            }else{
+                $folder_create_img = tittle($request->add_tittle_muabandocu);
+                $folder_img = 'storage/uploads/images/muabandocu/' .$folder_create_img;
+
+                if(!file_exists($folder_img)){
+                    File::makeDirectory($folder_img, 0777, true);
+                }
+
+                $files = $request->file('file_muabandocu');
+                foreach($files as $file){
+                    $file_detail_image = $file->getClientOriginalName();
+                    $file->move($folder_img,$file_detail_image);
+
+                    $images = new Image;
+                    $images->cate_type = "muabandocu";
+                    $images->type = $request->add_type_muabandocu;
+                    $images->id_post = tittle($request->add_tittle_muabandocu);
+                    $images->image = $file_detail_image;
+                    $images->image_path = $folder_img.'/'.$file_detail_image;
+
+                    $images->save();
+
+                }
+                $file_main = $request->file('file_muabandocu_main');
+                $file_detail_image_main = $file_main->getClientOriginalName();
+                $file_main->move($folder_img,$file_detail_image_main);
+
+        		$muabandocu = new Muabandocu;
+
+                $muabandocu->tittle     = tittle($request->add_tittle_muabandocu);
+                $muabandocu->type       = $request->add_type_muabandocu;
+                $muabandocu->cost       = $request->add_cost_muabandocu;
+                $muabandocu->image      = $file_detail_image_main;
+                $muabandocu->image_path = $folder_img.'/'.$file_detail_image_main;
+                $muabandocu->introduce  = $request->add_introduce_muabandocu;
+                $muabandocu->introduce1  = $request->add_introduce_muabandocu1;
+
+        		if($muabandocu->save()){
+        			return response()->json([
+        					'add_muabandocu'=>true
+        				],200);
+        		}
             }
-
-            $files = $request->file('file_muabandocu');
-            foreach($files as $file){
-                $file_detail_image = $file->getClientOriginalName();
-                $file->move($folder_img,$file_detail_image);
-
-                $images = new Image;
-                $images->cate_type = "muabandocu";
-                $images->type = $request->add_type_muabandocu;
-                $images->id_post = tittle($request->add_tittle_muabandocu);
-                $images->image = $file_detail_image;
-                $images->image_path = $folder_img.'/'.$file_detail_image;
-
-                $images->save();
-
-            }
-            $file_main = $request->file('file_muabandocu_main');
-            $file_detail_image_main = $file_main->getClientOriginalName();
-            $file_main->move($folder_img,$file_detail_image_main);
-
-    		$muabandocu = new Muabandocu;
-
-            $muabandocu->tittle     = tittle($request->add_tittle_muabandocu);
-            $muabandocu->type       = $request->add_type_muabandocu;
-            $muabandocu->cost       = $request->add_cost_muabandocu;
-            $muabandocu->image      = $file_detail_image_main;
-            $muabandocu->image_path = $folder_img.'/'.$file_detail_image_main;
-            $muabandocu->introduce  = $request->add_introduce_muabandocu;
-
-    		if($muabandocu->save()){
-    			return response()->json([
-    					'add_muabandocu'=>true
-    				],200);
-    		}
     	}
     }
 
@@ -131,6 +160,7 @@ class MuabandocuController extends Controller
             $edit_muabandocu->image      = $file_detail_image_main;
             $edit_muabandocu->image_path = $folder_img.'/'.$file_detail_image_main;
             $edit_muabandocu->introduce  = $request->edit_introduce_muabandocu;
+            $edit_muabandocu->introduce1  = $request->edit_introduce_muabandocu1;
 
             if($edit_muabandocu->save()){
                 return response()->json([

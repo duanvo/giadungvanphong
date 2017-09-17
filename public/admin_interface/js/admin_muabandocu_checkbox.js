@@ -101,9 +101,11 @@ function ckeditor(name, config, toolbar){
 
 if($('#add_tittle_muabandocu').length){
 	ckeditor("add_introduce_muabandocu","config","standard")
+	ckeditor("add_introduce_muabandocu1","config","standard")
 }
 if($('#edit_tittle_muabandocu').length){
 	ckeditor("edit_introduce_muabandocu","config","standard")
+	ckeditor("edit_introduce_muabandocu1","config","standard")
 }
 
 
@@ -128,19 +130,42 @@ for (instance in CKEDITOR.instances) {
 $('#add_muabandocu').click(function(){
 	$('#addmuabandocuModal').modal('show');
 
+	$("#add_type_muabandocu").change(function () {
+		var conceptName = $('#add_type_muabandocu :selected').val();
+		//console.log(conceptName);
+		if(conceptName == "muadocu"){
+			$('.add_cost_muabandocu').css({
+				'display':'none'
+			})
+			$('.file_muabandocu').css({
+				'display':'none'
+			})
+			$('.introduce1').css({
+				'display':'none'
+			})
+		}else{
+			$('.add_cost_muabandocu').css({
+				'display':'block'
+			})
+			$('.file_muabandocu').css({
+				'display':'block'
+			})
+			$('.introduce1').css({
+				'display':'block'
+			})
+		}
+	});
+
 	$("#validate_add_muabandocu").validate({
 		ignore:[],
 		rules:{
 			add_tittle_muabandocu:{
 				required:true
 			},
-			add_type_muabandocu:{
-				required:true
-			},
-			add_cost_muabandocu:{
-				required:true
-			},
 			add_introduce_muabandocu:{
+				required:true
+			},
+			add_introduce_muabandocu1:{
 				required:true
 			}
 		},
@@ -148,16 +173,14 @@ $('#add_muabandocu').click(function(){
 			add_tittle_muabandocu:{
 				required:"Mời nhập tiêu đề"
 			},
-			add_type_muabandocu:{
-				required:"Mời chọn kiểu"
-			},
-			add_cost_muabandocu:{
-				required:"Mời nhập gía"
-			},
 			add_introduce_muabandocu:{
+				required:"Mời nhập lời giới thiệu"
+			},
+			add_introduce_muabandocu1:{
 				required:"Mời nhập lời giới thiệu"
 			}
 		},
+
 
 		submitHandler:function(){
 			$.ajaxSetup({
@@ -251,12 +274,61 @@ $("#edit_muabandocu").click(function(){
 			type:"GET",
 			data:{"id":id},
 			success:function(result){
+				var conceptName = result.type;
+				//console.log(conceptName);
+				if(conceptName == "muadocu"){
+					$('.edit_cost_muabandocu').css({
+						'display':'none'
+					})
+					$('.files').css({
+						'display':'none'
+					})
+					$('.introduce1').css({
+						'display':'none'
+					})
+				}else{
+					$('.edit_cost_muabandocu').css({
+						'display':'block'
+					})
+					$('.files').css({
+						'display':'block'
+					})
+					$('.introduce1').css({
+						'display':'block'
+					})
+				}
+				$("#edit_type_muabandocu").change(function () {
+					var conceptName = $('#edit_type_muabandocu :selected').val();
+					//console.log(conceptName);
+					if(conceptName == "muadocu"){
+						$('.edit_cost_muabandocu').css({
+							'display':'none'
+						})
+						$('.files').css({
+							'display':'none'
+						})
+						$('.introduce1').css({
+							'display':'none'
+						})
+					}else{
+						$('.edit_cost_muabandocu').css({
+							'display':'block'
+						})
+						$('.files').css({
+							'display':'block'
+						})
+						$('.introduce1').css({
+							'display':'block'
+						})
+					}
+				});
 				//console.log(result);
 				$("#edit_muabandocu_id").val(result.id);
 				$("#edit_tittle_muabandocu").val(result.tittle);
 				$("#edit_type_muabandocu").val(result.type);
 				$("#edit_cost_muabandocu").val(result.cost);
 				CKEDITOR.instances['edit_introduce_muabandocu'].setData(result.introduce);
+				CKEDITOR.instances['edit_introduce_muabandocu1'].setData(result.introduce);
 
 				$("#validate_edit_muabandocu").validate({
 					ignore:[],
@@ -264,13 +336,10 @@ $("#edit_muabandocu").click(function(){
 						edit_tittle_muabandocu:{
 							required:true
 						},
-						edit_cost_muabandocu:{
-							required:true
-						},
-						edit_type_muabandocu:{
-							required:true
-						},
 						edit_introduce_muabandocu:{
+							required:true
+						},
+						edit_introduce_muabandocu1:{
 							required:true
 						}
 					},
@@ -278,13 +347,10 @@ $("#edit_muabandocu").click(function(){
 						edit_tittle_muabandocu:{
 							required:"Mời nhập tiêu đề"
 						},
-						edit_cost_muabandocu:{
-							required:"Mời nhập gía"
-						},
-						edit_type_muabandocu:{
-							required:"Mời nhập loại"
-						},
 						edit_introduce_muabandocu:{
+							required:"Mời nhập miêu tả"
+						},
+						edit_introduce_muabandocu1:{
 							required:"Mời nhập miêu tả"
 						}
 					},

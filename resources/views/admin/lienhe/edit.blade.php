@@ -31,7 +31,7 @@
 
 					<div class="form-group" style="width:90px; margin:auto; display: none;" id="loading_edit_lienhe">
                         <div><p class="text-danger" ><b>Please wait...</b></p></div>
-                        <div><img src='/laravel1/storage/uploads/loading_images/loading.gif' /></div>
+                        <div><img src='/giadungvanphong/storage/uploads/loading_images/loading.gif' /></div>
                     </div>
                     <!-- Submit -->
                     <div class="form-group">

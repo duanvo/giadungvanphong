@@ -16,7 +16,7 @@
 				@foreach ($muabandocu_bandocu as $banhang)
 				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
 					<figure>
-						<a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}"><img src="http://localhost/giadungvanphong/{{$banhang->image_path}}" alt="Image" class="img-responsive"></a>
+						<a href="{{route('detail_muabandocu',[tittle($banhang->tittle)])}}"><img src="http://localhost/giadungvanphong/{{$banhang->image_path}}" alt="Image" class="img-responsive"></a>
 					</figure>
 					<span class="fh5co-meta">
 						@if($banhang->type == 'dienmay')
@@ -29,7 +29,7 @@
 						 <a href="{{ route('banhang.dogiadung') }}">(Đồ gia dụng)</a>
 						@endif
 					</span>
-					<h2 class="fh5co-article-title"><a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}">{{convert_tittle($banhang->tittle)}}</a></h2>
+					<h2 class="fh5co-article-title"><a href="{{route('detail_muabandocu',[tittle($banhang->tittle)])}}">{{convert_tittle($banhang->tittle)}}</a></h2>
 					<span class="fh5co-meta fh5co-date">{{$banhang->cost_discount}}</span>
 					<span class="fh5co-meta fh5co-date" style="text-decoration: line-through;">{{$banhang->cost}}</span>
 				</article>
