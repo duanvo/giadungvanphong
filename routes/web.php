@@ -102,8 +102,8 @@ Route::group(['prefix'=>'admin','middleware'=>'checkadmin'], function(){
 		Route::get('information',['as'=>'admin.banhang.information','uses'=>'BanhangController@information']);
 
 		/*Edit san pham*/
-		Route::Get('edit',['as'=>'admin.banhang.edit','uses'=>'BanhangController@get_edit']);
-		Route::Post('edit',['as'=>'admin.banhang.edit','uses'=>'BanhangController@post_edit']);
+		Route::get('edit',['as'=>'admin.banhang.edit','uses'=>'BanhangController@get_edit']);
+		Route::post('edit',['as'=>'admin.banhang.edit','uses'=>'BanhangController@post_edit']);
 
 		/*Delete*/
 		Route::get('delete',['as'=>'admin.banhang.delete','uses'=>'BanhangController@get_delete']);

@@ -1,18 +1,18 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
-@font-face {
+/* @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon/icomoon.eot?srf3rx");
   src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
-}
+} */
 html {
   background: #fff;
 }
 
 body {
-  font-family: "Roboto", arial, sans-serif;
+  font-family: "Roboto", arial, sans-serif !important;
   font-size: 18px;
   font-weight: 300;
   line-height: 1.8;
@@ -541,7 +541,7 @@ figure{
 }
 
 #fh5co-offcanvas {
-  background: rgb(166, 165, 253);
+  background: rgba(166, 165, 253, 0.92);
   position: fixed;
   top: 0;
   left: 0;
@@ -855,6 +855,11 @@ figure{
     width: 90% !important;
     font-size: 13px;
   }
+  .choose{
+    width: 100% !important;
+    margin: auto;
+    margin-top: 50px;
+}
 
 }
 
@@ -864,4 +869,13 @@ figure{
     width: 32%;
     float: right;
     color: rgba(255, 0, 118, 0.96);
+}
+.detail_product{
+  font-family: "Roboto", arial, sans-serif !important;
+  color:#000;
+}
+.choose{
+      width: 500px;
+    margin: auto;
+    margin-top: 50px;
 }

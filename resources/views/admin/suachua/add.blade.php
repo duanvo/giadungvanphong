@@ -33,6 +33,17 @@
                            </select>
                         </div>
                     </div>
+
+
+                    <!-- Add Images -->
+                    <div class="form-group">
+                        <label for="file_product" class="col-md-2 control-label">Ảnh sản phẩm </label>
+                        <div class="col-md-9">
+                            <input id="file_product" type="file" name="file_product" />
+                            <div id="result_product" /></div>
+                        </div>
+                    </div>
+
                     <!-- Add Introduce -->
                     <div class="form-group">
                         <label for="introduce" class="col-md-2 control-label">Thông tin sửa chữa</label>

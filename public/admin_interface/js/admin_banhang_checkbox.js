@@ -98,10 +98,12 @@ function ckeditor(name, config, toolbar){
 
 if($('#add_tittle').length){
 	ckeditor("add_introduce","config","standard")
+	ckeditor("add_introduce1","config","standard")
 }
 
 if($('#edit_tittle_sanpham').length){
 	ckeditor("edit_introduce_sanpham","config",'standard');
+	ckeditor("edit_introduce_sanpham1","config",'standard');
 }
 
 $.fn.modal.Constructor.prototype.enforceFocus = function () {
@@ -170,6 +172,9 @@ $('#add_banhang').click(function(){
 			},
             add_introduce: {
             	required  :true
+            },
+            add_introduce1: {
+            	required  :true
             }
         },
         messages:{
@@ -183,6 +188,9 @@ $('#add_banhang').click(function(){
 				required:"Mời nhập gía"
 			},
 			add_introduce:{
+				required:"Nhập mô tả"
+			},
+			add_introduce1:{
 				required:"Nhập mô tả"
 			}
 		},
@@ -306,7 +314,8 @@ $('#edit_banhang').click(function(){
 				rules:{
 					edit_type_sanpham:{required:true},
 					edit_cost_sanpham:{required:true},
-					edit_introduce_sanpham:{required:true}
+					edit_introduce_sanpham:{required:true},
+					edit_introduce_sanpham1:{required:true}
 				},
 				messages:{
 					edit_type_sanpham:{
@@ -319,6 +328,9 @@ $('#edit_banhang').click(function(){
 						required:"Mời nhập gía"
 					},
 					edit_introduce_sanpham:{
+						required:"Nhập thông tin sản phẩm"
+					},
+					edit_introduce_sanpham1:{
 						required:"Nhập thông tin sản phẩm"
 					}
 				},

@@ -135,6 +135,9 @@ $('#add_suachua').click(function(){
 			add_type_suachua:{
 				required:true
 			},
+			file_product{
+				required:true
+			},
 			add_introduce_suachua:{
 				required:true
 			}
@@ -145,6 +148,9 @@ $('#add_suachua').click(function(){
 			},
 			add_cost_suachua:{
 				required:"Mời nhập gía"
+			},
+			file_product:{
+				required:"Chọn ảnh"
 			},
 			add_introduce_suachua:{
 				required:"Nhập mô tả"

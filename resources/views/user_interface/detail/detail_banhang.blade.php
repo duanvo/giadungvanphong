@@ -28,7 +28,16 @@
 					    <div class="clearfix"></div>
 					</div>
 					<h3 class="m_3">Chi tiết sản phẩm</h3>
-		   			<p>{!!htmlspecialchars_decode($detail_banhang->introduce)!!}</p>
+					<div class="choose">
+						<button type="button" id="detail_product1" class="btn btn-success"><span class="detail_product">Mô tả sản phẩm</span></button>
+						<button type="button" id="detail_product2" class="btn btn-info"><span class="detail_product">Chi tiết kỹ thuật</span></button>
+					</div>
+					<div class="detail_product1">
+		   				<p>{!!htmlspecialchars_decode($detail_banhang->introduce)!!}</p>
+					</div>
+					<div class="detail_product2">
+						<p>{!!htmlspecialchars_decode($detail_banhang->introduce1)!!}</p>
+					</div>
 		   			<div class="share">
 						<h5>Share Product :</h5>
 						<ul class="share_nav cart-b">
@@ -64,7 +73,7 @@
 						}
 					});
 					$("#flexiselDemo1").flexisel({
-						visibleItems: 5,
+						visibleItems: 7,
 						animationSpeed: 2000,
 						autoPlay: true,
 						autoPlaySpeed: 3000,
@@ -86,6 +95,28 @@
 				    	}
 				    });
 				});
+				$('.detail_product1').css({
+					'display':'block'
+				})
+				$('.detail_product2').css({
+					'display':'none'
+				})
+				$('#detail_product1').click(function(){
+					$('.detail_product1').css({
+						'display':'block'
+					})
+					$('.detail_product2').css({
+						'display':'none'
+					})
+				})
+				$('#detail_product2').click(function(){
+					$('.detail_product1').css({
+						'display':'none'
+					})
+					$('.detail_product2').css({
+						'display':'block'
+					})
+				})
 			</script>
   	    </div>
   	</div>

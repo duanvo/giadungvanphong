@@ -74,6 +74,7 @@ class BanhangController extends Controller
             $sanpham->cost_discount = $request->add_cost_discount;
             $sanpham->cost          = $request->add_cost;
             $sanpham->introduce     = $request->add_introduce;
+            $sanpham->introduce1     = $request->add_introduce1;
 
     		if($sanpham->save()){
     			return response()->json([
@@ -132,23 +133,13 @@ class BanhangController extends Controller
                 'messages'=>$validator->errors()
                 ],200);
         }else{
-            $folder_create_img = tittle($request->edit_tittle_sanpham);
-            $folder_img = 'storage/uploads/images/banhang/' .$folder_create_img;
-
-            if(!file_exists($folder_img)){
-                File::makeDirectory($folder_img, 0777, true);
-            }
-            $file_product = $request->file('file_product_edit');
-            $file_detail_image_1 = $file_product->getClientOriginalName();
-            $file_product->move($folder_img,$file_detail_image_1);
 
             $data = BanHang::find($id);
             $data->type          = $request->edit_type_sanpham;
             $data->cost_discount = $request->edit_cost_discount_sanpham;
             $data->cost          = $request->edit_cost_sanpham;
-            $data->image         = $file_detail_image_1;
-            $data->image_path    = $folder_img.'/'.$file_detail_image_1;
             $data->introduce     = $request->edit_introduce_sanpham;
+            $data->introduce1    = $request->edit_introduce_sanpham1;
 
             if($data->save()){
                 return response()->json([

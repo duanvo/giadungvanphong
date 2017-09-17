@@ -15,7 +15,7 @@
                     	<input type="text" name="old_id_banhang" id="old_id_banhang" class="hidden">
                         <label for="name" class="col-md-2 control-label">Sản Phẩm</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="edit_tittle_sanpham" name="edit_tittle_sanpham" placeholder="Tên sản phẩm" disabled>
+                            <input type="text" class="form-control" id="edit_tittle_sanpham" name="edit_tittle_sanpham" placeholder="Tên sản phẩm" >
                             <div class="has-error"><i><span class="help-block error errortittle_add"></span></i></div>
                         </div>
                     </div>
@@ -46,26 +46,24 @@
                             <div class="has-error"><i><span class="help-block errorCost_add"></span></i></div>
                         </div>
                     </div>
-
-                     <!-- Add Images -->
-                    <div class="form-group">
-                        <label for="file_product" class="col-md-2 control-label">Ảnh sản phẩm </label>
-                        <div class="col-md-9">
-                            <input id="file_product_edit" type="file" name="file_product_edit" />
-                            <div id="result_product" /></div>
-                        </div>
-                    </div>
                     <!-- Add Introduce -->
                     <div class="form-group">
-                        <label for="introduce" class="col-md-2 control-label">Thông tin sản phẩm</label>
+                        <label for="introduce" class="col-md-2 control-label">Mô tả sản phẩm</label>
                         <div class="col-md-9">
                             <textarea class="form-control" id="edit_introduce_sanpham" name="edit_introduce_sanpham" placeholder="Thông tin sản phẩm"></textarea>
                             <div class="has-error"><i><span class="help-block errorIntroduce_add"></span></i></div>
                         </div>
+                    </div><!-- Add Introduce -->
+                    <div class="form-group">
+                        <label for="introduce" class="col-md-2 control-label">Chi tiết kỹ thuật</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" id="edit_introduce_sanpham1" name="edit_introduce_sanpham1" placeholder="Thông tin sản phẩm"></textarea>
+                            <div class="has-error"><i><span class="help-block errorIntroduce_add1"></span></i></div>
+                        </div>
                     </div>
 					<div class="form-group" style="width:90px; margin:auto; display: none;" id="loading_edit_banhang">
                         <div><p class="text-danger" ><b>Please wait...</b></p></div>
-                        <div><img src='/laravel1/storage/uploads/loading_images/loading.gif' /></div>
+                        <div><img src='/giadungvanphong/storage/uploads/loading_images/loading.gif' /></div>
                     </div>
                     <!-- Submit -->
                     <div class="form-group">

@@ -36,10 +36,24 @@ class SuachuaController extends Controller
     			'messages'=>$validator->errors()
     			],200);
     	}else{
+
+            $folder_create_img = tittle($request->add_tittle);
+            $folder_img = 'storage/uploads/images/banhang/' .$folder_create_img;
+
+            if(!file_exists($folder_img)){
+                File::makeDirectory($folder_img, 0777, true);
+            }
+            $file_product = $request->file('file_product');
+            $file_detail_image_1 = $file_product->getClientOriginalName();
+            $file_product->move($folder_img,$file_detail_image_1);
+
+
 	    	$add_suachua = new Suachua;
 
             $add_suachua->tittle     = $request->add_tittle_suachua;
             $add_suachua->type       = $request->add_type_suachua;
+            $add_suachua->image         = $file_detail_image_1;
+            $add_suachua->image_path    = $folder_img.'/'.$file_detail_image_1;
             $add_suachua->introduce  = $request->add_introduce_suachua;
 
 	    	if($add_suachua->save()){

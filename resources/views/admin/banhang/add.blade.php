@@ -66,15 +66,24 @@
 
                     <!-- Add Introduce -->
                     <div class="form-group">
-                        <label for="introduce" class="col-md-2 control-label">Thông tin sản phẩm</label>
+                        <label for="introduce" class="col-md-2 control-label">Mổ tả sản phẩm</label>
                         <div class="col-md-9">
                             <textarea class="form-control" id="add_introduce" name="add_introduce" placeholder="Thông tin sản phẩm"></textarea>
                             <div class="has-error"><i><span class="help-block errorIntroduce_add"></span></i></div>
                         </div>
                     </div>
+
+                    <!-- Add Introduce -->
+                    <div class="form-group">
+                        <label for="introduce" class="col-md-2 control-label">Chi tiết kỹ thuật</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" id="add_introduce1" name="add_introduce1" placeholder="Thông tin kỹ thuật"></textarea>
+                            <div class="has-error"><i><span class="help-block errorIntroduce_add1"></span></i></div>
+                        </div>
+                    </div>
 					<div class="form-group" style="width:90px; margin:auto; display: none;" id="loading_add_banhang">
                         <div><p class="text-danger" ><b>Please wait...</b></p></div>
-                        <div><img src='/laravel1/storage/uploads/loading_images/loading.gif' /></div>
+                        <div><img src='/giadungvanphong/storage/uploads/loading_images/loading.gif' /></div>
                     </div>
                     <!-- Submit -->
                     <div class="form-group">
