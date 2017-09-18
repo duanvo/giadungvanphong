@@ -1553,7 +1553,7 @@ img.banner-bag {
     width: 56%;
 }
  .span_3_of_2 p {
-    height: 121px;
+    height: auto;
     overflow: hidden;
 }
 single.htmlmedia="all"

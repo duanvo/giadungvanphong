@@ -859,14 +859,25 @@ figure{
     width: 100% !important;
     margin: auto;
     margin-top: 50px;
-}
+  }
+  #detail_product3{
+    display: none;
+  }
+  .detail_product3{
+    display: none;
+  }
+  #detail_product2{
+    display: block !important;
+  }
 
 }
-
+#detail_product2{
+  display: none;
+}
 .contact1{
     font-style: italic;
     font-weight: 600;
-    width: 32%;
+    width: 38%;
     float: right;
     color: rgba(255, 0, 118, 0.96);
 }

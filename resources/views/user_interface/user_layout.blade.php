@@ -45,7 +45,7 @@
 	      <a class="navbar-brand" href="{{route('home')}}" style="font-weight: 600; margin-right: 150px; color: rgba(226, 1, 1, 0.72);">GIA DỤNG VĂN PHÒNG</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="{{route('home')}}">Trang chủ</a></li>
+	      <li class=""><a href="{{route('home')}}">Trang chủ</a></li>
 	      <li class="dropdown">
 	        <a class="dropdown-toggle" data-toggle="dropdown" href="{{route('banhang.all')}}">Bán Hàng
 	        <span class="caret"></span></a>
@@ -138,5 +138,28 @@
 	<footer id="fh5co-footer">
 		<p>&copy; 2017. Mua bán, sữa chữa đồ điện gia dụng - Chất lượng - Giá cả hợp lý.</p>
 	</footer>
+	<script>
+     $(function() {
+        $('#nav ul li').click(function() {
+           $('#nav li').removeClass();
+           $($(this).attr('href')).addClass('active');
+        });
+        $("span img").addClass('embed-responsive-Item img');
+     });
+	</script>
+	<style type="text/css">
+	  	span .img{
+		    width: 70%;
+    		margin-left: 135px;
+	  	}
+	  	@media(max-width: 800px){
+	  		span .img{
+			    max-width: 400px;
+		    	width: 100%;
+		    	margin-left: 0px;
+		    	margin:auto;
+	  		}
+	  	}
+	</style>
 </body>
 </html>

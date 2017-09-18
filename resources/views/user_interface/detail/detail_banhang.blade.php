@@ -17,14 +17,29 @@
 						</li>
 						@endforeach
 					</ul>
+					<div class="choose">
+						<button type="button" id="detail_product3" class="btn btn-info"><span class="detail_product">Chi tiết kỹ thuật</span></button>
+					</div>
+					<div class="detail_product3">
+						@foreach($detail_banhang as $detail_banhang1)
+							<div class=" cp-r animate-box">
+								<p>{!!htmlspecialchars_decode($detail_banhang1->introduce1)!!}</p>
+							</div>
+						@endforeach
+						</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="desc1 span_3_of_2">
 					@foreach($detail_banhang as $detail_banhang)
 					<h4>{{convert_tittle($detail_banhang->tittle)}}</h4>
 					<div class="cart-b">
+						@if($detail_banhang->cost_discount != '')
 						<h4>Giảm giá còn:</h4><div class="left-n" style="color: #428cef"> {{$detail_banhang->cost_discount}}</div></br></br>
 						<h4 style="text-decoration: line-through;">Giá gốc:</h4> <div style="font-style: italic; color: rgba(255, 0, 0, 0.72);font-size: 21px; text-decoration: line-through;">{{$detail_banhang->cost}}</div>
+						@endif
+						@if($detail_banhang->cost_discount == '')
+						<h4>Giá sản phẩm:</h4><div class="left-n" style="color: #428cef"> {{$detail_banhang->cost}}</div></br></br>
+						@endif
 					    <div class="clearfix"></div>
 					</div>
 					<h3 class="m_3">Chi tiết sản phẩm</h3>
@@ -33,15 +48,24 @@
 						<button type="button" id="detail_product2" class="btn btn-info"><span class="detail_product">Chi tiết kỹ thuật</span></button>
 					</div>
 					<div class="detail_product1">
-		   				<p>{!!htmlspecialchars_decode($detail_banhang->introduce)!!}</p>
+						<div class=" cp-r animate-box">
+			   				<p>{!!htmlspecialchars_decode($detail_banhang->introduce)!!}</p>
+			   			</div>
 					</div>
 					<div class="detail_product2">
-						<p>{!!htmlspecialchars_decode($detail_banhang->introduce1)!!}</p>
+						<div class=" cp-r animate-box">
+							<p>{!!htmlspecialchars_decode($detail_banhang->introduce1)!!}</p>
+						</div>
 					</div>
 		   			<div class="share">
-						<h5>Share Product :</h5>
+						<h5 style="color: #0527e4">Gọi ngay cho chúng tôi :</h5>
 						<ul class="share_nav cart-b">
-							<li><a href="#"><img src="/giadungvanphong/public/user_interface/images/facebook.png" title="facebook"></a></li>
+							@foreach($lienhe as $lienhe3)
+								<ul class="support">
+									<li><a><label> </label></a></li>
+									<li><a> {{ $lienhe3->sdt }}</span></a></li>
+								</ul>
+							@endforeach
 			    		</ul>
 					</div>
 					@endforeach

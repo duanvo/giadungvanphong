@@ -1,5 +1,4 @@
 
-
 	@extends('user_interface.user_layout')
 
 	@section('content')
@@ -17,6 +16,14 @@
 						</li>
 						@endforeach
 					</ul>
+					<button type="button" id="detail_product3" class="btn btn-info"><span class="detail_product">Chi tiết kỹ thuật</span></button>
+					<div class="detail_product3">
+						@foreach($detail_muabandocu as $detail_muabandocu1)
+							<div class=" cp-r animate-box">
+								<p>{!!htmlspecialchars_decode($detail_muabandocu1->introduce1)!!}</p>
+							</div>
+						@endforeach
+					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="desc1 span_3_of_2">
@@ -42,9 +49,14 @@
 						</div>
 					</div>
 		   			<div class="share">
-						<h5>Share Product :</h5>
+						<h5 style="color: #0527e4">Gọi ngay cho chúng tôi :</h5>
 						<ul class="share_nav cart-b">
-							<li><a href="#"><img src="/giadungvanphong/public/user_interface/images/facebook.png" title="facebook"></a></li>
+							@foreach($lienhe as $lienhe3)
+								<ul class="support">
+									<li><a><label> </label></a></li>
+									<li><a> {{ $lienhe3->sdt }}</span></a></li>
+								</ul>
+							@endforeach
 			    		</ul>
 					</div>
 					@endforeach
