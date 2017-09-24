@@ -35,6 +35,10 @@ Route::group(['prefix'=>'banhang'],function(){
 	Route::get('vanphong',['as'=>'banhang.vanphong','uses'=>'HomeController@banhang_vanphong']);
 });
 
+/*Category detail type*/
+Route::get('dongsanpham/{type_detail}', ['as'=>'dongsanpham', 'uses'=>'HomeController@type_detail']);
+
+
 /*Category Suachua */
 Route::group(['prefix'=>'suachua'],function(){
 	Route::get('all',['as'=>'suachua.all','uses'=>'HomeController@suachua_all']);

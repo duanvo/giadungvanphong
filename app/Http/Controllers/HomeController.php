@@ -181,4 +181,12 @@ class HomeController extends Controller
         $results = Banhang::where('tittle','LIKE','%'.$key_search.'%')->get();
         dd($results);
     }
+
+    /*Dong san pham*/
+    public function type_detail(Request $request, $type_detail){
+        $result = Banhang::where('type_detail',$type_detail)->get();
+        $total_product = Banhang::where('type_detail',$type_detail)->count();
+        $lienhe = Lienhe::orderBy('id','DESC')->get();
+        return view('user_interface.category.banhang.dongsanpham', compact('result','lienhe','total_product'));
+    }
 }

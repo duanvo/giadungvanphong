@@ -7,14 +7,13 @@
 		<div class="women-product">
 			<div class=" w_content">
 				<div class="women">
-					<h4 style="float: left;font-family: fantasy;">Điện Máy</h4>
 					<a><h4 style="float: right;text-transform: capitalize;">Tổng sản phẩm - <span>{{$total_product}} sản phẩm</span> </h4></a>
 				     <div class="clearfix"> </div>
 				</div>
 			</div>
 			<!-- grids_of_4 -->
 			<div class="row fh5co-post-entry">
-				@foreach ($banhang_dienmay as $banhang)
+				@foreach ($result as $banhang)
 				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
 					<figure>
 						<a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}"><img src="http://localhost/giadungvanphong/{{$banhang->image_path}}" alt="Image" class="img-responsive"></a>

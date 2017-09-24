@@ -42,7 +42,7 @@
 	<nav class="navbar navbar-default fix_top">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="{{route('home')}}" style="font-weight: 600; margin-right: 150px; color: rgba(226, 1, 1, 0.72);">GIA DỤNG VĂN PHÒNG</a>
+	      <a class="navbar-brand" href="{{route('home')}}" style="font-weight: 600; margin-right: 150px; color: rgba(30, 67, 140, 0.91);">GIA DỤNG VĂN PHÒNG</a>
 	    </div>
 	    <ul class="nav navbar-nav">
 	      <li class=""><a href="{{route('home')}}">Trang chủ</a></li>
@@ -132,7 +132,41 @@
 		</header>
 
 		<!-- END #fh5co-header -->
-		@yield('content')
+		<div class="container-fluid">
+			<div class="col-md-3">
+				<ul id="accordion" class="accordion">
+					<li class="default open">
+						<div class="link"><i class="fa fa-paint-brush"></i><h4>Tủ Lạnh</h4><i class="fa fa-chevron-down"></i></div>
+						<ul class="submenu">
+							<li><a href="{{ route('dongsanpham','tulanhhitachi') }}">Tủ lạnh Hitachi</a></li>
+							<li><a href="{{ route('dongsanpham','tulanhtoshiba') }}">Tủ lạnh Toshiba</a></li>
+							<li><a href="{{ route('dongsanpham','tulanhpanasonic') }}">Tủ lạnh Panasonic</a></li>
+							<li><a href="{{ route('dongsanpham','tulanhshap') }}">Tủ lạnh Shap</a></li>
+							<li><a href="{{ route('dongsanpham','tulanhaqua') }}">Tủ lạnh Aqua</a></li>
+						</ul>
+					</li>
+					<li class="">
+						<div class="link"><i class="fa fa-code"></i><h4>Máy giặt</h4><i class="fa fa-chevron-down"></i></div>
+						<ul class="submenu">
+							<li><a href="{{ route('dongsanpham','maygiatshap') }}">Máy giặt Shap</a></li>
+							<li><a href="{{ route('dongsanpham','maygiatsamsung') }}">Máy giặt Samsung</a></li>
+							<li><a href="{{ route('dongsanpham','maygiattoshiba') }}">Máy giặt Toshiba</a></li>
+							<li><a href="{{ route('dongsanpham','maygiataqua') }}">Máy giặt Aqua</a></li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="fa fa-mobile"></i><h4>Đồ gia dụng</h4><i class="fa fa-chevron-down"></i></div>
+						<ul class="submenu">
+							<li><a href="#">Đồ gia dụng 1</a></li>
+							<li><a href="#">Đồ gia dụng 2</a></li>
+							<li><a href="#">Đồ gia dụng 3</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-9">
+				@yield('content')
+			</div>
 
 	</div>
 	<footer id="fh5co-footer">
@@ -146,6 +180,32 @@
         });
         $("span img").addClass('embed-responsive-Item img');
      });
+
+     $(function() {
+		var Accordion = function(el, multiple) {
+			this.el = el || {};
+			this.multiple = multiple || false;
+
+			// Variables privadas
+			var links = this.el.find('.link');
+			// Evento
+			links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+		}
+
+		Accordion.prototype.dropdown = function(e) {
+			var $el = e.data.el;
+				$this = $(this),
+				$next = $this.next();
+
+			$next.slideToggle();
+			$this.parent().toggleClass('open');
+
+			if (!e.data.multiple) {
+				$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+			};
+		}
+		var accordion = new Accordion($('#accordion'), false);
+	});
 	</script>
 	<style type="text/css">
 	  	span .img{

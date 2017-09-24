@@ -32,6 +32,28 @@
                         </div>
                     </div>
 
+                    <!-- Add Level -->
+                    <div class="form-group ">
+                        <label for="level" class="col-md-2 control-label">Dòng sản phẩm</label>
+                        <div class="col-md-9">
+                           <select name="add_type_detail_banhang" id="add_type_detail_banhang" class="form-control" >
+                                <option value="" selected disabled hidden>Chọn dòng sản phẩm</option>
+                                <option value="tulanhhitachi">Tủ lạnh Hitachi</option>
+                                <option value="tulanhtoshiba">Tủ lạnh Toshiba</option>
+                                <option value="tulanhpanasonic">Tủ lạnh Panasonic</option>
+                                <option value="tulanhshap">Tủ lạnh Shap</option>
+                                <option value="tulanhaqua">Tủ lạnh Aqua</option>
+
+                                <option value="maygiatshap">Máy giặt Shap</option>
+                                <option value="maygiataqua">Máy giặt Aqua </option>
+                                <option value="maygiatsamsung">Máy giặt Samsung</option>
+                                <option value="maygiattoshiba">Máy giặt Toshiba</option>
+
+                                <option value="dogiadung">Đồ Gia Dụng</option>
+                           </select>
+                        </div>
+                    </div>
+
                     <!-- Add Cost -->
                     <div class="form-group">
                         <label for="cost" class="col-md-2 control-label">Gía giảm còn</label>

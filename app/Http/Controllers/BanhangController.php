@@ -69,12 +69,13 @@ class BanhangController extends Controller
     		$sanpham = new BanHang;
             $sanpham->tittle        = tittle($request->add_tittle);
             $sanpham->type          = $request->add_type_banhang;
+            $sanpham->type_detail   = $request->add_type_detail_banhang;
             $sanpham->image         = $file_detail_image_1;
             $sanpham->image_path    = $folder_img.'/'.$file_detail_image_1;
             $sanpham->cost_discount = $request->add_cost_discount;
             $sanpham->cost          = $request->add_cost;
             $sanpham->introduce     = $request->add_introduce;
-            $sanpham->introduce1     = $request->add_introduce1;
+            $sanpham->introduce1    = $request->add_introduce1;
 
     		if($sanpham->save()){
     			return response()->json([
@@ -136,6 +137,7 @@ class BanhangController extends Controller
 
             $data = BanHang::find($id);
             $data->type          = $request->edit_type_sanpham;
+            $data->type_detail          = $request->edit_type_detail_sanpham;
             $data->cost_discount = $request->edit_cost_discount_sanpham;
             $data->cost          = $request->edit_cost_sanpham;
             $data->introduce     = $request->edit_introduce_sanpham;

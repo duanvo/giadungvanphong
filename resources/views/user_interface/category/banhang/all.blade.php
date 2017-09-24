@@ -31,7 +31,7 @@
 						@endif
 					</span>
 					<h2 class="fh5co-article-title"><a href="{{route('detail_banhang',[tittle($banhang->tittle)])}}">{{convert_tittle($banhang->tittle)}}</a></h2>
-					<span class="fh5co-meta fh5co-date">{{$banhang->cost_discount}}</span>
+					<span class="fh5co-meta fh5co-date" style="color:#123ede">{{$banhang->cost_discount}}</span>
 					<span class="fh5co-meta fh5co-date" style="text-decoration: line-through;">{{$banhang->cost}}</span>
 				</article>
 			    @endforeach

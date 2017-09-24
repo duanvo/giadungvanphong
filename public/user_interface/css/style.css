@@ -492,7 +492,7 @@ h5.latest-product{
 }
 .chain{
 	margin: 0 auto;
-	padding: 3em 0;
+	padding: 1em 0;
 }
 .chain-grid span.star{
 	background: url(../images/img-sprite.png)-208px -14px;
@@ -567,7 +567,9 @@ span.dolor-left-grid{
 }
 .span_3_of_2 {
 	width: 54.2%;
-	margin: 0 0em 0em 3em;	
+	margin: 0 0em 0em 3em;
+    padding-left: 55px;
+    padding-top: 60px;
 }
 .single_top {
 	margin:3em 0;
